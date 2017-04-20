@@ -1,0 +1,13 @@
+     Selección de la Arquitectura
+ +Trabajaremos con la arquitectura Modelo-Vista-Controlador (MVC) porque el dominio propone una clara distinción 
+ +entre la interfaz grafica del usuario y la lógica de la aplicación. De esta manera, podemos  dividir  las responsabilidades
+ +dentro del equipo  y trabajar todos al mismo tiempo, una parte ocupándose del front-end para la vista y el otro del back-end
+ +para el modelo. Se pueden usar así distintas tecnologías que luego se conectan a través del controlador .
+ +Además al utilizar esta arquitectura resultara mucho mas practico  corregir código, ya que se puede modificar la parte visual
+ +sin influir  en la parte lógica y viceversa  , las ventajas de esta arquitectura son :
+ +
+ +•	Se puede dividir la lógica de negocio  de la vista de presentación, haciendo  al proyecto más escalable.
+ +•	Separación de código , fácil y flexible estructuración del código 
+ +•	Con este patrón de diseño reducimos y hasta eliminamos el uso de código de servidor y de presentación en un mismo lugar
+ +•	Mantenimiento  más sencillo al tener una buena organización
+ +
