@@ -4,7 +4,8 @@
             "periodos": [{
                     "nombre": "Semestral",
                     "anio": 2016,
-                    "rango": [0, 6],
+                    "startRange": 0,
+                    "endRange":6,
                     "cuentas": [{
                             "descripcion": "EBITDA",
                             "valor": 100200
@@ -22,7 +23,8 @@
                 {
                     "nombre": "Anual",
                     "anio": 2016,
-                    "rango": [0, 12],
+                    "startRange": 0,
+                    "endRange":12,
                     "cuentas": [{
                             "descripcion": "EBITDA",
                             "valor": 40000
@@ -38,7 +40,8 @@
             "periodos": [{
                 "nombre": "Semestral",
                 "anio": 2017,
-                "rango": [0, 6],
+                "startRange": 0,
+                "endRange":6,
                 "cuentas": [{
                         "descripcion": "EBITDA",
                         "valor": 1255677

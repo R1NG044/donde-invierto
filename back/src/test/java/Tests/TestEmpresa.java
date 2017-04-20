@@ -11,6 +11,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import clases.Cuenta;
 import clases.Empresa;
 import clases.Periodo;
@@ -19,19 +22,24 @@ import clases.Periodo;
 public class TestEmpresa {
 	
 	private JSONObject obj;
-	private JSONParser parser = new JSONParser();
-	private URL input1 = TestEmpresa.class.getClassLoader().getResource("Prueba-Archivo.txt");
+	private JSONParser parser ;
+	private URL input1;
 	private JSONArray empresas;
+	private Gson gson;
 	
 	@Before
 	public void setUp() throws Exception {
+		parser = new JSONParser();
+		input1 = TestEmpresa.class.getClassLoader().getResource("Prueba-Archivo.json");
 		obj = (JSONObject) parser.parse(IOUtils.toString(input1));
 		empresas = ((JSONArray)obj.get("empresas"));
+		gson= new GsonBuilder().create();
+		
 	}
 
 	@Test
-	public void testPeriodos() {
-		Empresa empresa = new Empresa((JSONObject) empresas.get(0));
+	public void testPeriodos() throws Exception{
+		Empresa empresa = gson.fromJson(empresas.get(0).toString(),Empresa.class);
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==2);
@@ -40,7 +48,7 @@ public class TestEmpresa {
 		periodoEquals(empresa.getPeriodos().get(0), "Semestral","2016", 0, 6);
 		periodoEquals(empresa.getPeriodos().get(1), "Anual","2016", 0, 12);
 		
-		empresa = new Empresa((JSONObject) empresas.get(1));
+		empresa = gson.fromJson(empresas.get(1).toString(),Empresa.class);
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==1);
@@ -60,7 +68,7 @@ public class TestEmpresa {
 	
 	@Test
 	public void testCuentas(){
-		Empresa empresa = new Empresa((JSONObject) empresas.get(0));
+		Empresa empresa = gson.fromJson(empresas.get(0).toString(),Empresa.class);
 		
 		Assert.assertEquals(empresa.getNombre(),"snapchat");
 		
@@ -81,7 +89,7 @@ public class TestEmpresa {
 		cta = empresa.getPeriodos().get(1).getCuentas().get(0);
 		cuentaEquals(cta,"EBITDA","40000");
 		
-		empresa = new Empresa((JSONObject) empresas.get(1));
+		empresa = gson.fromJson(empresas.get(1).toString(),Empresa.class);
 		
 		Assert.assertEquals(empresa.getNombre(),"facebook");
 		

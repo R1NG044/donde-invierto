@@ -2,8 +2,6 @@ package clases;
 
 import java.math.BigDecimal;
 
-import org.json.simple.JSONObject;
-
 public class Cuenta {
 
 	private String descripcion;
@@ -13,10 +11,6 @@ public class Cuenta {
 		
 	}
 	
-	public Cuenta(JSONObject cuenta) {
-		this.descripcion = (String)cuenta.get("descripcion");
-		this.valor = new BigDecimal((Long)cuenta.get("valor"));
-	}
 	public BigDecimal getValor() {
 		return valor;
 	}

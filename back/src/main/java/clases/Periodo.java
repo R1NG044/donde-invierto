@@ -3,9 +3,6 @@ package clases;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 public class Periodo {
 
 	private List<Cuenta> cuentas;
@@ -16,15 +13,6 @@ public class Periodo {
 	
 	public Periodo(){
 		
-	}
-	
-	public Periodo(JSONObject periodo) {
-		this.anio = String.valueOf((Long)periodo.get("anio"));
-		this.nombre = (String) periodo.get("nombre");
-		this.startRange = ((Long) ((JSONArray)periodo.get("rango")).get(0)).intValue();
-		this.endRange = ((Long) ((JSONArray)periodo.get("rango")).get(1)).intValue();
-		for(Object cuenta:(JSONArray)periodo.get("cuentas"))
-			addCuenta(new Cuenta((JSONObject)cuenta));
 	}
 	
 	public List<Cuenta> getCuentas() {
