@@ -3,9 +3,6 @@ package clases;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 public class Empresa {
 	
 	private List<Periodo> periodos;
@@ -13,12 +10,6 @@ public class Empresa {
 	
 	public Empresa(){
 		
-	}
-	
-	public Empresa(JSONObject empresa){
-		this.nombre = (String) empresa.get("nombre");
-		for(Object periodo:(JSONArray)empresa.get("periodos"))
-			addPeriodo(new Periodo((JSONObject)periodo));
 	}
 	
 	public List<Periodo> getPeriodos() {
