@@ -1,13 +1,20 @@
-     Selección de la Arquitectura
- +Trabajaremos con la arquitectura Modelo-Vista-Controlador (MVC) porque el dominio propone una clara distinción 
- +entre la interfaz gráfica del usuario y la lógica de la aplicación. De esta manera, podemos  dividir  las responsabilidades
- +dentro del equipo  y trabajar todos al mismo tiempo, una parte ocupándose del front-end para la vista y el otro del back-end
- +para el modelo. Se pueden usar así distintas tecnologías que luego se conectan a través del controlador.
- +Además al utilizar esta arquitectura resultará mucho más práctico corregir código, ya que se puede modificar la parte visual
- +sin influir en la parte lógica y viceversa.
- Las ventajas de esta arquitectura son:
- +
- +•	Se puede dividir la lógica de negocio de la vista de presentación, haciendo  al proyecto más escalable.
- +•	Separación de código, fácil y flexible estructuración del código.
- +•	Con este patrón de diseño reducimos y hasta eliminamos el uso de código de servidor y de presentación en un mismo lugar.
- +•	Mantenimiento  más sencillo al tener una buena organización.
+                                             Selección de la Arquitectura
+     Trabajaremos con la arquitectura cliente-servidor esto nos ayuda a tener centralizado el control de los accesos, 
+recursos e integridad de informacion por el lado del servidor, evitando asi que si algun cliente defectuoso o no
+autorizado no pueda dañar nuestro sistema. Con esta arquitectura nuestro sistema sera mas escalable ya que
+se puede aumentar la capacidad del cliente o servidor por separado, es de facil mantenimiento porque al estar
+distribuidas las funciones y responsabilidades entre varios ordenadores independientes, lo que hace posible
+reemplazar, reparar, actualizar, o incluso trasladar un servidor, mientras que sus clientes no se verán afectados
+por ese cambio (o se afectarán mínimamente).
+     Ademas usaremos una arquitectura Modelo-Vista-Controlador (MVC) porque el dominio propone una clara
+distinción entre la interfaz grafica del usuario y la lógica de la aplicación. De esta manera, podemos dividir las
+responsabilidades dentro del equipo y trabajar todos al mismo tiempo, una parte ocupándose del front-end
+para la vista y el otro del back-end para el modelo. Se pueden usar así distintas tecnologías que luego se
+conectan a través del controlador. Además al utilizar esta arquitectura resultara mucho mas practico corregir
+código, ya que se puede modificar la parte visual sin influir en la parte lógica y viceversa, las ventajas de esta
+arquitectura son:
+
+     1. Se puede dividir la lógica de negocio de la vista de presentación, haciendo al proyecto más escalable.
+     2. Separación de código, fácil y flexible estructuración del código.
+     3. Con este patrón de diseño reducimos y hasta eliminamos el uso de código de servidor y de presentación en un mismo lugar.
+     4. Mantenimiento más sencillo al tener una buena organización.
