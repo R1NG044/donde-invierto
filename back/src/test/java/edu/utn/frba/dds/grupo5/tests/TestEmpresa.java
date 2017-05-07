@@ -1,4 +1,4 @@
-package Tests;
+package edu.utn.frba.dds.grupo5.tests;
 
 import java.math.BigDecimal;
 import java.net.URL;
@@ -14,9 +14,9 @@ import org.junit.Test;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import clases.Cuenta;
-import clases.Empresa;
-import clases.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.Cuenta;
+import edu.utn.frba.dds.grupo5.entidades.Empresa;
+import edu.utn.frba.dds.grupo5.entidades.Periodo;
 
 
 public class TestEmpresa {

@@ -1,4 +1,4 @@
-package clases;
+package edu.utn.frba.dds.grupo5.entidades;
 
 import java.math.BigDecimal;
 
