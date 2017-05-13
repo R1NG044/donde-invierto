@@ -22,15 +22,20 @@ public class Periodo {
 		return cuentas;
 	}
 	public void addCuenta(Cuenta cuenta) {
-		getCuentaByName(cuenta.getDescripcion());
-		if(cuenta != null)
+		if(!cuentaExist(cuenta.getDescripcion()))
 			getCuentas().add(cuenta);
 	}
 	
 	public Double getCuentaByName(String name){
-		List<Cuenta> ctas = getCuentas().stream().filter(c -> c.getDescripcion().equalsIgnoreCase(name))
-										.collect(Collectors.toList());
-		return !ctas.isEmpty()?ctas.get(0).getValor():null;
+		if(!cuentaExist(name))
+			return null;
+		return getCuentas().stream().filter(c -> c.getDescripcion().equalsIgnoreCase(name))
+		.collect(Collectors.toList()).get(0).getValor();
+	}
+	
+	private boolean cuentaExist(String descripcion){
+		return !(getCuentas().stream().filter(c -> c.getDescripcion().equalsIgnoreCase(descripcion))
+				.collect(Collectors.toList()).isEmpty());
 	}
 	
 	public String getAnio() {
