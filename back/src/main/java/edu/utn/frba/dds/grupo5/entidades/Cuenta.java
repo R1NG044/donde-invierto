@@ -1,20 +1,18 @@
 package edu.utn.frba.dds.grupo5.entidades;
 
-import java.math.BigDecimal;
-
 public class Cuenta {
 
 	private String descripcion;
-	private BigDecimal valor;
+	private Double valor;
 	
 	public Cuenta(){
 		
 	}
 	
-	public BigDecimal getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(BigDecimal valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	public String getDescripcion() {

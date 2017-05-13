@@ -2,6 +2,7 @@ package edu.utn.frba.dds.grupo5.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Periodo {
 
@@ -16,13 +17,22 @@ public class Periodo {
 	}
 	
 	public List<Cuenta> getCuentas() {
+		if(cuentas == null)
+			cuentas = new ArrayList<Cuenta>();
 		return cuentas;
 	}
 	public void addCuenta(Cuenta cuenta) {
-		if(cuentas == null)
-			cuentas = new ArrayList<Cuenta>();
-		cuentas.add(cuenta);
+		getCuentaByName(cuenta.getDescripcion());
+		if(cuenta != null)
+			getCuentas().add(cuenta);
 	}
+	
+	public Double getCuentaByName(String name){
+		List<Cuenta> ctas = getCuentas().stream().filter(c -> c.getDescripcion().equalsIgnoreCase(name))
+										.collect(Collectors.toList());
+		return !ctas.isEmpty()?ctas.get(0).getValor():null;
+	}
+	
 	public String getAnio() {
 		return anio;
 	}

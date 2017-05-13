@@ -1,6 +1,5 @@
 package edu.utn.frba.dds.grupo5.tests;
 
-import java.math.BigDecimal;
 import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
@@ -17,6 +16,7 @@ import com.google.gson.GsonBuilder;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 
 
 public class TestEmpresa {
@@ -77,17 +77,17 @@ public class TestEmpresa {
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas().size()==3);
 		
 		Cuenta cta = empresa.getPeriodos().get(0).getCuentas().get(0);
-		cuentaEquals(cta,"EBITDA","100200");
+		cuentaEquals(cta,"EBITDA","100200.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(1);
-		cuentaEquals(cta,"FDS","50000");
+		cuentaEquals(cta,"FDS","50000.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(2);
-		cuentaEquals(cta,"Free Cash Flow","10022");
+		cuentaEquals(cta,"Free Cash Flow","10022.0");
 		
 		Assert.assertTrue(empresa.getPeriodos().get(1).getCuentas()!=null);
 		Assert.assertTrue(empresa.getPeriodos().get(1).getCuentas().size()==1);
 		
 		cta = empresa.getPeriodos().get(1).getCuentas().get(0);
-		cuentaEquals(cta,"EBITDA","40000");
+		cuentaEquals(cta,"EBITDA","40000.0");
 		
 		empresa = gson.fromJson(empresas.get(1).toString(),Empresa.class);
 		
@@ -98,11 +98,11 @@ public class TestEmpresa {
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas().size()==3);
 		
 		cta = empresa.getPeriodos().get(0).getCuentas().get(0);
-		cuentaEquals(cta,"EBITDA","1255677");
+		cuentaEquals(cta,"EBITDA","1255677.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(1);
-		cuentaEquals(cta,"FDS","0");
+		cuentaEquals(cta,"FDS","0.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(2);
-		cuentaEquals(cta,"Free Cash Flow","55908");
+		cuentaEquals(cta,"Free Cash Flow","55908.0");
 		
 	}
 
@@ -110,7 +110,12 @@ public class TestEmpresa {
 		if(cuenta == null)
 			Assert.fail("La cuenta debe ser distinto de null");
 		Assert.assertEquals(cuenta.getDescripcion(),descripcion);
-		Assert.assertEquals(cuenta.getValor(),new BigDecimal(valor));
+		Assert.assertEquals(cuenta.getValor(),new Double(valor));
+		try {
+			EvaluadorExpresiones.checkSintax("indicador{a}+cuenta{b}+4");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
