@@ -16,7 +16,6 @@ import com.google.gson.GsonBuilder;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
-import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 
 
 public class TestEmpresa {
@@ -111,11 +110,6 @@ public class TestEmpresa {
 			Assert.fail("La cuenta debe ser distinto de null");
 		Assert.assertEquals(cuenta.getDescripcion(),descripcion);
 		Assert.assertEquals(cuenta.getValor(),new Double(valor));
-		try {
-			EvaluadorExpresiones.checkSintax("indicador{a}+cuenta{b}+4");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	
