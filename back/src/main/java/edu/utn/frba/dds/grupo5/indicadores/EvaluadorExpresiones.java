@@ -1,7 +1,5 @@
 package edu.utn.frba.dds.grupo5.indicadores;
 
-import org.apache.commons.lang3.StringUtils;
-
 import net.sourceforge.jeval.Evaluator;
 import net.sourceforge.jeval.VariableResolver;
 import net.sourceforge.jeval.function.FunctionException;
@@ -32,8 +30,8 @@ public class EvaluadorExpresiones {
 	}
 	
 	private static String getFinalFormula(String expression){
-		expression = StringUtils.replace(expression, INDICADOR_VARIABLE, "#{");
-		expression = StringUtils.replace(expression, CUENTA_VARIABLE, "#{");
+		expression.replaceAll(INDICADOR_VARIABLE, "#{");
+		expression.replaceAll(CUENTA_VARIABLE, "#{");
 		return expression;
 	}
 	
