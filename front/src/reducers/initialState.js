@@ -2,9 +2,13 @@
 let initialState = {
   ui: {
     loaded: false,
-    inputEmpresa: "",
-    inputPeriodo: "",
-    inputAnio: "",
+    inputsValues: {
+      nombreEmpresa: "",
+      nombrePeriodo: "",
+      anioPeriodo: "",
+      mesInicio: "",
+      mesFin: ""
+    },
     periodosPorAgregar: [],
     empresaSelected: {}
   },

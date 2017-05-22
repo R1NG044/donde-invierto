@@ -11,18 +11,29 @@ export default function ui(state = initialState.ui, action) {
       newState = mergeDeep({}, state);
       newState.empresaSelected = action.empresa;
       return newState;
+
     case t.INPUT_EMPRESA_CHANGED:
       newState = Object.assign({}, state);
-      newState.inputEmpresa = action.value;
+      let inputsValuesCopy = Object.assign({}, state.inputsValues);
+      inputsValuesCopy[action.inputModified] = action.value;
+      newState.inputsValues = inputsValuesCopy;
       return newState;
-    case t.INPUT_PERIODO_CHANGED:
+
+    case t.CLEAR_INPUTS:
       newState = Object.assign({}, state);
-      newState.inputPeriodo = action.value;
+      newState.inputsValues = {
+        nombreEmpresa: "",
+        nombrePeriodo: "",
+        anioPeriodo: "",
+        mesInicio: "",
+        mesFin: ""
+      };
       return newState;
-    case t.INPUT_ANIO_CHANGED:
+
+    case t.CLEAR_PERIODOS_POR_AGREGAR:
       newState = Object.assign({}, state);
-      newState.inputAnio = action.value;
-      return newState;
+      newState.periodosPorAgregar = [];
+      return newState
 
     case t.AGREGAR_PERIODO:
       newState = mergeDeep({}, state);

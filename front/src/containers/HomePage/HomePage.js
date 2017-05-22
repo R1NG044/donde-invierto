@@ -6,11 +6,12 @@ import {connect} from 'react-redux';
 import * as dataActions from '../../actions/dataActions';
 import * as uiActions from '../../actions/uiActions';
 import {bindActionCreators} from 'redux';
+import {periodosOrdenados} from '../../selectors/DataSelector';
 
 const HomePage = (props) =>
   <Grid fluid>
     <Col lg={2} md={2} sm={4} xs={12}>
-      <ListaEmpresas empresas={props.data.empresas}
+      <ListaEmpresas empresas={props.empresas}
                       selectEmpresa={props.uiActions.selectEmpresa}/>
     </Col>
     <Col lg={10} md={10} sm={6} xs={12}>
@@ -23,8 +24,8 @@ const HomePage = (props) =>
 
 function mapStateToProps(state) {
   return {
-    data: state.data,
-    empresaSelected: state.ui.empresaSelected
+    empresaSelected: state.ui.empresaSelected,
+    empresas: periodosOrdenados(state)
   };
 }
 
