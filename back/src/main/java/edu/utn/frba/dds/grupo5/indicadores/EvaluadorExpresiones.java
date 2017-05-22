@@ -9,7 +9,7 @@ public class EvaluadorExpresiones {
 	private static String INDICADOR_VARIABLE="indicador{";
 	private static String CUENTA_VARIABLE="cuenta{";
 	
-	public static boolean checkSintax(String expression) throws Exception{
+	public static boolean checkSintax(String expression) {
 		try{
 			if(expression == null)
 				return Boolean.FALSE;

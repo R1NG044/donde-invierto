@@ -7,18 +7,18 @@
                     "startRange": 0,
                     "endRange":6,
                     "cuentas": [{
-                            "descripcion": "EBITDA",
+                            "cuenta":{"descripcion": "EBITDA"},
                             "valor": 100200
                         },
                         {
-                            "descripcion": "FDS",
+                           "cuenta":{"descripcion": "FDS"},
                             "valor": 50000
                         },
                         {
-                            "descripcion": "Free Cash Flow",
+                            "cuenta":{"descripcion": "Free Cash Flow"},
                             "valor": 10022
                         }
-                    ]
+                   ]
                 },
                 {
                     "nombre": "Anual",
@@ -26,10 +26,10 @@
                     "startRange": 0,
                     "endRange":12,
                     "cuentas": [{
-                            "descripcion": "EBITDA",
+                            "cuenta":{"descripcion": "EBITDA"},
                             "valor": 40000
                         }
-                    ]
+                   ]
                 }
             ]
         }
@@ -43,18 +43,18 @@
                 "startRange": 0,
                 "endRange":6,
                 "cuentas": [{
-                        "descripcion": "EBITDA",
+                        "cuenta":{"descripcion": "EBITDA"},
                         "valor": 1255677
                     },
                     {
-                        "descripcion": "FDS",
+                        "cuenta":{"descripcion": "FDS"},
                         "valor": 0
                     },
                     {
-                        "descripcion": "Free Cash Flow",
+                        "cuenta":{"descripcion": "Free Cash Flow"},
                         "valor": 55908
                     }
-                ]
+               ]
             }]
         }
     ]

@@ -2,11 +2,12 @@ package edu.utn.frba.dds.grupo5.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import edu.utn.frba.dds.grupo5.util.Util;
 
 public class Periodo {
 
-	private List<Cuenta> cuentas;
+	private List<CuentaEmpresa> cuentas;
 	private String anio;
 	private int startRange;
 	private int endRange;
@@ -16,26 +17,24 @@ public class Periodo {
 		
 	}
 	
-	public List<Cuenta> getCuentas() {
+	public List<CuentaEmpresa> getCuentas() {
 		if(cuentas == null)
-			cuentas = new ArrayList<Cuenta>();
+			cuentas = new ArrayList<CuentaEmpresa>();
 		return cuentas;
 	}
-	public void addCuenta(Cuenta cuenta) {
-		if(!cuentaExist(cuenta.getDescripcion()))
+	public void addCuenta(CuentaEmpresa cuenta) {
+		if(!cuentaExist(cuenta.getCuenta().getDescripcion()))
 			getCuentas().add(cuenta);
 	}
 	
 	public Double getCuentaByName(String name){
 		if(!cuentaExist(name))
 			return null;
-		return getCuentas().stream().filter(c -> c.getDescripcion().equalsIgnoreCase(name))
-		.collect(Collectors.toList()).get(0).getValor();
+		return Util.filterByPredicate(getCuentas(), c -> c.getCuenta().getDescripcion().equalsIgnoreCase(name)).get(0).getValor();
 	}
 	
 	private boolean cuentaExist(String descripcion){
-		return !(getCuentas().stream().filter(c -> c.getDescripcion().equalsIgnoreCase(descripcion))
-				.collect(Collectors.toList()).isEmpty());
+		return !Util.filterByPredicate(getCuentas(),c -> c.getCuenta().getDescripcion().equalsIgnoreCase(descripcion)).isEmpty();
 	}
 	
 	public String getAnio() {

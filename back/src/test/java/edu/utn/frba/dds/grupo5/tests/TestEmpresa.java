@@ -13,7 +13,7 @@ import org.junit.Test;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import edu.utn.frba.dds.grupo5.entidades.Cuenta;
+import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
 
@@ -75,7 +75,7 @@ public class TestEmpresa {
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas()!=null);
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas().size()==3);
 		
-		Cuenta cta = empresa.getPeriodos().get(0).getCuentas().get(0);
+		CuentaEmpresa cta = empresa.getPeriodos().get(0).getCuentas().get(0);
 		cuentaEquals(cta,"EBITDA","100200.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(1);
 		cuentaEquals(cta,"FDS","50000.0");
@@ -105,10 +105,10 @@ public class TestEmpresa {
 		
 	}
 
-	private void cuentaEquals(Cuenta cuenta, String descripcion, String valor) {
+	private void cuentaEquals(CuentaEmpresa cuenta, String descripcion, String valor) {
 		if(cuenta == null)
 			Assert.fail("La cuenta debe ser distinto de null");
-		Assert.assertEquals(cuenta.getDescripcion(),descripcion);
+		Assert.assertEquals(cuenta.getCuenta().getDescripcion(),descripcion);
 		Assert.assertEquals(cuenta.getValor(),new Double(valor));
 	}
 	
