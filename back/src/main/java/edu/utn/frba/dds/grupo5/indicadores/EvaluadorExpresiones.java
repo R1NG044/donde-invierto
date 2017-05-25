@@ -6,8 +6,8 @@ import net.sourceforge.jeval.function.FunctionException;
 
 public class EvaluadorExpresiones {
 	
-	private static String INDICADOR_VARIABLE="indicador{";
-	private static String CUENTA_VARIABLE="cuenta{";
+	private static String INDICADOR_VARIABLE="indicador\\{";
+	private static String CUENTA_VARIABLE="cuenta\\{";
 	
 	public static boolean checkSintax(String expression) {
 		try{
@@ -29,9 +29,9 @@ public class EvaluadorExpresiones {
 	}
 	
 	private static String getFinalFormula(String expression){
-		expression.replaceAll(INDICADOR_VARIABLE, "#{");
-		expression.replaceAll(CUENTA_VARIABLE, "#{");
-		return expression;
+		String finalExpression = expression.replaceAll(INDICADOR_VARIABLE, "#{"); 
+		finalExpression = finalExpression.replaceAll(CUENTA_VARIABLE, "#{");
+		return finalExpression;
 	}
 	
 }
