@@ -15,13 +15,12 @@ public class EvaluadorExpresiones {
 				return Boolean.FALSE;
 			
 			Evaluator evaluator = new Evaluator();
-			evaluator.parse(getFinalFormula(expression));
 			evaluator.setVariableResolver(new VariableResolver() {
 				public String resolveVariable(String variableName) throws FunctionException {
 					return String.valueOf(variableName.hashCode());
 				}
 			});
-			evaluator.evaluate();
+			evaluator.getNumberResult(getFinalFormula(expression));
 			
 			return Boolean.TRUE;
 		}catch(Exception e){
