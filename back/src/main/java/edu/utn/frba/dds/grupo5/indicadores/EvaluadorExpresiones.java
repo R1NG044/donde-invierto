@@ -29,9 +29,7 @@ public class EvaluadorExpresiones {
 	}
 	
 	private static String getFinalFormula(String expression){
-		String finalExpression = expression.replaceAll(INDICADOR_VARIABLE, "#{"); 
-		finalExpression = finalExpression.replaceAll(CUENTA_VARIABLE, "#{");
-		return finalExpression;
+		return expression.replaceAll(INDICADOR_VARIABLE, "#{").replaceAll(CUENTA_VARIABLE, "#{"); 
 	}
 	
 }
