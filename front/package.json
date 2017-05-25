@@ -97,7 +97,7 @@
     "redux-promise-middleware": "^4.2.0",
     "redux-saga": "^0.14.3",
     "replace": "0.3.0",
-    "reselect": "^3.0.0",
+    "reselect": "^3.0.1",
     "resolve-url-loader": "^2.0.2",
     "rimraf": "2.5.4",
     "sass-loader": "6.0.2",

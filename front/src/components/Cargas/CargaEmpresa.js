@@ -4,24 +4,24 @@ import * as dataActions from '../../actions/dataActions';
 import * as uiActions from '../../actions/uiActions';
 import {bindActionCreators} from 'redux';
 import Periodos from './Periodos'
+import './CargaEmpresa.scss';
 
 class CargaEmpresa extends Component  {
 
   render() {
     return (
-      <div>
+      <div className="CargaEmpresa">
         <form onSubmit={this.props.dataActions.cargarEmpresa}>
           <input type="text"
+                  name="nombreEmpresa"
                   placeholder="Nombre Empresa"
-                  onChange={this.props.uiActions.inputEmpresaChange}
-                  value={this.props.inputEmpresa} />
+                  onChange={this.props.uiActions.cargarEmpresaInputChange}
+                  value={this.props.inputsValues.nombreEmpresa} />
           <br />
           <Periodos agregarPeriodo={this.props.uiActions.agregarPeriodo}
-                    onInputPeriodoChange={this.props.uiActions.inputPeriodoChange}
-                    onInputAnioChange={this.props.uiActions.inputAnioChange}
+                    onInputChange={this.props.uiActions.cargarEmpresaInputChange}
                     periodos={this.props.periodosYaAgregados}
-                    inputPeriodoValue={this.props.inputPeriodo}
-                    inputAnioValue={this.props.inputAnio} />
+                    inputsValues={this.props.inputsValues} />
           <input type="submit" value="Guardar Empresa" />
         </form>
       </div>
@@ -32,9 +32,7 @@ class CargaEmpresa extends Component  {
 
   function mapStateToProps(state) {
     return {
-      inputEmpresa: state.ui.inputEmpresa,
-      inputPeriodo: state.ui.inputPeriodo,
-      inputAnio: state.ui.inputAnio,
+      inputsValues: state.ui.inputsValues,
       periodosYaAgregados: state.ui.periodosPorAgregar
     };
   }

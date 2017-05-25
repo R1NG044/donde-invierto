@@ -5,7 +5,6 @@ import './ListaEmpresas.scss';
 export default class ListaEmpresas extends Component  {
 
   render() {
-    const add = (a,b) => a+b;
     return (
       <div className="ListaEmpresas">
         {
@@ -20,18 +19,16 @@ export default class ListaEmpresas extends Component  {
                 </Col>
               </Row>
               <Row>
-                <Col lg={6} md={6} sm={6} xs={6}>
+                <Col lg={6} md={6} sm={6} xs={6} className="show">
                   <h3 className="sub-info center">
-                    {empresa.periodos.length}
+                    {empresa.totalPeriodos}
                     <br />
                     períodos
                   </h3>
                 </Col>
-                <Col lg={6} md={6} sm={6} xs={6}>
+                <Col lg={6} md={6} sm={6} xs={6} className="show">
                   <h3 className="sub-info center">
-                      {
-                        empresa.periodos.map(periodo => periodo.cuentas.length).reduce(add, 0)
-                      }
+                      {empresa.totalCuentas}
                       <br />
                      cuentas
                   </h3>

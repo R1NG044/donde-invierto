@@ -6,7 +6,16 @@
     text-align: center;
   }
 
+  .anio {
+    font-size: 16px;
+  }
+
   .periodo {
     background-color: rgba(0,0,0,0.3);
+    font-size: 16px;
+    text-align: inherit;
+    &:hover {
+      background-color: rgba(0,0,0,0.5);
+    }
   }
 }
