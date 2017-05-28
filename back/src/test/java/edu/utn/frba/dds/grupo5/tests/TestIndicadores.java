@@ -10,8 +10,14 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
+import edu.utn.frba.dds.grupo5.entidades.Empresa;
+import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
+import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
+import net.sourceforge.jeval.EvaluationException;
+import net.sourceforge.jeval.Evaluator;
 
 public class TestIndicadores {
 	
@@ -20,6 +26,8 @@ public class TestIndicadores {
 	
 	private List<Indicador> indicadores = new ArrayList<Indicador>();
 	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
+	
+	
 	
 	@Before
 	public void setUp() throws Exception {
@@ -75,5 +83,15 @@ public class TestIndicadores {
 		thrown.expectMessage("Cuentas no encontradas:");
 		FactoryIndicadores.getInstance().build("22+cuenta{EBITDA11}+cuenta{CASH22}+indicador{I1}", "C2", cuentas, indicadores);
     }
-	
+	@Test
+	public void pepe() throws Exception {
+		Indicador i = FactoryIndicadores.getInstance().build("22+cuenta{EBITDA}+cuenta{CASH}", "C2", cuentas, indicadores);
+		Cuenta c1 = new Cuenta();c1.setDescripcion("EBITDA");
+    	Cuenta c2 = new Cuenta();c2.setDescripcion("CASH");
+		CuentaEmpresa ce1 = new CuentaEmpresa();ce1.setCuenta(c1);ce1.setValor(5.0);
+    	CuentaEmpresa ce2 = new CuentaEmpresa();ce2.setCuenta(c2);ce2.setValor(3.0);
+    	Periodo p = new Periodo();p.addCuenta(ce1);p.addCuenta(ce2);p.setNombre("2007");
+    	Empresa facebook = new Empresa();facebook.addPeriodo(p);  
+		System.out.println(EvaluadorExpresiones.realizarCalculo(i, "2007" , facebook));
+	}
 }
