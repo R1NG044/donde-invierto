@@ -18,7 +18,7 @@ public class Empresa {
 	}
 	public Periodo getPeriodoByName(String name) throws Exception{ //tambien controla si tiene el periodo
 		if(!validarPeriodo(name)) {
-			throw new Exception("la empresa no contiene ese periodo");
+			return null;
 		}
 		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre()==name).get(0);
 	}
@@ -39,10 +39,7 @@ public class Empresa {
 		return nombrePeriodos.contains(periodo);
 	}	
 	
-	public boolean validarCuentas(Indicador indicador){
-		return true;
-	}																							//FALTA
-
+	
 
 	
 }

@@ -27,7 +27,7 @@ public class Periodo {
 			getCuentas().add(cuenta);
 	}
 	
-	public Double getCuentaByName(String name){
+	public Double getCuentaValorByName(String name){
 		if(!cuentaExist(name))
 			return null;
 		return Util.filterByPredicate(getCuentas(), c -> c.getCuenta().getDescripcion().equalsIgnoreCase(name)).get(0).getValor();
