@@ -3,6 +3,8 @@ package edu.utn.frba.dds.grupo5.entidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.utn.frba.dds.grupo5.util.Util;
+
 public class Empresa {
 	
 	private List<Periodo> periodos;
@@ -14,6 +16,12 @@ public class Empresa {
 	
 	public List<Periodo> getPeriodos() {
 		return periodos;
+	}
+	public Periodo getPeriodoByName(String name) throws Exception{ //tambien controla si tiene el periodo
+		if(!Util.map(this.getPeriodos(), Periodo::getNombre).contains(name)) {
+			throw new Exception("la empresa no contiene ese periodo");
+		}
+		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre()==name).get(0);
 	}
 	public void addPeriodo(Periodo periodo) {
 		if(periodos == null)
