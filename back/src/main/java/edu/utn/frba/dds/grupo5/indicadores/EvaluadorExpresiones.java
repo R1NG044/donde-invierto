@@ -38,7 +38,7 @@ public class EvaluadorExpresiones {
 		return expression.replaceAll(INDICADOR_VARIABLE, "#{").replaceAll(CUENTA_VARIABLE, "#{"); 
 	}
 	
-	public static String realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
+	public static double realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
 		Periodo p = empresa.getPeriodoByName(periodo);
 		Evaluator evaluator = new Evaluator();
 		
@@ -46,10 +46,9 @@ public class EvaluadorExpresiones {
 			evaluator.putVariable(cuenta.getDescripcion(), Double.toString(p.getCuentaValorByName(cuenta.getDescripcion())));
 		}
 		for (Indicador ind : indicador.getIndicadores()) {
-			evaluator.putVariable(ind.getNombre(), realizarCalculo(ind,periodo,empresa));
+			evaluator.putVariable(ind.getNombre(), Double.toString(realizarCalculo(ind,periodo,empresa)));
 		}
 		
-		String resultado = evaluator.evaluate(getFinalFormula(indicador.getExpression()));
-		return resultado;
+		return Double.parseDouble(evaluator.evaluate(getFinalFormula(indicador.getExpression())));
 	}
 }

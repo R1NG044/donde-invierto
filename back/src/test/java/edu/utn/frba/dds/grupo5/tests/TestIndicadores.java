@@ -87,7 +87,6 @@ public class TestIndicadores {
 		Indicador i = FactoryIndicadores.getInstance().build("22+cuenta{EBITDA}+cuenta{CASH}+indicador{I1}", "C2", cuentas, indicadores);
 		Cuenta c1 = new Cuenta();c1.setDescripcion("EBITDA");
     	Cuenta c2 = new Cuenta();c2.setDescripcion("CASH");
-    	
 		CuentaEmpresa ce1 = new CuentaEmpresa();ce1.setCuenta(c1);ce1.setValor(5.0);
     	CuentaEmpresa ce2 = new CuentaEmpresa();ce2.setCuenta(c2);ce2.setValor(3.0);
     	Periodo p = new Periodo();p.addCuenta(ce1);p.addCuenta(ce2);p.setNombre("2007");

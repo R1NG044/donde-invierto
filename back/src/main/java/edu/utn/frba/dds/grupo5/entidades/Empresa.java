@@ -18,7 +18,7 @@ public class Empresa {
 	}
 	public Periodo getPeriodoByName(String name) throws Exception{ //tambien controla si tiene el periodo
 		if(!validarPeriodo(name)) {
-			return null;
+			throw new Exception("Periodo inexistente en esta empresa");
 		}
 		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre()==name).get(0);
 	}
