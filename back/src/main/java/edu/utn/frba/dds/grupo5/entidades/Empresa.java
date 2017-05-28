@@ -14,13 +14,15 @@ public class Empresa {
 	}
 	
 	public List<Periodo> getPeriodos() {
+		if(periodos==null)
+			periodos=new ArrayList<Periodo>();
 		return periodos;
 	}
-	public Periodo getPeriodoByName(String name) throws Exception{ //tambien controla si tiene el periodo
+	public Periodo getPeriodoByName(String name) throws Exception{
 		if(!validarPeriodo(name)) {
-			throw new Exception("Periodo inexistente en esta empresa");
+			return null;
 		}
-		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre()==name).get(0);
+		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre().equalsIgnoreCase(name)).get(0);
 	}
 	public void addPeriodo(Periodo periodo) {
 		if(periodos == null)
@@ -35,8 +37,7 @@ public class Empresa {
 	}
 
 	public boolean validarPeriodo(String periodo) {
-		List<String> nombrePeriodos = Util.map(this.getPeriodos(),Periodo::getNombre);
-		return nombrePeriodos.contains(periodo);
+		return !Util.filterByPredicate(getPeriodos(),p -> p.getNombre().equalsIgnoreCase(periodo)).isEmpty();
 	}	
 	
 	
