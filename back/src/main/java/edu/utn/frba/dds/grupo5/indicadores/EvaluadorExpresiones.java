@@ -41,9 +41,26 @@ public class EvaluadorExpresiones {
 	private static String getFinalFormula(String expression){
 		return expression.replaceAll(INDICADOR_VARIABLE, "#{").replaceAll(CUENTA_VARIABLE, "#{"); 
 	}
-	public static float realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
-	float resultado=0;
-	//List<double> getValorDeTodasLasClases= Util.map(indicador.getClases(), Clase::getNombre); //TODO no lo termine de pensar
-	return resultado;
-	}
+	
+	//-------------------------------OPCION1
+		public static float realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
+		float resultado=0;
+		//List<double> getValorDeTodasLasClases= Util.map(indicador.getClases(), Clase::getNombre); //TODO no lo termine de pensar
+		return resultado;
+		}
+	//-------------------------------OPCION2	
+		public float resolverExpresionSegun(Indicador indicador, Empresa empresa, String periodo) throws Exception{
+			if(validarEmpresa(indicador, empresa, periodo)){
+				return this.operar(indicador, empresa, periodo);
+			}
+				throw new Exception("Cuenta o periodo no existente");			
+		}
+
+		public boolean validarEmpresa(Indicador indicador, Empresa empresa, String periodo) throws Exception{
+			return ((empresa.validarPeriodo(periodo)) && (empresa.validarCuentas(indicador)));
+		}
+
+		public float operar(Indicador indicador, Empresa empresa, String periodo){
+			return 0;																			//MOMENTANEO
+		}
 }
