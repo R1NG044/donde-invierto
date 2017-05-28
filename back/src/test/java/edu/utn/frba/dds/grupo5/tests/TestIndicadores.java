@@ -92,6 +92,6 @@ public class TestIndicadores {
     	CuentaEmpresa ce2 = new CuentaEmpresa();ce2.setCuenta(c2);ce2.setValor(3.0);
     	Periodo p = new Periodo();p.addCuenta(ce1);p.addCuenta(ce2);p.setNombre("2007");
     	Empresa facebook = new Empresa();facebook.addPeriodo(p);  
-		System.out.println(EvaluadorExpresiones.realizarCalculo(i, "2007" , facebook));
+		System.out.println(EvaluadorExpresiones.realizarCalculo(i, "2007" , facebook)); 
 	}
 }

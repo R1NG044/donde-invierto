@@ -1,4 +1,4 @@
-package edu.utn.frba.dds.grupo5.indicadores;
+	package edu.utn.frba.dds.grupo5.indicadores;
 
 import net.sourceforge.jeval.Evaluator;
 import net.sourceforge.jeval.VariableResolver;
@@ -46,12 +46,28 @@ public class EvaluadorExpresiones {
 		public static String realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
 		Periodo p = empresa.getPeriodoByName(periodo);
 		Evaluator evaluator = new Evaluator();
-		List <Double> valorDeCuentas = Util.map(indicador.getCuentas(), c -> p.getCuentaByName(c.getDescripcion()));
-		int a=0;
-		while (a < valorDeCuentas.size()){
+		
+		/*List <String> valorDeIndicadores= Util.map(indicador.getIndicadores(), i -> {
+			try {
+				return realizarCalculo(i,periodo,empresa);
+			} catch (Exception e) {
+				return "error";
+			}
+		});
+		if(valorDeIndicadores.contains(o))
+		*/
+		
+		for (Cuenta cuenta : indicador.getCuentas()) {
+			evaluator.putVariable(cuenta.getDescripcion(), Double.toString(p.getCuentaByName(cuenta.getDescripcion())));
+
+		} 
+		
+		/*List <Double> valorDeCuentas = Util.map(indicador.getCuentas(), c -> p.getCuentaByName(c.getDescripcion()));
+		 int a=0;
+		 while (a < valorDeCuentas.size()){
 			evaluator.putVariable(indicador.getCuentas().get(a).getDescripcion(), Double.toString(valorDeCuentas.get(a)));
 			a++;
-		}
+		}*/
 		
 		String resultado = evaluator.evaluate(getFinalFormula(indicador.getExpression()));
 		return resultado;
