@@ -43,9 +43,17 @@ public class EvaluadorExpresiones {
 	}
 	
 	//-------------------------------OPCION1
-		public static float realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
-		float resultado=0;
-		//List<double> getValorDeTodasLasClases= Util.map(indicador.getClases(), Clase::getNombre); //TODO no lo termine de pensar
+		public static String realizarCalculo(Indicador indicador, String periodo, Empresa empresa) throws Exception{
+		Periodo p = empresa.getPeriodoByName(periodo);
+		Evaluator evaluator = new Evaluator();
+		List <Double> valorDeCuentas = Util.map(indicador.getCuentas(), c -> p.getCuentaByName(c.getDescripcion()));
+		int a=0;
+		while (a < valorDeCuentas.size()){
+			evaluator.putVariable(indicador.getCuentas().get(a).getDescripcion(), Double.toString(valorDeCuentas.get(a)));
+			a++;
+		}
+		
+		String resultado = evaluator.evaluate(getFinalFormula(indicador.getExpression()));
 		return resultado;
 		}
 	//-------------------------------OPCION2	
