@@ -9,7 +9,20 @@ export function selectEmpresa(empresa) {
   }
 }
 
-export function cargarEmpresaInputChange(e) {
+export function inputChanged(section) {
+  return (dispatch) => (e) => {
+
+    e.preventDefault();
+    dispatch({
+      type: types.INPUT_EMPRESA_CHANGED,
+      inputModified: e.target.name,
+      value: e.target.value,
+      section
+    });
+  }
+}
+
+export function cargarCuentaInputChange(e) {
   return (dispatch) => {
     e.preventDefault();
 
@@ -37,10 +50,11 @@ export function agregarPeriodo(inputs) {
   }
 }
 
-export function clearInputs() {
+export function clearInputs(section) {
   return (dispatch) => {
     dispatch({
-      type: types.CLEAR_INPUTS
+      type: types.CLEAR_INPUTS,
+      section
     })
   }
 }

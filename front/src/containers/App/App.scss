@@ -1,6 +1,23 @@
+@import '../../styles/styles.scss';
+@import '../../styles/variables.scss';
+
 .nav-logo {
   position: fixed;
   top: 0;
   max-width: 100%;
   max-height: 100%;
+}
+
+.dump-navbar {
+  @include vertical-align();
+  background-color: $super-naranja;
+  height: 70px;
+  text-align: center;
+  font-size: 2em;
+  color: black;
+  font-weight: 600;
+
+  &:hover {
+    color: black;
+  }
 }

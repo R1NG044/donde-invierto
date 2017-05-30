@@ -4,22 +4,22 @@ import * as dataActions from '../../actions/dataActions';
 import * as uiActions from '../../actions/uiActions';
 import {bindActionCreators} from 'redux';
 import Periodos from './Periodos'
-import './CargaEmpresa.scss';
+import './CargaMetodologias.scss';
 
-class CargaEmpresa extends Component  {
+class CargaMetodologias extends Component  {
 
   render() {
     return (
-      <div className="Carga Empresa">
+      <div className="Carga Metodologias">
         <form onSubmit={this.props.dataActions.cargarEmpresa}>
           <input type="text"
                   name="nombreEmpresa"
                   placeholder="Nombre Empresa"
-                  onChange={this.props.uiActions.inputChanged('empresa')}
+                  onChange={this.props.uiActions.cargarEmpresaInputChange}
                   value={this.props.inputsValues.nombreEmpresa} />
           <br />
           <Periodos agregarPeriodo={this.props.uiActions.agregarPeriodo}
-                    onInputChange={this.props.uiActions.inputChanged('empresa')}
+                    onInputChange={this.props.uiActions.cargarEmpresaInputChange}
                     periodos={this.props.periodosYaAgregados}
                     inputsValues={this.props.inputsValues} />
           <input type="submit" value="Guardar Empresa" />
@@ -47,4 +47,4 @@ class CargaEmpresa extends Component  {
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(CargaEmpresa);
+  )(CargaMetodologias);

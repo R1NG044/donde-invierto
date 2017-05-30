@@ -37,8 +37,90 @@ export function cargarEmpresa(e) {
       type: types.SAVE_EMPRESA_SUCCESS,
       empresa
     });
-    clearInputs()(dispatch);
+    clearInputs('empresa')(dispatch);
     clearPeriodosPorAgregar()(dispatch);
+
+  }
+}
+
+export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que cambie  routes.js
+  return (dispatch, getState) => (e) => {
+    e.preventDefault();
+    let cuenta;
+    let inputs = getState().ui.inputsValues[type];
+
+    dispatch({
+      type: types.SAVE_CUENTA_REQUEST
+    });
+
+    const empresaId = parseInt(inputs.empresaSelected);
+    const periodoId = parseInt(inputs.periodoSelected);
+
+    cuenta = {
+      nombre: inputs.nombreCuenta,
+      empresaId,
+      periodoId,
+      valorCuenta: parseInt(inputs.valorCuenta)
+    }
+
+    // TODO: Do the request and then...
+    dispatch({
+      type: types.SAVE_CUENTA_SUCCESS,
+      cuenta,
+      empresaId,
+      periodoId
+    });
+    clearInputs(type)(dispatch);
+
+  }
+}
+
+export function cargarIndicador(type) {
+  return (dispatch, getState) => (e) => {
+    e.preventDefault();
+    let indicador;
+    let inputs = getState().ui.inputsValues[type];
+
+    dispatch({
+      type: types.SAVE_INDICADOR_REQUEST
+    });
+
+
+    indicador = {
+      nombre: inputs.nombreIndicador,
+      descripcion: inputs.descripcionIndicador
+    }
+
+    // TODO: Do the request and then...
+    indicador.id = Math.floor(Math.random() * (1000 - 1)) + 1; // TODO: HARDCODED
+
+    dispatch({
+      type: types.SAVE_INDICADOR_SUCCESS,
+      indicador
+    });
+    clearInputs(type)(dispatch);
+
+  }
+}
+
+export function borrarIndicador(type) {
+  return (dispatch, getState) => (e) => {
+    e.preventDefault();
+    let indicador;
+    let inputs = getState().ui.inputsValues[type];
+
+    dispatch({
+      type: types.DELETE_INDICADOR_REQUEST
+    });
+
+
+    // TODO: Do the request and then...
+    dispatch({
+      type: types.DELETE_INDICADOR_SUCCESS,
+      indicador: inputs.idIndicador
+    });
+
+    clearInputs(type)(dispatch);
 
   }
 }

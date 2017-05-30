@@ -1,5 +1,6 @@
 import React, {PropTypes, Component} from 'react';
-import {Navbar, MenuItem, NavDropdown, NavItem, Nav, Grid} from 'react-bootstrap';
+import {Grid} from 'react-bootstrap';
+import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 import {connect} from 'react-redux';
 import * as dataActions from '../../actions/dataActions';
@@ -14,26 +15,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar>
-          <Navbar.Header className="jam-logo-location">
-            <Navbar.Brand className="jam-brand" >
-              <LinkContainer to="/">
-                  <img src={require("../../statics/images/nav_logo.png")}
-                        className="nav-logo" />
-              </LinkContainer>
-            </Navbar.Brand>
-          </Navbar.Header>
-          <Nav>
-            <NavItem eventKey={1} href="#">Link</NavItem>
-            <NavDropdown eventKey={3} title="Cargar" id="basic-nav-dropdown">
-              <LinkContainer to="/cargar/empresa">
-                <MenuItem eventKey={3.1}>Empresa</MenuItem>
-              </LinkContainer>
-              <MenuItem divider />
-              <MenuItem eventKey={3.4}>Separated link</MenuItem>
-            </NavDropdown>
-          </Nav>
-        </Navbar>
+        <Link to="/" className="dump-navbar">
+          Donde Invierto?
+        </Link>
 
         <Grid fluid>
           {this.props.children}

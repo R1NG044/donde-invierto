@@ -1,0 +1,38 @@
+@import '../../styles/styles.scss';
+@import '../../styles/variables.scss';
+
+.Menu {
+  margin-top: 30px;
+
+  .header {
+    text-align: center;
+  }
+
+  .super-gray-box {
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 40px;
+
+    .gray-box {
+      background-color: #E5E4E2;
+      border-radius: 10px;
+      .links {
+        display: block;
+        padding: 30px 10px;
+      }
+    }
+  }
+
+
+  a {
+    @include vertical-align();
+    width: 100%;
+    background-color: $super-naranja;
+    text-align: center;
+    margin: 10px 0;
+    height: 30px;
+    border: 1px solid rgba(0,0,0,0.8);
+    color: rgba(0,0,0,0.8);
+
+  }
+}
