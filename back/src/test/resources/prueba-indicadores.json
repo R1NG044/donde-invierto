@@ -1,0 +1,10 @@
+{"archivoIndicadores1":
+	[{"nombre": "indicador1", 
+	  "expression": "cuenta{a}+cuenta{b}", 
+	  "cuentas":
+			[{"descripcion": "a"},
+			 {"descripcion": "b"}],
+	  "indicadores":[]
+	  }
+	 ]
+}	 

@@ -1,5 +1,7 @@
 package edu.utn.frba.dds.grupo5.tests;
 
+import java.net.URL;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +19,22 @@ import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 
+import org.apache.commons.io.IOUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class TestIndicadores {
+	
+	private JSONObject obj1;
+	private JSONParser parser1 ;
+	private URL input1;
+	private JSONArray archivoIndicadores1;
+	private Gson gson1;
+
 	
 	@Rule
 	public ExpectedException thrown= ExpectedException.none();
@@ -26,10 +42,16 @@ public class TestIndicadores {
 	private List<Indicador> indicadores = new ArrayList<Indicador>();
 	private List<Cuenta> cuentas = new ArrayList<Cuenta>();
 	
-	
-	
+
 	@Before
 	public void setUp() throws Exception {
+		
+		parser1 = new JSONParser();
+		input1 = TestIndicadores.class.getClassLoader().getResource("prueba-indicadores.json");
+		obj1 = (JSONObject) parser1.parse(IOUtils.toString(input1));
+		archivoIndicadores1 = ((JSONArray)obj1.get("archivoIndicadores1"));
+		gson1= new GsonBuilder().create();
+		
 		Cuenta c1 = new Cuenta();
 		c1.setDescripcion("EBITDA");
 		Cuenta c2 = new Cuenta();
@@ -42,9 +64,22 @@ public class TestIndicadores {
 		i1.setExpression("1+cuenta{EBITDA}");
 		i1.getCuentas().add(c1);
 		indicadores.add(i1);
-		
 	}
 
+	@Test
+	public void testIndicadores() throws Exception{
+		Indicador indicador = gson1.fromJson(archivoIndicadores1.get(0).toString(),Indicador.class);
+		
+		Assert.assertEquals(indicador.getNombre(),"indicador1");
+		Assert.assertEquals(indicador.getExpression(),"cuenta{a}+cuenta{b}");
+		Assert.assertTrue(indicador.getIndicadores().size()==0);
+		Assert.assertTrue(indicador.getCuentas().size()==2);
+		
+		Assert.assertEquals(indicador.getCuentas().get(0).getDescripcion(),"a");
+		Assert.assertEquals(indicador.getCuentas().get(1).getDescripcion(),"b");
+		
+	}
+	
 	@Test
 	public void testFactory() throws Exception{
 		Indicador i = FactoryIndicadores.getInstance().build("22+cuenta{EBITDA}+cuenta{CASH}+indicador{I1}", "C2", cuentas, indicadores);
@@ -102,7 +137,7 @@ public class TestIndicadores {
     	Periodo p = new Periodo();
     	p.addCuenta(ce1);
     	p.addCuenta(ce2);
-    	p.setNombre("2007");
+    	p.setNombre("2000");
     	
     	Empresa facebook = new Empresa();
     	facebook.addPeriodo(p);
@@ -110,4 +145,5 @@ public class TestIndicadores {
     	
     	Assert.assertEquals(EvaluadorExpresiones.realizarCalculo(i, p),36.0,0); 
 	}
+	
 }
