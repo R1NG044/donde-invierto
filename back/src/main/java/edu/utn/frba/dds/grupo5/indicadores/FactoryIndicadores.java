@@ -26,7 +26,7 @@ public class FactoryIndicadores {
 		if(nombre==null)
 			throw new Exception("El nombre del indicador no puede ser nulo!");
 		
-		if(EvaluadorExpresiones.checkSintax(expression))
+		if(!EvaluadorExpresiones.checkSintax(expression))
 			throw new Exception("Sintaxis de formula incorrecta!");
 		
 		List<String> indicadoresDesc = Util.substringsBetween(expression, "indicador{", "}");

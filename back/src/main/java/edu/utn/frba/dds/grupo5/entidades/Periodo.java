@@ -27,9 +27,9 @@ public class Periodo {
 			getCuentas().add(cuenta);
 	}
 	
-	public Double getCuentaByName(String name){
+	public Double getCuentaValorByName(String name) throws Exception{
 		if(!cuentaExist(name))
-			return null;
+			throw new Exception("Cuenta inexistente en el periodo: "+getNombre());
 		return Util.filterByPredicate(getCuentas(), c -> c.getCuenta().getDescripcion().equalsIgnoreCase(name)).get(0).getValor();
 	}
 	
