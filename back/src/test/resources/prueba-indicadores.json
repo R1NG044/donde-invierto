@@ -1,10 +1,18 @@
 {"archivoIndicadores1":
 	[{"nombre": "indicador1", 
-	  "expression": "cuenta{a}+cuenta{b}", 
-	  "cuentas":
-			[{"descripcion": "a"},
-			 {"descripcion": "b"}],
+	  "expression": "cuenta{EBITDA}*2+cuenta{CASH}", 
+	  "cuentas":[],
+	  "indicadores":[]
+	  },
+	  {"nombre": "indicador2", 
+	  "expression": "(cuenta{EBITDA}*2+indicador{indicador1})/2", 
+	  "cuentas":[],
+	  "indicadores":[]
+	  },
+	  {"nombre": "indicador3", 
+	  "expression": "indicador{indicador2}+cuenta{CASH}", 
+	  "cuentas":[],
 	  "indicadores":[]
 	  }
-	 ]
+	  ]
 }	 
