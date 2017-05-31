@@ -97,6 +97,24 @@ public class TestIndicadores {
     }
     
     @Test 
+    public void throwsFactoryBadSyntax2() throws Exception{
+    	thrown.expectMessage("Sintaxis de formula incorrecta!");
+    	FactoryIndicadores.getInstance().build("22+cuent{EBITDA}+cuenta{CASH}+indicador{I1}", "C2", cuentas, indicadores);
+    }
+    
+    @Test 
+    public void throwsFactoryBadSyntax3() throws Exception{
+    	thrown.expectMessage("Sintaxis de formula incorrecta!");
+    	FactoryIndicadores.getInstance().build("22+cuenta{EBITDA}+cuentsa{CASH}+indicrador{I1}", "C2", cuentas, indicadores);
+    }
+    
+    @Test 
+    public void throwsFactoryBadSyntax4() throws Exception{
+    	thrown.expectMessage("Sintaxis de formula incorrecta!");
+    	FactoryIndicadores.getInstance().build("22a+cuenta{EBITDA}+cuenta{CASH}+indicador{I1}", "C2", cuentas, indicadores);
+    }
+    
+    @Test 
     public void throwsFactoryNoName() throws Exception{
 		thrown.expectMessage("El nombre del indicador no puede ser nulo!");
 		FactoryIndicadores.getInstance().build("22+cuenta{EBITDA}+cuenta{CASH}+indicador{I1}", null, cuentas, indicadores);
