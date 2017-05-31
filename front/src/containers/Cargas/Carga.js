@@ -12,7 +12,7 @@ import MenuComponent from '../../components/commons/MenuComponent';
 class Carga extends Component {
 
   render() {
-    const { data, uiActions, dataActions, inputsValues } = this.props;
+    const { data, uiActions, dataActions, inputsValues, empresas } = this.props;
 
     let elementToRender;
     switch(this.props.routeParams.type) {
@@ -21,6 +21,7 @@ class Carga extends Component {
           uiActions,
           dataActions,
           inputsValues,
+          empresas,
           type: this.props.routeParams.type
         };
 
@@ -73,9 +74,11 @@ function mapStateToProps(state, props) {
   if(!state.ui.inputsValues[props.routeParams.type]) {
     console.error("No se encontro el atributo %s en initialState", props.routeParams.type);
   }
+
   return {
     data: state.data,
-    inputsValues: state.ui.inputsValues[props.routeParams.type]
+    inputsValues: state.ui.inputsValues[props.routeParams.type],
+    empresas: state.data.empresas
   };
 }
 

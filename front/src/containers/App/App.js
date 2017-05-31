@@ -13,11 +13,19 @@ class App extends Component {
   }
 
   render() {
-    return (
+      return (
       <div>
         <Link to="/" className="dump-navbar">
           Donde Invierto?
         </Link>
+
+        {
+         this.props.showSuccess &&
+         <div className="save-message">
+            Se ha guardado con exito
+         </div>
+        }
+
 
         <Grid fluid>
           {this.props.children}
@@ -34,7 +42,8 @@ App.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    data: state.data
+    data: state.data,
+    showSuccess: state.ui.showSuccess
   };
 }
 

@@ -4,6 +4,7 @@ export const getInitialState = () => _.cloneDeep(initialState);
 let initialState = {
   ui: {
     loaded: false,
+    showSuccess: false,
     inputsValues: {
       empresa: {
         nombreEmpresa: "",
@@ -20,8 +21,11 @@ let initialState = {
       },
       newIndicador: {
         nombreIndicador: "",
-        descripcionIndicador: "",
-        idIndicador: ""
+        expresionIndicador: "",
+        indicadorSelected: "",
+        idIndicador: "",
+        empresaSelected: "",
+        periodoSelected: ""
       },
       deleteIndicador: {
         idIndicador: ""

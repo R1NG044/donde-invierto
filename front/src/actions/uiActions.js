@@ -66,3 +66,27 @@ export function clearPeriodosPorAgregar() {
     })
   }
 }
+
+export function addDataToExpresion(section) {
+  return (dispatch, getState) => (e) => {
+
+    dispatch({
+        type: types.ADD_DATA_TO_EXPRESSION,
+        value: e.target.value,
+        section
+    })
+  }
+}
+
+
+export function showSuccessOnSave() {
+  return (dispatch) => {
+    dispatch({
+        type: types.TOGGLE_SUCCESSFUL_MESSAGE
+    });
+
+    setTimeout(() => dispatch({
+        type: types.TOGGLE_SUCCESSFUL_MESSAGE
+    }), 3000);
+  }
+}
