@@ -27,7 +27,7 @@ export default function data(state = initialState.data, action) {
       });
       return newState;
 
-    default:
+      default:
       return state;
 
   }

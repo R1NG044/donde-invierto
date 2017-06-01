@@ -1,9 +1,4 @@
 import React, {PropTypes, Component} from 'react';
-import {connect} from 'react-redux';
-import * as dataActions from '../../actions/dataActions';
-import * as uiActions from '../../actions/uiActions';
-import {bindActionCreators} from 'redux';
-import Periodos from './Periodos'
 import './CargaCuenta.scss';
 import './CargaBase.scss';
 

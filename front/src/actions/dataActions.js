@@ -1,6 +1,7 @@
 import * as types from '../constants/dataTypes';
 import Mocker from '../mocks/dataMock';
 import {clearInputs, clearPeriodosPorAgregar} from './uiActions';
+import {showSuccessOnSave} from './uiActions';
 
 export function loadData(quantity) {
   return (dispatch) => {
@@ -39,6 +40,7 @@ export function cargarEmpresa(e) {
     });
     clearInputs('empresa')(dispatch);
     clearPeriodosPorAgregar()(dispatch);
+    showSuccessOnSave()(dispatch);
 
   }
 }
@@ -71,6 +73,7 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
       periodoId
     });
     clearInputs(type)(dispatch);
+    showSuccessOnSave()(dispatch);
 
   }
 }
@@ -88,7 +91,7 @@ export function cargarIndicador(type) {
 
     indicador = {
       nombre: inputs.nombreIndicador,
-      descripcion: inputs.descripcionIndicador
+      descripcion: inputs.expresionIndicador
     }
 
     // TODO: Do the request and then...
@@ -99,6 +102,7 @@ export function cargarIndicador(type) {
       indicador
     });
     clearInputs(type)(dispatch);
+    showSuccessOnSave()(dispatch);
 
   }
 }
@@ -121,6 +125,7 @@ export function borrarIndicador(type) {
     });
 
     clearInputs(type)(dispatch);
+    showSuccessOnSave()(dispatch);
 
   }
 }

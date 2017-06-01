@@ -30,14 +30,26 @@ export default function ui(state = initialState.ui, action) {
     case t.CLEAR_PERIODOS_POR_AGREGAR:
       newState = Object.assign({}, state);
       newState.periodosPorAgregar = [];
-      return newState
+      return newState;
 
     case t.AGREGAR_PERIODO:
       newState = mergeDeep({}, state);
       newState.periodosPorAgregar.push(action.periodo);
       return newState;
 
-    default:
+    case t.ADD_DATA_TO_EXPRESSION:
+      newState = mergeDeep({}, state);
+      let inputsValCopy = _.cloneDeep(state.inputsValues);
+      inputsValCopy.newIndicador.expresionIndicador = state.inputsValues.newIndicador.expresionIndicador + action.value;
+      newState.inputsValues = inputsValCopy;
+      return newState;
+
+    case t.TOGGLE_SUCCESSFUL_MESSAGE:
+      newState = mergeDeep({}, state);
+      newState.showSuccess = !state.showSuccess;
+      return newState;
+
+      default:
       return state;
 
   }
