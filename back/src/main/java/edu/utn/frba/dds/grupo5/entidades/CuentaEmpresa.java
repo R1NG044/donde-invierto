@@ -2,8 +2,8 @@ package edu.utn.frba.dds.grupo5.entidades;
 
 public class CuentaEmpresa {
 	
-	public Cuenta cuenta;
-	public Double valor;
+	private Cuenta cuenta;
+	private Double valor;
 	
 	public CuentaEmpresa(){
 		

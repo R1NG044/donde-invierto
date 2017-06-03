@@ -21,13 +21,12 @@ public class FactoryIndicadores {
 	}
 	
 	//Recibe las cuentas y indicadores existentes
-	public Indicador build(String expression,String nombre, List<Cuenta> cuentas, List<Indicador> indicadores) throws Exception{
+	public Indicador build(String expression,String nombre, List<Cuenta> cuentas, List<Indicador> indicadores) throws IndicadorException{
 		
 		if(nombre==null)
-			throw new Exception("El nombre del indicador no puede ser nulo!");
+			throw new IndicadorException("El nombre del indicador no puede ser nulo!");
 		
-		if(!EvaluadorExpresiones.checkSintax(expression))
-			throw new Exception("Sintaxis de formula incorrecta!");
+		EvaluadorExpresiones.checkSintax(expression);
 		
 		List<String> indicadoresDesc = Util.substringsBetween(expression, "indicador{", "}");
 		List<String> cuentasDesc = Util.substringsBetween(expression, "cuenta{", "}");
@@ -39,10 +38,10 @@ public class FactoryIndicadores {
 		List<String> cuentasNotFound = Util.filterByPredicate(cuentasDesc,s->!cuentasExistentes.contains(s));
 		
 		if(!indicadoresNotFound.isEmpty())
-			throw new Exception("Indicadores no encontrados: "+indicadoresNotFound.toString());
+			throw new IndicadorException("Indicadores no encontrados: "+indicadoresNotFound.toString());
 		
 		if(!cuentasNotFound.isEmpty())
-			throw new Exception("Cuentas no encontradas: "+cuentasNotFound.toString());
+			throw new IndicadorException("Cuentas no encontradas: "+cuentasNotFound.toString());
 		
 		Indicador indicador = new Indicador();
 		indicador.setExpression(expression);

@@ -13,6 +13,11 @@
 	  "expression": "indicador{indicador2}+cuenta{CASH}", 
 	  "cuentas":[],
 	  "indicadores":[]
+	  },
+	  {"nombre": "indicador4", 
+	  "expression": "cuenta{EBITDA}+10", 
+	  "cuentas":[],
+	  "indicadores":[]
 	  }
 	  ]
 }	 
