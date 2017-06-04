@@ -20,7 +20,7 @@ public class Empresa {
 	}
 	public Periodo getPeriodoByName(String name) throws Exception{
 		if(!validarPeriodo(name)) {
-			return null;
+			throw new Exception("Periodo '"+name+"' no encontrado");
 		}
 		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre().equalsIgnoreCase(name)).get(0);
 	}

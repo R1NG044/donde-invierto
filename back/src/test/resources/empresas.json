@@ -1,5 +1,4 @@
-{
-    "empresas": [{
+[{
             "nombre": "snapchat",
             "periodos": [{
                     "nombre": "Semestral",
@@ -11,7 +10,7 @@
                             "valor": 100200
                         },
                         {
-                           "cuenta":{"descripcion": "FDS"},
+                           "cuenta":{"descripcion": "CASH"},
                             "valor": 50000
                         },
                         {
@@ -58,4 +57,3 @@
             }]
         }
     ]
-}

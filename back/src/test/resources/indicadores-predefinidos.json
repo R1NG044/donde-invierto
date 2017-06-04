@@ -1,0 +1,11 @@
+	[{"nombre": "I1", 
+	  "expression": "cuenta{CASH}*33", 
+	  "cuentas":[{"descripcion":"CASH"}],
+	  "indicadores":[]
+	  },
+	  {"nombre": "I2", 
+	  "expression": "cuenta{EBITDA}/2", 
+	  "cuentas":[{"descripcion":"EBITDA"}],
+	  "indicadores":[]
+	  }
+	  ]

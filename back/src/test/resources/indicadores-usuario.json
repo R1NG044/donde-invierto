@@ -1,5 +1,5 @@
-{"archivoIndicadores1":
-	[{"nombre": "indicador1", 
+
+[	{"nombre": "indicador1", 
 	  "expression": "cuenta{EBITDA}*2+cuenta{CASH}", 
 	  "cuentas":[],
 	  "indicadores":[]
@@ -19,5 +19,4 @@
 	  "cuentas":[],
 	  "indicadores":[]
 	  }
-	  ]
-}	 
+]
