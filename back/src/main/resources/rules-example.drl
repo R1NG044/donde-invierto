@@ -1,0 +1,10 @@
+package myfirstproject.rules
+import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
+global java.util.List list;
+
+rule "Prueba Cuenta Empresa"
+ when
+ 	$e: CuentaEmpresa(valor < 200)
+ then
+ 	list.add($e);
+end
