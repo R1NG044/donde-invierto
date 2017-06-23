@@ -241,6 +241,7 @@
             
             ]
         }
+        ,
          {
      "nombre": "pepsico",
 	 "periodos": [{
@@ -424,5 +425,190 @@
 			}
             
             ]
-        }         
-    ]
+        }  
+          ,
+          {
+            "nombre": "Apple",
+            "periodos": [{
+                "nombre": "Anual",
+                "anio": 2017,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 3011235
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11861231
+                    }
+               ]
+            }
+            ,
+            {
+                "nombre": "Anual",
+                "anio": 2016,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 3001921
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11538443
+                    }
+               ]}
+              
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2015,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 3003215
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 12002421
+                    }
+               ]}
+               ,
+                
+            {
+                "nombre": "Anual",
+                "anio": 2014,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 3001310
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 12000576
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2013,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2992213
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11989384
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2012,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2978494
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11993203
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2011,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2984574
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11959300
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2010,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2990125
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11921967
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2009,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2954190
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11919235
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2008,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2950450
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11911180
+                    }
+               ]}
+                ,
+            {
+                "nombre": "Anual",
+                "anio": 2007,
+                "startRange": 0,
+                "endRange":12,
+                "cuentas": [{
+                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "valor": 2950149
+                    }
+			,
+			{
+                        "cuenta":{"descripcion": "PNP"},
+                        "valor": 11899310
+                    }
+               ]}
+            
+            ]
+        }      
+    ]     
+    
