@@ -7,5 +7,10 @@
 	  "expression": "cuenta{EBITDA}/2", 
 	  "cuentas":[{"descripcion":"EBITDA"}],
 	  "indicadores":[]
+	  },
+	  {"nombre": "ROE", 
+	  "expression": "cuenta{Resultado del ejercicio}/cuenta{PNP}*100", 
+	  "cuentas":[{"descripcion":"Resultado del ejercicio"},{"descripcion":"PNP"}],
+	  "indicadores":[]
 	  }
 	  ]
