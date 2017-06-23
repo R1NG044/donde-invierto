@@ -13,4 +13,9 @@
 	  "cuentas":[{"descripcion":"Resultado del ejercicio"},{"descripcion":"PNP"}],
 	  "indicadores":[]
 	  }
+	  {"nombre": "Deuda", 
+	  "expression": "cuenta{Pasivo total}/cuenta{Capital contable}", 
+	  "cuentas":[{"descripcion":"Pasivo total"},{"descripcion":"Capital contable"}],
+	  "indicadores":[]
+	  }
 	  ]
