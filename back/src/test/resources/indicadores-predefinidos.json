@@ -12,9 +12,9 @@
 	  "expression": "cuenta{Resultado del ejercicio}/cuenta{PNP}*100", 
 	  "cuentas":[{"descripcion":"Resultado del ejercicio"},{"descripcion":"PNP"}],
 	  "indicadores":[]
-	  }
+	  },
 	  {"nombre": "Deuda", 
-	  "expression": "cuenta{Pasivo total}/cuenta{Capital contable}", 
+	  "expression": "cuenta{Pasivo total}/cuenta{Capital contable}*100", 
 	  "cuentas":[{"descripcion":"Pasivo total"},{"descripcion":"Capital contable"}],
 	  "indicadores":[]
 	  }
