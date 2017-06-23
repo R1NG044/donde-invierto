@@ -15,7 +15,13 @@
 	  },
 	  {"nombre": "Deuda", 
 	  "expression": "cuenta{Pasivo total}/cuenta{Capital contable}*100", 
-	  "cuentas":[{"descripcion":"Pasivo total"},{"descripcion":"Capital contable"}],
+	  "cuentas":[{"descripcion":"Pasivo total"},{"descripcion":"Activo total"}],
+	  "indicadores":[]
+	  },
+	  {"nombre": "Margen", 
+	  "expression": "cuenta{Resultado del ejercicio}/cuenta{Ventas neto}*100", 
+	  "cuentas":[{"descripcion":"Resultado del ejercicio"},{"descripcion":"Ventas neto"}],
 	  "indicadores":[]
 	  }
+	  
 	  ]
