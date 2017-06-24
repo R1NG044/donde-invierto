@@ -446,12 +446,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 165366512
+                        "valor": 16536651
                     }
                     ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 51223110
+                        "valor": 5122311
                     }    
                ]
             }
@@ -473,12 +473,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 165211365
+                        "valor": 16521136
                     } 
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 51245646
+                        "valor": 5124564
                     }  
                ]}
               
@@ -500,12 +500,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 166122033
+                        "valor": 16612203
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 51131305
+                        "valor": 5113130
                     } 
                ]}
                ,
@@ -527,12 +527,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 166365422
+                        "valor": 16636542
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 51120036
+                        "valor": 5112003
                     } 
                ]}
                 ,
@@ -553,12 +553,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 165452955
+                        "valor": 16545295
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 51025164
+                        "valor": 5102516
                     } 
                ]}
                 ,
@@ -579,12 +579,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 163998256
+                        "valor": 16399825
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 51212065
+                        "valor": 5121206
                     } 
                ]}
                 ,
@@ -605,12 +605,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 161565984
+                        "valor": 16156598
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50126482
+                        "valor": 5012648
                     } 
                ]}
                 ,
@@ -631,12 +631,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 162356988
+                        "valor": 16235698
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50132654
+                        "valor": 5013265
                     } 
                ]}
                 ,
@@ -657,12 +657,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 163565465
+                        "valor": 16356546
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50515134
+                        "valor": 5051513
                     } 
                ]}
                 ,
@@ -683,12 +683,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 162465825
+                        "valor": 16246582
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50213545
+                        "valor": 5021354
                     } 
                ]}
                 ,
@@ -709,12 +709,12 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 160135453
+                        "valor": 16013545
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50032135
+                        "valor": 5003213
                     } 
                ]}
             
@@ -740,13 +740,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150346502
+                        "valor": 15034650
                     } 
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50031545
+                        "valor": 5003154
                     }  
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5461132
+                    }   
                ]
 			}
             ,
@@ -767,13 +772,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150354982
+                        "valor": 15035498
                     } 
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50013145
+                        "valor": 5001314
                     }  
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5356438
+                    }   
                ]
 			}
             ,
@@ -794,13 +804,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150275135
+                        "valor": 15027513
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 49546512
+                        "valor": 4954651
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5456456
+                    }   
 				]
 			}
             ,    
@@ -821,14 +836,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150320123
+                        "valor": 15032012
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 50131354
+                        "valor": 5013135
                     } 
-                    
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5265642
+                    }   
                ]}
                 ,
             {
@@ -848,13 +867,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150289461
+                        "valor": 15028946
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 49105515
+                        "valor": 4910551
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5315452
+                    }   
                ]}
                 ,
             {
@@ -874,13 +898,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150264568
+                        "valor": 15026456
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 49646545
+                        "valor": 4964654
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5316541
+                    }   
                ]}
                 ,
             {
@@ -900,13 +929,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150203645
+                        "valor": 15020364
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 49564564
+                        "valor": 4956456
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5204153
+                    }   
                ]}
                 ,
             {
@@ -926,13 +960,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150164542
+                        "valor": 15016454
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 49556465
+                        "valor": 4955646
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5102153
+                    }   
                ]}
                 ,
             {
@@ -952,13 +991,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150213623
+                        "valor": 15021362
                     }
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 48165465
-                    }   
+                        "valor": 4816546
+                    } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5156454
+                    }     
                ]}
                 ,
             {
@@ -978,13 +1022,18 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150464120
+                        "valor": 15046412
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 49464515
+                        "valor": 4946451
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5145342
+                    }   
                ]}
                 ,
             {
@@ -1004,13 +1053,18 @@
                 ,
 				{
                         "cuenta":{"descripcion": "Activo total"},
-                        "valor": 150100410
+                        "valor": 15010041
                     }  
                      ,
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
-                        "valor": 47564654
-                    }   
+                        "valor": 4756465
+                    } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5131202
+                    }     
 				]
 			}
             
