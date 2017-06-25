@@ -35,7 +35,7 @@ public class TestEmpresa {
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==2);
-		Assert.assertEquals(empresa.getNombre(),"snapchat");
+		Assert.assertEquals(empresa.getNombre(),"Snapchat");
 		
 		periodoEquals(empresa.getPeriodos().get(0), "Semestral","2016", 0, 6);
 		periodoEquals(empresa.getPeriodos().get(1), "Anual","2016", 0, 12);
@@ -44,7 +44,7 @@ public class TestEmpresa {
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==1);
-		Assert.assertEquals(empresa.getNombre(),"facebook");
+		Assert.assertEquals(empresa.getNombre(),"Facebook");
 		
 		periodoEquals(empresa.getPeriodos().get(0), "Semestral","2017", 0, 6);
 	}
@@ -62,7 +62,7 @@ public class TestEmpresa {
 	public void testCuentas(){
 		Empresa empresa = empresas.get(0);
 		
-		Assert.assertEquals(empresa.getNombre(),"snapchat");
+		Assert.assertEquals(empresa.getNombre(),"Snapchat");
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas()!=null);
@@ -83,7 +83,7 @@ public class TestEmpresa {
 		
 		empresa = empresas.get(1);
 		
-		Assert.assertEquals(empresa.getNombre(),"facebook");
+		Assert.assertEquals(empresa.getNombre(),"Facebook");
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas()!=null);
