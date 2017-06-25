@@ -4,9 +4,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<groupId>DondeInvierto</groupId>
 	<artifactId>DondeInvierto</artifactId>
 	<version>1-SNAPSHOT</version>
-
+	
 	<dependencies>
-
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -95,6 +95,36 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		    <artifactId>slf4j-log4j12</artifactId>
 		    <version>1.7.5</version>
 		  </dependency>
+		  
+		  <dependency>
+		  	<groupId>org.kie</groupId>
+		   	<artifactId>kie-ci</artifactId>
+		   	 <version>7.0.0.Final</version>
+		  </dependency>	
+		  
+		  <dependency>
+		    <groupId>org.apache.ant</groupId>
+		    <artifactId>ant</artifactId>
+		    <version>1.8.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.inject</groupId>
+		    <artifactId>guice</artifactId>
+		    <version>3.0-rc3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.maven</groupId>
+		    <artifactId>maven-plugin-api</artifactId>
+		    <version>3.5.0</version>
+		</dependency>
+	
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore</artifactId>
+		    <version>4.4.6</version>
+		</dependency>
 		
 	</dependencies>
 
