@@ -1,5 +1,6 @@
 [{
             "nombre": "Snapchat",
+            "anioFundacion":2011,
             "periodos": [{
                     "nombre": "Semestral",
                     "anio": 2016,
@@ -36,6 +37,7 @@
         ,
         {
             "nombre": "Facebook",
+            "anioFundacion":2004,
             "periodos": [{
                 "nombre": "Semestral",
                 "anio": 2017,
@@ -60,6 +62,7 @@
   
         {
             "nombre": "Google",
+            "anioFundacion":1998,
             "periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
@@ -407,6 +410,7 @@
         ,
          {
      		"nombre": "Pepsico",
+            "anioFundacion":1898,
 	 		"periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
@@ -420,7 +424,20 @@
 					{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 8025386
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 18573682
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 6787504
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5901246
+                    }    
                ]
 			}
             ,
@@ -437,7 +454,21 @@
 					{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 8011986
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 18863678
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 6834996
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 8421267
+                    } 
+                     
                ]
 			}
             ,
@@ -454,7 +485,21 @@
 					{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 8000396
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 18905432
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 6978432
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 8963715
+                    } 
+                     
 				]
 			}
             ,    
@@ -471,7 +516,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7996883
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 19516728
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 7571034
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 9336724
+                    } 
+                     
                ]}
                 ,
             {
@@ -487,7 +546,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7989351
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 19821679
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 7688594
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 9452783
+                    } 
+                     
                ]}
                 ,
             {
@@ -503,7 +576,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7983795
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 18712543
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5682596
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7437245
+                    } 
+                     
                ]}
                 ,
             {
@@ -519,7 +606,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7983967
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 19002834
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 6237594
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 8723173
+                    } 
+                     
                ]}
                 ,
             {
@@ -535,7 +636,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7979973
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 20112346
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 6987593
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 9356190
+                    } 
+                     
                ]}
                 ,
             {
@@ -551,7 +666,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7961997
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 20012985
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5397853
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 6034338
+                    } 
+                     
                ]}
                 ,
             {
@@ -567,7 +696,21 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7959993
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 21837592
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 6893102
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 6872940
+                    } 
+                     
                ]}
                 ,
             {
@@ -583,7 +726,21 @@
 				{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 7951301
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 22013671
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 8435659
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7392054
+                    } 
+                     
 				]
 			}
             
@@ -592,6 +749,7 @@
           ,
           {
             "nombre": "Apple",
+            "anioFundacion":1976,
             "periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
@@ -941,6 +1099,7 @@
         ,
         {
      		"nombre": "Instagram",
+     		"anioFundacion":2010,
 	 		"periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
