@@ -239,7 +239,8 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5769813
-                    }   ,
+                    }  
+                     ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 6870777
@@ -614,7 +615,12 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5122311
-                    }    
+                    }   
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7857459
+                    }   
                ]
             }
             ,
@@ -641,7 +647,12 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5124564
-                    }  
+                    } 
+                      ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7854450
+                    } 
                ]}
               
                 ,
@@ -668,6 +679,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5113130
+                    } 
+                     ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7854324
                     } 
                ]}
                ,
@@ -696,6 +712,11 @@
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5112003
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7852314
+                    } 
                ]}
                 ,
             {
@@ -721,6 +742,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5102516
+                    } 
+                     ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7851157
                     } 
                ]}
                 ,
@@ -748,6 +774,11 @@
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5121206
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7841889
+                    } 
                ]}
                 ,
             {
@@ -773,6 +804,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5012648
+                    } 
+                     ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7841349
                     } 
                ]}
                 ,
@@ -800,6 +836,11 @@
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5013265
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7840987
+                    } 
                ]}
                 ,
             {
@@ -825,6 +866,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5051513
+                    } 
+                     ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7840987
                     } 
                ]}
                 ,
@@ -852,6 +898,11 @@
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5021354
                     } 
+                    ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7840547
+                    } 
                ]}
                 ,
             {
@@ -877,6 +928,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5003213
+                    } 
+                     ,
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7830517
                     } 
                ]}
             
