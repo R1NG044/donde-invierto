@@ -74,6 +74,16 @@
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10029388
                     }
+                    ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 16963487
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5861997
+                    }
                ]
             }
             ,
@@ -91,6 +101,16 @@
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10038400
                     }
+                       ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 16800391
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5852001
+                    }
                ]}
               
                 ,
@@ -107,6 +127,16 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10030494
+                    }
+                          ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 16792719
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5809679
                     }
                ]}
                ,
@@ -141,6 +171,16 @@
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10049384
                     }
+                         ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 16209380
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5790182
+                    }
                ]}
                 ,
             {
@@ -156,6 +196,16 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10093203
+                    }
+                         ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 16086199
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5769813
                     }
                ]}
                 ,
@@ -173,6 +223,16 @@
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10109300
                     }
+                        ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 15989688
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5741342
+                    }
                ]}
                 ,
             {
@@ -188,6 +248,16 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10021900
+                    }
+                       ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 15961009
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5731010
                     }
                ]}
                 ,
@@ -205,6 +275,16 @@
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10119281
                     }
+                      ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 15939680
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5700989
+                    }
                ]}
                 ,
             {
@@ -221,6 +301,16 @@
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10011100
                     }
+                     ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 15900968
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5698001
+                    }
                ]}
                 ,
             {
@@ -236,6 +326,16 @@
 			{
                         "cuenta":{"descripcion": "PNP"},
                         "valor": 10029300
+                    }
+                    ,
+				{
+                        "cuenta":{"descripcion": "Activo total"},
+                        "valor": 15812639
+                    }  
+                     ,
+				{
+                        "cuenta":{"descripcion": "Pasivo total"},
+                        "valor": 5677596
                     }
                ]}
             
