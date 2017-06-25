@@ -36,7 +36,7 @@ public class TestEmpresa {
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==2);
 		Assert.assertEquals(empresa.getNombre(),"Snapchat");
-		
+		Assert.assertTrue(empresa.antiguedad() == 6);
 		periodoEquals(empresa.getPeriodos().get(0), "Semestral","2016", 0, 6);
 		periodoEquals(empresa.getPeriodos().get(1), "Anual","2016", 0, 12);
 		

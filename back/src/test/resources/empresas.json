@@ -1,5 +1,6 @@
 [{
             "nombre": "Snapchat",
+            "anioFundacion":2011,
             "periodos": [{
                     "nombre": "Semestral",
                     "anio": 2016,
@@ -36,6 +37,7 @@
         ,
         {
             "nombre": "Facebook",
+            "anioFundacion":2004,
             "periodos": [{
                 "nombre": "Semestral",
                 "anio": 2017,
@@ -60,6 +62,7 @@
   
         {
             "nombre": "Google",
+            "anioFundacion":1998,
             "periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
@@ -407,6 +410,7 @@
         ,
          {
      		"nombre": "Pepsico",
+            "anioFundacion":1898,
 	 		"periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
@@ -745,6 +749,7 @@
           ,
           {
             "nombre": "Apple",
+            "anioFundacion":1976,
             "periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
@@ -1094,6 +1099,7 @@
         ,
         {
      		"nombre": "Instagram",
+     		"anioFundacion":2010,
 	 		"periodos": [{
                 "nombre": "Anual",
                 "anio": 2017,
