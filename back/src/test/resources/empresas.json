@@ -429,8 +429,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 6787504
-                    }
-                     
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 5901246
+                    }    
                ]
 			}
             ,
@@ -456,7 +459,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 6834996
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 8421267
+                    } 
                      
                ]
 			}
@@ -483,7 +490,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 6978432
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 8963715
+                    } 
                      
 				]
 			}
@@ -510,7 +521,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 7571034
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 9336724
+                    } 
                      
                ]}
                 ,
@@ -536,7 +551,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 7688594
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 9452783
+                    } 
                      
                ]}
                 ,
@@ -562,7 +581,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5682596
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7437245
+                    } 
                      
                ]}
                 ,
@@ -588,7 +611,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 6237594
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 8723173
+                    } 
                      
                ]}
                 ,
@@ -614,7 +641,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 6987593
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 9356190
+                    } 
                      
                ]}
                 ,
@@ -640,7 +671,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 5397853
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 6034338
+                    } 
                      
                ]}
                 ,
@@ -666,7 +701,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 6893102
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 6872940
+                    } 
                      
                ]}
                 ,
@@ -692,7 +731,11 @@
 				{
                         "cuenta":{"descripcion": "Pasivo total"},
                         "valor": 8435659
-                    }
+                    },
+				{
+                        "cuenta":{"descripcion": "Ventas neto"},
+                        "valor": 7392054
+                    } 
                      
 				]
 			}

@@ -8,6 +8,7 @@ import edu.utn.frba.dds.grupo5.util.Util;
 public class Empresa {
 	private List<Periodo> periodos;
 	private String nombre;
+	private String anioFundacion;
 	
 	public Empresa(){
 		
@@ -40,7 +41,9 @@ public class Empresa {
 		return !Util.filterByPredicate(getPeriodos(),p -> p.getNombre().equalsIgnoreCase(periodo)).isEmpty();
 	}	
 	
-	
+	public String getAnioFundacion(){
+		return anioFundacion;
+	}
 
 	
 }
