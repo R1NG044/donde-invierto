@@ -1,18 +1,32 @@
 package myfirstproject.rules
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
+import edu.utn.frba.dds.grupo5.entidades.Metodologia;
+import edu.utn.frba.dds.grupo5.entidades.Empresa;
 global java.util.List list;
 
 rule "P1"
  when
- 	$e: CuentaEmpresa(valor < 200)
+ 	$e: Metodologia(nombre =="p1")
+ 	$a: CuentaEmpresa(valor < 200)
  then
- 	list.add($e);
+ 	list.add($a);
+ 	System.out.println($a.getValor());
 end
 
 
 rule "P2"
  when
- 	$e: CuentaEmpresa(valor < 400)
+ 	$e: Metodologia(nombre == "p2") 
+ 	$a: CuentaEmpresa(valor < 200)
  then
- 	list.add($e);
+ 	list.add($a);
+ 	System.out.println($a.getValor());
 end
+
+rule "buffet"
+ when
+ 	$e: Metodologia(nombre == "buffet")
+ then
+ 	$e.ordenar("ROE", 10);
+end
+

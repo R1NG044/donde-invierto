@@ -1,5 +1,7 @@
 package edu.utn.frba.dds.grupo5.tests;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +9,11 @@ import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-import org.kie.api.runtime.rule.AgendaFilter;
+
 
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
-import edu.utn.frba.dds.grupo5.entidades.Pepe;
+import edu.utn.frba.dds.grupo5.entidades.Metodologia;
+
 
 public class TestMetodologias {
 	
@@ -22,17 +25,19 @@ public class TestMetodologias {
 		 
 		 CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
 		 cuentaEmpresa.setValor(Double.valueOf(50));
+
 		 
+		 Metodologia metodologia = new Metodologia();
+		 metodologia.setNombre("buffet");
 		 List<String> list = new ArrayList<>();
 		 kSession.setGlobal("list", list);
 		 kSession.insert(cuentaEmpresa);
-		 AgendaFilter currFilter = new Pepe(); 
-		 
-		 kSession.fireAllRules( currFilter );
-		 //kSession.fireAllRules();
+		 kSession.insert(metodologia);
+		 kSession.fireAllRules();
+		
 		 
 		//http://localhost:8080/kie-drools-wb/maven2/groupId/artifactId/1.0/artifactId-1.0.jar
-		 //assertTrue(list.size()==1);
+		 assertTrue(list.size()==1);
 		
 		/*CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
 		cuentaEmpresa.setValor(Double.valueOf(30));

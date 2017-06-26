@@ -1,9 +1,15 @@
 package edu.utn.frba.dds.grupo5.entidades;
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.util.Util;
+
 public class Metodologia {
+	
+    public Metodologia(){
+    	
+    }
 	
 	public String nombre;
 	//List<Empresa> empresas;
@@ -47,4 +53,15 @@ public class Metodologia {
 	public String getNombre(){
 		return nombre;
 	}
+	
+	
+	public List<Empresa> ordenar (String indicador, int anios){
+		List <Empresa> list = new ArrayList<>();
+		list.map();
+		
+		
+		return list;
+	}
+	
+	
 }
