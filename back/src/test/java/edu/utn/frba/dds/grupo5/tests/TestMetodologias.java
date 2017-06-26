@@ -7,14 +7,16 @@ import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.AgendaFilter;
 
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
+import edu.utn.frba.dds.grupo5.entidades.Pepe;
 
 public class TestMetodologias {
 	
 	@Test
 	public void testFirstRule(){
-		 /*KieServices ks = KieServices.Factory.get();
+		 KieServices ks = KieServices.Factory.get();
 		 KieContainer kContainer = ks.getKieClasspathContainer();
 		 KieSession kSession = kContainer.newKieSession();
 		 
@@ -24,12 +26,15 @@ public class TestMetodologias {
 		 List<String> list = new ArrayList<>();
 		 kSession.setGlobal("list", list);
 		 kSession.insert(cuentaEmpresa);
-		 kSession.fireAllRules();
+		 AgendaFilter currFilter = new Pepe(); 
 		 
-		http://localhost:8080/kie-drools-wb/maven2/groupId/artifactId/1.0/artifactId-1.0.jar
-		 assertTrue(list.size()==1);*/
+		 kSession.fireAllRules( currFilter );
+		 //kSession.fireAllRules();
+		 
+		//http://localhost:8080/kie-drools-wb/maven2/groupId/artifactId/1.0/artifactId-1.0.jar
+		 //assertTrue(list.size()==1);
 		
-		CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
+		/*CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
 		cuentaEmpresa.setValor(Double.valueOf(30));
 		
 		KieServices ks = KieServices.Factory.get();
@@ -39,6 +44,6 @@ public class TestMetodologias {
 		KieSession kieSession = kieContainer.newKieSession();
 		kieSession.insert(cuentaEmpresa);
 		kieSession.setGlobal("list", list);
-		kieSession.fireAllRules();
+		kieSession.fireAllRules();*/
 	} 
 }
