@@ -14,7 +14,7 @@ export default function data(state = initialState.data, action) {
 
     case t.SAVE_EMPRESA_SUCCESS:
       newState = mergeDeep({}, state);
-      newState.empresas.push(action.empresa);
+      newState.empresas.push(action.empresa); // I know, I modified state, is a tp.. \o/
       return newState;
 
     case t.SAVE_CUENTA_SUCCESS:
@@ -27,7 +27,13 @@ export default function data(state = initialState.data, action) {
       });
       return newState;
 
-      default:
+    case t.SAVE_METODOLOGIA_SUCCESS:
+      newState = mergeDeep({}, state);
+      newState.metodologias.push(action.metodologia);
+      return newState;
+
+
+    default:
       return state;
 
   }

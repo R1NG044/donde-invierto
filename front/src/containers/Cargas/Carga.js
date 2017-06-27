@@ -49,9 +49,16 @@ class Carga extends Component {
         elementToRender = <CargaComponent.Cuenta {...cuentaProps} />;
         break;
 
-      case 'metodologias':
-        let metodologiasProps = {};
+      case 'metodologia':
+        const type = this.props.routeParams.type;
+        let metodologiasProps = {
+          uiActions,
+          dataActions,
+          inputsValues,
+          type
+        };
         elementToRender = <CargaComponent.Metodologias {...metodologiasProps} />;
+        break;
 
       default:
         this.props.router.push("/page-not-found");
