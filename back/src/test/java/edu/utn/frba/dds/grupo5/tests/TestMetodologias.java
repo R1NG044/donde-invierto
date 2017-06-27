@@ -42,8 +42,8 @@ public class TestMetodologias {
 		 assertEquals("Google",result.get(2).getNombre());
 	} 
 	@Test
-	public void testP4() throws Exception{
-		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("p4", empresas);
+	public void testConstante() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Constante", empresas);
 		 
 		assertTrue(result.size()==3);
 		 assertEquals("Google",result.get(0).getNombre());
@@ -52,8 +52,8 @@ public class TestMetodologias {
 		
 }
 	@Test
-	public void testP3() throws Exception{
-		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("p3", empresas);
+	public void testDebt() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Debt", empresas);
 		 assertTrue(result.size()==4);
 		 assertEquals("Pepsico",result.get(0).getNombre());
 		 assertEquals("Apple",result.get(1).getNombre());
@@ -62,4 +62,14 @@ public class TestMetodologias {
 		
 		
 }
+/*	@Test
+	public void testConfiable() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Confiable", empresas);
+		 
+		assertTrue(result.size()==3);
+		 assertEquals("",result.get(0).getNombre());
+		 assertEquals("",result.get(1).getNombre());
+		 assertEquals("",result.get(2).getNombre());
+		
+}*/
 }

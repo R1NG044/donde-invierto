@@ -46,7 +46,7 @@ public class CondicionMinimo implements ICondicion{
 			backYear++;
 		}
 		
-		return cant2.compareTo(cant1);
+		return cant1.compareTo(cant2);
 	}
 
 	@Override

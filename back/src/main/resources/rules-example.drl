@@ -14,9 +14,9 @@ rule "Buffet"
  	$m.aniosAntiguedad(10);
 end
 
-rule "p3"
+rule "Debt"
  when
- 	$e: Metodologia(nombre == "p3") 
+ 	$e: Metodologia(nombre == "Debt") 
  then
  	$e.maximizar("ROE", 1);
  	$e.aniosAntiguedad(10);
@@ -24,11 +24,23 @@ rule "p3"
  	$e.ordenarAntiguedad();
 end
 
-rule "p4"
+rule "Constante"
  when
- 	$e: Metodologia(nombre == "p4") 
+ 	$e: Metodologia(nombre == "Constante") 
  then
  	$e.aniosAntiguedad(10);
  	$e.consistencia("Margen",5);
  	$e.ordenarConsistencia("I2", 2);
+end
+
+rule "Confiable"
+ when
+ 	$c: Metodologia(nombre == "Confiable") 
+ then
+ 	$c.aniosAntiguedad(10);
+ 	$c.consistencia("Margen",10);
+ 	$c.ordenarConsistencia("ROE", 10);
+ 	$c.ordenarConsistencia("I2", 2);
+ 	$c.minimizar("Deuda", 10);
+ 	$c.ordenarAntiguedad();
 end
