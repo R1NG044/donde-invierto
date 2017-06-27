@@ -4,29 +4,21 @@ import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 global java.util.List list;
 
-rule "P1"
- when
- 	$e: Metodologia(nombre =="p1")
- 	$a: CuentaEmpresa(valor < 200)
- then
- 	list.add($a);
- 	System.out.println($a.getValor());
-end
-
-
-rule "P2"
+rule "Buffet2"
  when
  	$e: Metodologia(nombre == "p2") 
- 	$a: CuentaEmpresa(valor < 200)
  then
- 	list.add($a);
- 	System.out.println($a.getValor());
+ 	System.out.println($e.getNombre());
 end
 
-rule "buffet"
+rule "Buffet"
  when
- 	$e: Metodologia(nombre == "buffet")
+ 	$m: Metodologia(nombre == "Buffet")
  then
- 	$e.ordenar("ROE", 10);
+ 	$m.maximizar("ROE", 10);
+ 	$m.minimizar("Deuda", 0);
+ 	$m.consistencia("Margen",10);
+ 	$m.ordenarAntiguedad();
+ 	$m.aniosAntiguedad(10);
 end
 

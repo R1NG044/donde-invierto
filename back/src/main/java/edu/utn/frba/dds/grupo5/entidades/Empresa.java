@@ -20,12 +20,14 @@ public class Empresa {
 			periodos=new ArrayList<Periodo>();
 		return periodos;
 	}
+	
 	public Periodo getPeriodoByName(String name) throws Exception{
 		if(!validarPeriodo(name)) {
 			throw new Exception("Periodo '"+name+"' no encontrado");
 		}
 		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre().equalsIgnoreCase(name)).get(0);
 	}
+	
 	public void addPeriodo(Periodo periodo) {
 		if(periodos == null)
 			periodos = new ArrayList<Periodo>();
@@ -42,9 +44,14 @@ public class Empresa {
 		return !Util.filterByPredicate(getPeriodos(),p -> p.getNombre().equalsIgnoreCase(periodo)).isEmpty();
 	}	
 	
+	public List<Periodo> getPeriodosAnio(String anio){
+		return Util.filterByPredicate(getPeriodos(),p->p.getAnio().equals(anio));
+	}
+	
 	public Integer getAnioFundacion(){
 		return anioFundacion;
 	}
+	
 	public Integer antiguedad(){
 		Integer ant=0;
 		Calendar c2 = new GregorianCalendar();

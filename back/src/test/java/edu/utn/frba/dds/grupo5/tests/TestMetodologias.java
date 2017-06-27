@@ -1,21 +1,39 @@
 package edu.utn.frba.dds.grupo5.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
+import org.junit.Before;
 import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
+import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
+import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 
 
 public class TestMetodologias {
+	
+	private List<Empresa> empresas;
+	
+	@SuppressWarnings("unchecked")
+	@Before
+	public void setUp() throws IndicadorException, Exception {
+		String empresasJson = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("empresas.json"));
+		
+		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
+		empresas = ((List<Empresa>)new Gson().fromJson(empresasJson, listType));
+	}
 	
 	@Test
 	public void testFirstRule(){
@@ -25,18 +43,16 @@ public class TestMetodologias {
 		 
 		 CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
 		 cuentaEmpresa.setValor(Double.valueOf(50));
-
 		 
 		 Metodologia metodologia = new Metodologia();
-		 metodologia.setNombre("buffet");
+		 metodologia.setNombre("Buffet");
+		 metodologia.setEmpresas(empresas);
 		 List<String> list = new ArrayList<>();
-		 kSession.setGlobal("list", list);
-		 kSession.insert(cuentaEmpresa);
 		 kSession.insert(metodologia);
 		 kSession.fireAllRules();
-		
 		 
-		//http://localhost:8080/kie-drools-wb/maven2/groupId/artifactId/1.0/artifactId-1.0.jar
+		 metodologia.getResult();
+		 
 		 assertTrue(list.size()==1);
 		
 		/*CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
