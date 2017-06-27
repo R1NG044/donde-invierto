@@ -41,4 +41,25 @@ public class TestMetodologias {
 		 assertEquals("Apple",result.get(1).getNombre());
 		 assertEquals("Google",result.get(2).getNombre());
 	} 
+	@Test
+	public void testP4() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("p4", empresas);
+		 
+		assertTrue(result.size()==3);
+		 assertEquals("Google",result.get(0).getNombre());
+		 assertEquals("Pepsico",result.get(1).getNombre());
+		 assertEquals("Apple",result.get(2).getNombre());
+		
+}
+	@Test
+	public void testP3() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("p3", empresas);
+		 assertTrue(result.size()==4);
+		 assertEquals("Pepsico",result.get(0).getNombre());
+		 assertEquals("Instagram",result.get(1).getNombre());
+		 assertEquals("Apple",result.get(2).getNombre());
+		 assertEquals("Google",result.get(3).getNombre());
+		
+		
+}
 }

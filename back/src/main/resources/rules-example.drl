@@ -26,7 +26,7 @@ rule "p3"
  	$e: Metodologia(nombre == "p3") 
  then
  	$e.maximizar("ROE", 1);
- 	$e.aniosAntiguedad(15);
+ 	$e.aniosAntiguedad(10);
  	$e.minimizar("Deuda", 3);
  	$e.ordenarAntiguedad();
 end
@@ -35,7 +35,7 @@ rule "p4"
  when
  	$e: Metodologia(nombre == "p4") 
  then
- 	$e.aniosAntiguedad(9);
- 	$m.consistencia("Margen",5);
- 	$m.ordenarConsistencia("I2", 2);
+ 	$e.aniosAntiguedad(10);
+ 	$e.consistencia("Margen",5);
+ 	$e.ordenarConsistencia("I2", 2);
 end
