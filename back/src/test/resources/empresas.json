@@ -89,7 +89,7 @@
                     } ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 5923140
+                        "valor": 5423140
                     }  
                ]
             }
@@ -120,7 +120,7 @@
                     } ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6023140
+                        "valor": 5823140
                     }  
                ]}
               
