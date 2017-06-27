@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.FactHandle;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -12,6 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
+import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
@@ -23,6 +28,7 @@ public class ServiceManager {
 	private static ServiceManager instance;
 	private List<Indicador> indicadores;
 	private List<Cuenta> cuentas;
+	private KieSession kSession;
 	
 	private ServiceManager() throws Exception{
 		Type listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
@@ -32,6 +38,10 @@ public class ServiceManager {
 		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
 		indicadores = new Gson().fromJson(
 		IOUtils.toString(ServiceManager.class.getClassLoader().getResource("indicadores-predefinidos.json")), listType);
+		
+		KieServices ks = KieServices.Factory.get();
+		KieContainer kContainer = ks.getKieClasspathContainer();
+		kSession = kContainer.newKieSession();
 	}
 	
 	public static ServiceManager getInstance() throws Exception{
@@ -73,6 +83,21 @@ public class ServiceManager {
 			result+=EvaluadorExpresiones.realizarCalculo(indicador, periodo);
 			
 		return result;
+	}
+	
+	public List<Empresa> evaluateMetodologia(String name,List<Empresa> empresas) throws Exception{
+		 Metodologia metodologia = new Metodologia();
+		 metodologia.setNombre(name);
+		 metodologia.setEmpresas(empresas);
+		 
+		 FactHandle handle = kSession.insert(metodologia);
+		 int cantRules = kSession.fireAllRules();
+		 kSession.delete(handle);
+		 
+		 if(cantRules==0)
+			 throw new Exception("Metodología "+name+" no encontrada");
+		 
+		 return metodologia.getResult();
 	}
 	
 }

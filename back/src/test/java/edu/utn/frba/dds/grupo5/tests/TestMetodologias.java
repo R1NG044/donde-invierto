@@ -1,6 +1,7 @@
 package edu.utn.frba.dds.grupo5.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -9,18 +10,13 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
-import org.kie.api.KieServices;
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
-import org.kie.api.runtime.rule.FactHandle;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
-import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
+import edu.utn.frba.dds.grupo5.service.ServiceManager;
 
 
 public class TestMetodologias {
@@ -37,25 +33,12 @@ public class TestMetodologias {
 	}
 	
 	@Test
-	public void testBuffet(){
-		 KieServices ks = KieServices.Factory.get();
-		 KieContainer kContainer = ks.getKieClasspathContainer();
-		 KieSession kSession = kContainer.newKieSession();
+	public void testBuffet() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Buffet", empresas);
 		 
-		 CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
-		 cuentaEmpresa.setValor(Double.valueOf(50));
-		 
-		 Metodologia metodologia = new Metodologia();
-		 metodologia.setNombre("Buffet");
-		 metodologia.setEmpresas(empresas);
-		 
-		 FactHandle handle = kSession.insert(metodologia);
-		 kSession.fireAllRules();
-		 kSession.delete(handle);
-		 
-		 assertTrue(metodologia.getResult().size()==3);
-		 assertEquals("Pepsico",metodologia.getResult().get(0).getNombre());
-		 assertEquals("Apple",metodologia.getResult().get(1).getNombre());
-		 assertEquals("Google",metodologia.getResult().get(2).getNombre());
+		 assertTrue(result.size()==3);
+		 assertEquals("Pepsico",result.get(0).getNombre());
+		 assertEquals("Apple",result.get(1).getNombre());
+		 assertEquals("Google",result.get(2).getNombre());
 	} 
 }
