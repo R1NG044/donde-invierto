@@ -9,6 +9,15 @@ export function selectEmpresa(empresa) {
   }
 }
 
+export function selectMetodologia(metodologia) {
+  return (dispatch) => {
+    dispatch({
+      type: types.METODOLOGIA_SELECTED,
+      metodologia
+    })
+  }
+}
+
 export function inputChanged(section) {
   return (dispatch) => (e) => {
 
@@ -67,6 +76,19 @@ export function clearPeriodosPorAgregar() {
   }
 }
 
+export function addIndicadorAMetodologia(indicadorId) {
+  return dispatch => {
+    const indicador = {
+      id: indicadorId,
+      nombre: ""
+    }
+    dispatch({
+      type: types.AGREGAR_INDICADOR_A_METODOLOGIA,
+      indicador
+    })
+  }
+}
+
 export function addDataToExpresion(section) {
   return (dispatch, getState) => (e) => {
 
@@ -90,3 +112,4 @@ export function showSuccessOnSave() {
     }), 3000);
   }
 }
+

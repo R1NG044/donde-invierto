@@ -22,6 +22,8 @@ class Carga extends Component {
           dataActions,
           inputsValues,
           empresas,
+          indicadores: data.indicadores,
+          cuentas: data.cuentas,
           type: this.props.routeParams.type
         };
 
@@ -49,9 +51,17 @@ class Carga extends Component {
         elementToRender = <CargaComponent.Cuenta {...cuentaProps} />;
         break;
 
-      case 'metodologias':
-        let metodologiasProps = {};
+      case 'metodologia':
+        const type = this.props.routeParams.type;
+        let metodologiasProps = {
+          uiActions,
+          dataActions,
+          inputsValues,
+          indicadores: data.indicadores,
+          type
+        };
         elementToRender = <CargaComponent.Metodologias {...metodologiasProps} />;
+        break;
 
       default:
         this.props.router.push("/page-not-found");
