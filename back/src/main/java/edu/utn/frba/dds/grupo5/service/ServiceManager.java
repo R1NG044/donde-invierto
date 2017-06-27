@@ -61,4 +61,18 @@ public class ServiceManager {
 		
 		return EvaluadorExpresiones.realizarCalculo(indicador, periodo);
 	}
+	
+	public double evaluarIndicadorAnio(String ind,Empresa empresa,String anio) throws Exception{
+		Indicador indicador = recuperarIndicador(ind);
+		
+		List<Periodo> periodos = empresa.getPeriodosAnio(anio);
+		
+		double result = 0;
+		
+		for(Periodo periodo: periodos)
+			result+=EvaluadorExpresiones.realizarCalculo(indicador, periodo);
+			
+		return result;
+	}
+	
 }
