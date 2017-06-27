@@ -76,6 +76,19 @@ export function clearPeriodosPorAgregar() {
   }
 }
 
+export function addIndicadorAMetodologia(indicadorId) {
+  return dispatch => {
+    const indicador = {
+      id: indicadorId,
+      nombre: ""
+    }
+    dispatch({
+      type: types.AGREGAR_INDICADOR_A_METODOLOGIA,
+      indicador
+    })
+  }
+}
+
 export function addDataToExpresion(section) {
   return (dispatch, getState) => (e) => {
 

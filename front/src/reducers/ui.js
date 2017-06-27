@@ -54,7 +54,18 @@ export default function ui(state = initialState.ui, action) {
       newState.showSuccess = !state.showSuccess;
       return newState;
 
-      default:
+      case t.AGREGAR_INDICADOR_A_METODOLOGIA:
+      newState = Object.assign({}, state);
+      newState.inputsValues = {
+        ...state.inputsValues,
+          metodologia: {
+              ...state.inputsValues.metodologia,
+              indicadores: [...state.inputsValues.metodologia.indicadores, action.indicador]
+          }
+      }
+      return newState;
+
+    default:
       return state;
 
   }

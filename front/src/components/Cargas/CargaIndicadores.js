@@ -24,15 +24,8 @@ export default class CargaIndicadores extends Component  {
   }
 
   render() {
-    const { type, dataActions, uiActions, inputsValues, empresas } = this.props;
+    const { type, dataActions, uiActions, inputsValues, empresas, indicadores, cuentas } = this.props;
     const secondPartOfForm = this.state.secondPartOfForm;
-
-
-    const indicadores = [{ id: 0, nombre: "Indicador X", expresion: "indicador{indicador1}" },
-                         { id: 0, nombre: "Indicador Y", expresion: "indicador{indicador2}" }];
-
-    const cuentas = [{ id: 0, nombre: "Cuenta X", periodo: "Q1", valor: "cuenta{cuenta1}" },
-                      { id: 0, nombre: "Cuenta Y", periodo: "Q2", valor: "cuenta{cuenta2}" }];
 
     const empresaSelected = empresas.find(empresa => empresa.id === parseInt(inputsValues.empresaSelected) );
 

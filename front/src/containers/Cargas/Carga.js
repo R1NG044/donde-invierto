@@ -22,6 +22,8 @@ class Carga extends Component {
           dataActions,
           inputsValues,
           empresas,
+          indicadores: data.indicadores,
+          cuentas: data.cuentas,
           type: this.props.routeParams.type
         };
 
@@ -55,6 +57,7 @@ class Carga extends Component {
           uiActions,
           dataActions,
           inputsValues,
+          indicadores: data.indicadores,
           type
         };
         elementToRender = <CargaComponent.Metodologias {...metodologiasProps} />;
