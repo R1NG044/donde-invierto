@@ -14,7 +14,7 @@
 	  "indicadores":[]
 	  },
 	  {"nombre": "Deuda", 
-	  "expression": "cuenta{Pasivo total}/cuenta{Capital contable}*100", 
+	  "expression": "cuenta{Pasivo total}/cuenta{Activo total}*100", 
 	  "cuentas":[{"descripcion":"Pasivo total"},{"descripcion":"Activo total"}],
 	  "indicadores":[]
 	  },
