@@ -21,3 +21,21 @@ rule "Buffet"
  	$m.aniosAntiguedad(10);
 end
 
+rule "p3"
+ when
+ 	$e: Metodologia(nombre == "p3") 
+ then
+ 	$e.maximizar("ROE", 1);
+ 	$e.aniosAntiguedad(15);
+ 	$e.minimizar("Deuda", 3);
+ 	$e.ordenarAntiguedad();
+end
+
+rule "p4"
+ when
+ 	$e: Metodologia(nombre == "p4") 
+ then
+ 	$e.aniosAntiguedad(9);
+ 	$m.consistencia("Margen",5);
+ 	$m.ordenarConsistencia("I2", 2);
+end

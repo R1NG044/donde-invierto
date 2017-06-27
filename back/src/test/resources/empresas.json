@@ -90,7 +90,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 5423140
-                    }  
+                    }  ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 1255300
+                    }
                ]
             }
             ,
@@ -121,7 +125,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 5823140
-                    }  
+                    }  ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 1255650
+                    }
                ]}
               
                 ,
@@ -437,7 +445,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 5901246
-                    }    
+                    }  ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 1155650
+                    }  
                ]
 			}
             ,
@@ -467,7 +479,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 5911267
-                    } 
+                    } ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 1152650
+                    }
                      
                ]
 			}
@@ -778,7 +794,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 4507459
-                    }   
+                    }   ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 1055650
+                    }
                ]
             }
             ,
@@ -811,6 +831,11 @@
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 4534450
                     } 
+                    ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 1055850
+                    }
                ]}
               
                 ,
@@ -1128,7 +1153,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 5461132
-                    }   
+                    }    ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 955850
+                    }
                ]
 			}
             ,
@@ -1160,7 +1189,11 @@
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
                         "valor": 5356438
-                    }   
+                    }  ,
+                    {
+                        "cuenta":{"descripcion": "EBITDA"},
+                        "valor": 960850
+                    }  
                ]
 			}
             ,
