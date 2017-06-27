@@ -120,7 +120,7 @@
                     } ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 5922850
+                        "valor": 6023140
                     }  
                ]}
               
@@ -152,7 +152,7 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 5978325
+                        "valor": 6378325
                     }  
                ]}
                ,
@@ -184,7 +184,7 @@
               ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 5990670
+                        "valor": 6790670
                     }  
                ]}
                 ,
@@ -215,7 +215,7 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6070345
+                        "valor": 7070345
                     }  
                ]}
                 ,
@@ -246,7 +246,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6010777
+                        "valor": 7310777
                     }  
                ]}
                 ,
@@ -277,7 +277,7 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6020768
+                        "valor": 7620768
                     } 
                ]}
                 ,
@@ -308,7 +308,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6020768
+                        "valor": 8020768
                     } 
                ]}
                 ,
@@ -339,7 +339,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6020768
+                        "valor": 8520768
                     } 
                ]}
                 ,
@@ -370,7 +370,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6059888
+                        "valor": 9059888
                     } 
                ]}
                 ,
@@ -401,7 +401,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6069321
+                        "valor": 9769321
                     } 
                ]}
             
