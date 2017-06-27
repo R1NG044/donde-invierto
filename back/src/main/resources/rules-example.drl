@@ -3,13 +3,6 @@ import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 
-rule "Buffet2"
- when
- 	$e: Metodologia(nombre == "p2") 
- then
- 	System.out.println($e.getNombre());
-end
-
 rule "Buffet"
  when
  	$m: Metodologia(nombre == "Buffet")
