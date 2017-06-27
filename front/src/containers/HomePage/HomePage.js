@@ -21,7 +21,7 @@ class HomePage extends React.Component {
         <Col lg={2} md={2} sm={4} xs={12}>
           <ListaEmpresas empresas={this.props.empresas}
                           selectEmpresa={this.props.uiActions.selectEmpresa}
-                          withRanking/>
+                          withRanking={this.props.withRanking}/>
         </Col>
         <Col lg={10} md={10} sm={6} xs={12}>
           <DetalleEmpresa empresa={this.props.empresaSelected} />

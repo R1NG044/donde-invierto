@@ -27,7 +27,7 @@ const Metodologias = (props) =>
           {
             props.metodologiaSelected &&
             <HomePage empresas={props.empresas}
-                      withRanking />
+                      withRanking={true} />
           }
         </Row>
       </div>
