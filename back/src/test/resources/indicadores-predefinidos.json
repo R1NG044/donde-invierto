@@ -19,7 +19,7 @@
 	  "indicadores":[]
 	  },
 	  {"nombre": "Margen", 
-	  "expression": "cuenta{Resultado del ejercicio}/cuenta{Ventas neto}*100", 
+	  "expression": "(cuenta{Resultado del ejercicio}/cuenta{Ventas neto})*100", 
 	  "cuentas":[{"descripcion":"Resultado del ejercicio"},{"descripcion":"Ventas neto"}],
 	  "indicadores":[]
 	  }

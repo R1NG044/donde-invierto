@@ -1,5 +1,6 @@
 package edu.utn.frba.dds.grupo5.entidades;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -59,21 +60,26 @@ public class Metodologia {
 	public List<Empresa> getResult(){
 		
 		List<Empresa> result = Util.filterByPredicate(empresas, e -> filtrar(e));
-		
-		return Util.sort(result, new Comparator<Empresa>() {
+		Collections.sort(result, new Comparator<Empresa>() {
 			public int compare(Empresa o1, Empresa o2) {
 				
 				int mayorE1 = Util.filterByPredicate(condiciones, c -> {return c.evaluate(o1, o2)>0;}).size();
 				
 				int cantCondiciones = getCondiciones().size();
 				
-				return mayorE1<(cantCondiciones-mayorE1)?-1:((cantCondiciones-mayorE1)==mayorE1?0:1);
+				return (mayorE1<(cantCondiciones-mayorE1))?1:((cantCondiciones-mayorE1)==mayorE1?0:-1);
 			}
 		});
+		return result;
 	}
 
 	private boolean filtrar(Empresa e) {
-		return Util.allElementsMatch(filtros, f ->f.evaluate(e));
+		for(IFiltro filtro: filtros){
+			if(!filtro.evaluate(e))
+				return false;
+		}
+		return true;
+			
 	}
 	
 	public List<ICondicion> getCondiciones() {

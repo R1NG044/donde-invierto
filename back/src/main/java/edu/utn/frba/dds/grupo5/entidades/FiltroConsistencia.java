@@ -26,6 +26,7 @@ public class FiltroConsistencia implements IFiltro{
 				double value = ServiceManager.getInstance().evaluarIndicadorAnio(indicador, e1, String.valueOf(backYear));
 				if(value<lastValue)
 					return false;
+				lastValue=value;
 				backYear++;
 			}catch(Exception e){
 				return false;
