@@ -28,7 +28,8 @@ let initialState = {
         periodoSelected: ""
       },
       metodologia: {
-        nombreMetodologia: ""
+        nombreMetodologia: "",
+        indicadores: []
       },
       deleteIndicador: {
         idIndicador: ""
@@ -39,12 +40,18 @@ let initialState = {
   },
   data: {
     empresas: [],
-    empresasByMetodologias: [
-      
-    ],
+    empresasByMetodologias: [],
     metodologias: [
       {nombre: "metodologiaMock1"},
       {nombre: "metodologiaMock2"}
+    ],
+    indicadores: [
+        { id: 0, nombre: "Indicador X", expresion: "indicador{indicador1}" },
+        { id: 0, nombre: "Indicador Y", expresion: "indicador{indicador2}" }
+    ],
+    cuentas: [
+        { id: 0, nombre: "Cuenta X", periodo: "Q1", valor: "cuenta{cuenta1}" },
+        { id: 0, nombre: "Cuenta Y", periodo: "Q2", valor: "cuenta{cuenta2}" }
     ]
   }
 };

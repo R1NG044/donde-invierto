@@ -3,13 +3,6 @@ import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 
-rule "Buffet2"
- when
- 	$e: Metodologia(nombre == "p2") 
- then
- 	System.out.println($e.getNombre());
-end
-
 rule "Buffet"
  when
  	$m: Metodologia(nombre == "Buffet")
@@ -21,3 +14,33 @@ rule "Buffet"
  	$m.aniosAntiguedad(10);
 end
 
+rule "Debt"
+ when
+ 	$e: Metodologia(nombre == "Debt") 
+ then
+ 	$e.maximizar("ROE", 1);
+ 	$e.aniosAntiguedad(10);
+ 	$e.minimizar("Deuda", 3);
+ 	$e.ordenarAntiguedad();
+end
+
+rule "Constante"
+ when
+ 	$e: Metodologia(nombre == "Constante") 
+ then
+ 	$e.aniosAntiguedad(10);
+ 	$e.consistencia("Margen",5);
+ 	$e.ordenarConsistencia("I2", 2);
+end
+
+rule "Confiable"
+ when
+ 	$c: Metodologia(nombre == "Confiable") 
+ then
+ 	$c.aniosAntiguedad(10);
+ 	$c.consistencia("Margen",10);
+ 	$c.ordenarConsistencia("ROE", 10);
+ 	$c.ordenarConsistencia("I2", 2);
+ 	$c.minimizar("Deuda", 10);
+ 	$c.ordenarAntiguedad();
+end

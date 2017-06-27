@@ -32,11 +32,11 @@ export default function data(state = initialState.data, action) {
       });
       return newState;
 
+
     case t.SAVE_METODOLOGIA_SUCCESS:
       newState = mergeDeep({}, state);
       newState.metodologias.push(action.metodologia);
       return newState;
-
 
     default:
       return state;
