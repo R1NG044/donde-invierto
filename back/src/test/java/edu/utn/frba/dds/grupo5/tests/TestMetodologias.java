@@ -1,6 +1,6 @@
 package edu.utn.frba.dds.grupo5.tests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.FactHandle;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -36,7 +37,7 @@ public class TestMetodologias {
 	}
 	
 	@Test
-	public void testFirstRule(){
+	public void testBuffet(){
 		 KieServices ks = KieServices.Factory.get();
 		 KieContainer kContainer = ks.getKieClasspathContainer();
 		 KieSession kSession = kContainer.newKieSession();
@@ -47,24 +48,14 @@ public class TestMetodologias {
 		 Metodologia metodologia = new Metodologia();
 		 metodologia.setNombre("Buffet");
 		 metodologia.setEmpresas(empresas);
-		 List<String> list = new ArrayList<>();
-		 kSession.insert(metodologia);
+		 
+		 FactHandle handle = kSession.insert(metodologia);
 		 kSession.fireAllRules();
+		 kSession.delete(handle);
 		 
-		 metodologia.getResult();
-		 
-		 assertTrue(list.size()==1);
-		
-		/*CuentaEmpresa cuentaEmpresa = new CuentaEmpresa();
-		cuentaEmpresa.setValor(Double.valueOf(30));
-		
-		KieServices ks = KieServices.Factory.get();
-		KieContainer kieContainer = ks.newKieContainer(ks.newReleaseId("edu.utn.frba.dds.grupo5", "Metodologias", "LATEST"));
-		
-		List<String> list = new ArrayList<>();
-		KieSession kieSession = kieContainer.newKieSession();
-		kieSession.insert(cuentaEmpresa);
-		kieSession.setGlobal("list", list);
-		kieSession.fireAllRules();*/
+		 assertTrue(metodologia.getResult().size()==3);
+		 assertEquals("Pepsico",metodologia.getResult().get(0).getNombre());
+		 assertEquals("Apple",metodologia.getResult().get(1).getNombre());
+		 assertEquals("Google",metodologia.getResult().get(2).getNombre());
 	} 
 }
