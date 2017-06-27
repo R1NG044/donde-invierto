@@ -8,24 +8,35 @@ import * as uiActions from '../../actions/uiActions';
 import {bindActionCreators} from 'redux';
 import {periodosOrdenados} from '../../selectors/DataSelector';
 
-const HomePage = (props) =>
-  <Grid fluid>
-    <Col lg={2} md={2} sm={4} xs={12}>
-      <ListaEmpresas empresas={props.empresas}
-                      selectEmpresa={props.uiActions.selectEmpresa}/>
-    </Col>
-    <Col lg={10} md={10} sm={6} xs={12}>
-      <DetalleEmpresa empresa={props.empresaSelected} />
-    </Col>
+class HomePage extends React.Component {
+  componentWillMount() {
+    if(this.props.withRanking) {
+      this.props.uiActions.selectEmpresa(this.props.empresas[0]);
+    }
+  }
 
-  </Grid>;
+  render() {
+    return (
+      <Grid fluid>
+        <Col lg={2} md={2} sm={4} xs={12}>
+          <ListaEmpresas empresas={this.props.empresas}
+                          selectEmpresa={this.props.uiActions.selectEmpresa}
+                          withRanking/>
+        </Col>
+        <Col lg={10} md={10} sm={6} xs={12}>
+          <DetalleEmpresa empresa={this.props.empresaSelected} />
+        </Col>
 
+      </Grid>
+    )
+  }
+}
 
-
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
+  const empresas = props.empresas ? periodosOrdenados(props.empresas) : periodosOrdenados(state);
   return {
     empresaSelected: state.ui.empresaSelected,
-    empresas: periodosOrdenados(state)
+    empresas
   };
 }
 

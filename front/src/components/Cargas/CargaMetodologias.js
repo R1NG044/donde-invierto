@@ -10,7 +10,7 @@ class CargaMetodologias extends Component  {
 
   render() {
     const {type} = this.props;
-    debugger;
+
     return (
       <div className="Carga Metodologias">
         <form onSubmit={this.props.dataActions.cargarMetodologia(type)}>
