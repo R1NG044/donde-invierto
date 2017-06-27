@@ -54,10 +54,18 @@ public class Metodologia {
 		return nombre;
 	}
 	
-	
+	public List<Empresa> chequearConsistencia (String indicador, int anios){
+		List <Empresa> list = new ArrayList<>();
+		
+		for(Empresa empresa:  list){
+			
+		}
+		
+		return list;
+	}
 	public List<Empresa> ordenar (String indicador, int anios){
 		List <Empresa> list = new ArrayList<>();
-		list.map();
+		
 		
 		
 		return list;
