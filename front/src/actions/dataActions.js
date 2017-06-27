@@ -107,6 +107,33 @@ export function cargarIndicador(type) {
   }
 }
 
+export function cargarMetodologia(type) {
+  return (dispatch, getState) => (e) => {
+    e.preventDefault();
+    let metodologia;
+    let inputs = getState().ui.inputsValues[type];
+
+    dispatch({
+      type: types.SAVE_METODOLOGIA_REQUEST
+    });
+
+
+    metodologia = {
+      nombre: inputs.nombreMetodologia,
+    }
+
+    // TODO: Do the request and then...
+    metodologia.id = Math.floor(Math.random() * (1000 - 1)) + 1; // TODO: HARDCODED
+
+    dispatch({
+      type: types.SAVE_METODOLOGIA_SUCCESS,
+      metodologia
+    });
+    clearInputs(type)(dispatch);
+    showSuccessOnSave()(dispatch);
+  }
+}
+
 export function borrarIndicador(type) {
   return (dispatch, getState) => (e) => {
     e.preventDefault();

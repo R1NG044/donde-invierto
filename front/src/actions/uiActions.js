@@ -9,6 +9,15 @@ export function selectEmpresa(empresa) {
   }
 }
 
+export function selectMetodologia(metodologia) {
+  return (dispatch) => {
+    dispatch({
+      type: types.METODOLOGIA_SELECTED,
+      metodologia
+    })
+  }
+}
+
 export function inputChanged(section) {
   return (dispatch) => (e) => {
 
@@ -90,3 +99,4 @@ export function showSuccessOnSave() {
     }), 3000);
   }
 }
+

@@ -27,6 +27,9 @@ let initialState = {
         empresaSelected: "",
         periodoSelected: ""
       },
+      metodologia: {
+        nombreMetodologia: ""
+      },
       deleteIndicador: {
         idIndicador: ""
       }
@@ -35,7 +38,8 @@ let initialState = {
     empresaSelected: {}
   },
   data: {
-    empresas: []
+    empresas: [],
+    metodologias: []
   }
 };
 

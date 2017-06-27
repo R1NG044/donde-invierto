@@ -1,17 +1,16 @@
 package edu.utn.frba.dds.grupo5.tests;
 
-import java.net.URL;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.IOUtils;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
@@ -20,38 +19,32 @@ import edu.utn.frba.dds.grupo5.entidades.Periodo;
 
 public class TestEmpresa {
 	
-	private JSONObject obj;
-	private JSONParser parser ;
-	private URL input1;
-	private JSONArray empresas;
-	private Gson gson;
+	private List<Empresa> empresas;
 	
 	@Before
 	public void setUp() throws Exception {
-		parser = new JSONParser();
-		input1 = TestEmpresa.class.getClassLoader().getResource("Prueba-Archivo.json");
-		obj = (JSONObject) parser.parse(IOUtils.toString(input1));
-		empresas = ((JSONArray)obj.get("empresas"));
-		gson= new GsonBuilder().create();
+		String archivo = IOUtils.toString(TestEmpresa.class.getClassLoader().getResource("empresas.json"));
+		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
+		empresas = new Gson().fromJson(archivo, listType);
 		
 	}
 
 	@Test
 	public void testPeriodos() throws Exception{
-		Empresa empresa = gson.fromJson(empresas.get(0).toString(),Empresa.class);
+		Empresa empresa = empresas.get(0);
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==2);
-		Assert.assertEquals(empresa.getNombre(),"snapchat");
-		
+		Assert.assertEquals(empresa.getNombre(),"Snapchat");
+		Assert.assertTrue(empresa.antiguedad() == 6);
 		periodoEquals(empresa.getPeriodos().get(0), "Semestral","2016", 0, 6);
 		periodoEquals(empresa.getPeriodos().get(1), "Anual","2016", 0, 12);
 		
-		empresa = gson.fromJson(empresas.get(1).toString(),Empresa.class);
+		empresa = empresas.get(1);
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().size()==1);
-		Assert.assertEquals(empresa.getNombre(),"facebook");
+		Assert.assertEquals(empresa.getNombre(),"Facebook");
 		
 		periodoEquals(empresa.getPeriodos().get(0), "Semestral","2017", 0, 6);
 	}
@@ -67,9 +60,9 @@ public class TestEmpresa {
 	
 	@Test
 	public void testCuentas(){
-		Empresa empresa = gson.fromJson(empresas.get(0).toString(),Empresa.class);
+		Empresa empresa = empresas.get(0);
 		
-		Assert.assertEquals(empresa.getNombre(),"snapchat");
+		Assert.assertEquals(empresa.getNombre(),"Snapchat");
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas()!=null);
@@ -78,7 +71,7 @@ public class TestEmpresa {
 		CuentaEmpresa cta = empresa.getPeriodos().get(0).getCuentas().get(0);
 		cuentaEquals(cta,"EBITDA","100200.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(1);
-		cuentaEquals(cta,"FDS","50000.0");
+		cuentaEquals(cta,"CASH","50000.0");
 		cta = empresa.getPeriodos().get(0).getCuentas().get(2);
 		cuentaEquals(cta,"Free Cash Flow","10022.0");
 		
@@ -88,9 +81,9 @@ public class TestEmpresa {
 		cta = empresa.getPeriodos().get(1).getCuentas().get(0);
 		cuentaEquals(cta,"EBITDA","40000.0");
 		
-		empresa = gson.fromJson(empresas.get(1).toString(),Empresa.class);
+		empresa = empresas.get(1);
 		
-		Assert.assertEquals(empresa.getNombre(),"facebook");
+		Assert.assertEquals(empresa.getNombre(),"Facebook");
 		
 		Assert.assertTrue(empresa.getPeriodos()!=null);
 		Assert.assertTrue(empresa.getPeriodos().get(0).getCuentas()!=null);

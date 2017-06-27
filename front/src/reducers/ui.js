@@ -13,6 +13,11 @@ export default function ui(state = initialState.ui, action) {
       newState.empresaSelected = action.empresa;
       return newState;
 
+    case t.METODOLOGIA_SELECTED:
+      newState = mergeDeep({}, state);
+      newState.metodologiaSelected = action.metodologia;
+      return newState;
+
     case t.INPUT_EMPRESA_CHANGED:
       newState = Object.assign({}, state);
       let inputsValuesCopy = _.cloneDeep(state.inputsValues);

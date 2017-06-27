@@ -1,0 +1,23 @@
+package myfirstproject.rules
+import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
+import edu.utn.frba.dds.grupo5.entidades.Metodologia;
+import edu.utn.frba.dds.grupo5.entidades.Empresa;
+
+rule "Buffet2"
+ when
+ 	$e: Metodologia(nombre == "p2") 
+ then
+ 	System.out.println($e.getNombre());
+end
+
+rule "Buffet"
+ when
+ 	$m: Metodologia(nombre == "Buffet")
+ then
+ 	$m.minimizar("Deuda", 1);
+ 	$m.ordenarConsistencia("ROE", 10);
+ 	$m.consistencia("Margen",10);
+ 	$m.ordenarAntiguedad();
+ 	$m.aniosAntiguedad(10);
+end
+

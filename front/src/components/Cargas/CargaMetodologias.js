@@ -9,20 +9,18 @@ import './CargaMetodologias.scss';
 class CargaMetodologias extends Component  {
 
   render() {
+    const {type} = this.props;
+    debugger;
     return (
       <div className="Carga Metodologias">
-        <form onSubmit={this.props.dataActions.cargarEmpresa}>
+        <form onSubmit={this.props.dataActions.cargarMetodologia(type)}>
           <input type="text"
-                  name="nombreEmpresa"
-                  placeholder="Nombre Empresa"
-                  onChange={this.props.uiActions.cargarEmpresaInputChange}
-                  value={this.props.inputsValues.nombreEmpresa} />
+                  name="nombreMetodologia"
+                  placeholder="Nombre Metodologia"
+                  onChange={this.props.uiActions.inputChanged(type)}
+                  value={this.props.inputsValues.metodologia.nombreMetodologia} />
           <br />
-          <Periodos agregarPeriodo={this.props.uiActions.agregarPeriodo}
-                    onInputChange={this.props.uiActions.cargarEmpresaInputChange}
-                    periodos={this.props.periodosYaAgregados}
-                    inputsValues={this.props.inputsValues} />
-          <input type="submit" value="Guardar Empresa" />
+          <input type="submit" value="Guardar Metodología" />
         </form>
       </div>
     )
