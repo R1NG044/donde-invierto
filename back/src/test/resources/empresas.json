@@ -257,7 +257,7 @@
                 "endRange":12,
                 "cuentas": [{
                         "cuenta":{"descripcion": "Resultado del ejercicio"},
-                        "valor": 1980574
+                        "valor": 1990574
                     }
 			,
 			{
@@ -277,7 +277,7 @@
                     ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6120768
+                        "valor": 6020768
                     } 
                ]}
                 ,
@@ -288,7 +288,7 @@
                 "endRange":12,
                 "cuentas": [{
                         "cuenta":{"descripcion": "Resultado del ejercicio"},
-                        "valor": 1990499
+                        "valor": 1985499
                     }
 			,
 			{
@@ -308,7 +308,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6030564
+                        "valor": 6020768
                     } 
                ]}
                 ,
@@ -339,7 +339,7 @@
                      ,
 				{
                         "cuenta":{"descripcion": "Ventas neto"},
-                        "valor": 6040234
+                        "valor": 6020768
                     } 
                ]}
                 ,
