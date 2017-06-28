@@ -42,3 +42,13 @@ rule "LastYear"
  	$c.maximizar("I2", 1);
  	$c.ordenarAntiguedad();
 end
+
+rule "Historial"
+ when
+ 	$p: Metodologia(nombre == "Historial")
+ then
+ 	$p.aniosAntiguedad(15);
+ 	$p.ordenarAntiguedad();
+ 	$p.consistencia("ROE",5);
+ 	$p.minimizar("Deuda",5);
+end

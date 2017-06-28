@@ -73,4 +73,10 @@ public class TestMetodologias {
 		 assertEquals("Instagram",result.get(3).getNombre());
 		
 }
+	
+	@Test
+	public void testHistorial() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Historial", empresas);
+		
+	}
 }
