@@ -49,6 +49,7 @@ rule "Historial"
  then
  	$p.aniosAntiguedad(15);
  	$p.ordenarAntiguedad();
- 	$p.consistencia("ROE",5);
+ 	$p.consistencia("ROE",2);
  	$p.minimizar("Deuda",5);
+ 	$p.maximizar("Margen",2);
 end

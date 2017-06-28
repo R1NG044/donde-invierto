@@ -78,5 +78,8 @@ public class TestMetodologias {
 	public void testHistorial() throws Exception{
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Historial", empresas);
 		
+		assertTrue(result.size()==2);
+		assertEquals("Pepsico",result.get(0).getNombre());
+		assertEquals("Google",result.get(1).getNombre());
 	}
 }
