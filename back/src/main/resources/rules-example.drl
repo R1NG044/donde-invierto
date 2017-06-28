@@ -33,14 +33,12 @@ rule "Constante"
  	$e.ordenarConsistencia("I2", 2);
 end
 
-rule "Confiable"
+rule "LastYear"
  when
- 	$c: Metodologia(nombre == "Confiable") 
+ 	$c: Metodologia(nombre == "LastYear") 
  then
  	$c.aniosAntiguedad(10);
- 	$c.consistencia("Margen",10);
- 	$c.ordenarConsistencia("ROE", 10);
- 	$c.ordenarConsistencia("I2", 2);
- 	$c.minimizar("Deuda", 10);
+ 	$c.maximizar("ROE", 1);
+ 	$c.maximizar("I2", 1);
  	$c.ordenarAntiguedad();
 end

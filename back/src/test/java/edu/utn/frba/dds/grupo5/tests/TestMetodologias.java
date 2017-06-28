@@ -62,14 +62,15 @@ public class TestMetodologias {
 		
 		
 }
-/*	@Test
-	public void testConfiable() throws Exception{
-		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Confiable", empresas);
+	@Test
+	public void testLastYear() throws Exception{
+		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("LastYear", empresas);
 		 
-		assertTrue(result.size()==3);
-		 assertEquals("",result.get(0).getNombre());
-		 assertEquals("",result.get(1).getNombre());
-		 assertEquals("",result.get(2).getNombre());
+		assertTrue(result.size()==4);
+		 assertEquals("Pepsico",result.get(0).getNombre());
+		 assertEquals("Apple",result.get(1).getNombre());
+		 assertEquals("Google",result.get(2).getNombre());
+		 assertEquals("Instagram",result.get(3).getNombre());
 		
-}*/
+}
 }
