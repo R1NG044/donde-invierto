@@ -16,7 +16,7 @@ class App extends Component {
       return (
       <div>
         <Link to="/" className="dump-navbar">
-          Donde Invierto?
+          ¿Donde Invierto?
         </Link>
 
         {

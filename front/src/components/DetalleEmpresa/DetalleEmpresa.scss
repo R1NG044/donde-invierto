@@ -4,6 +4,10 @@
   .detalle-nombre-empresa {
     font-size: 3em;
     text-align: center;
+    position: fixed;
+    overflow: scroll;
+    max-height: 100%;
+    width: 83%;
   }
 
   .anio {

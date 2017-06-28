@@ -1,4 +1,5 @@
 import * as types from '../constants/dataTypes';
+import * as uiActions from './uiActions';
 import Mocker from '../mocks/dataMock';
 import {clearInputs, clearPeriodosPorAgregar} from './uiActions';
 import {showSuccessOnSave} from './uiActions';
@@ -13,6 +14,23 @@ export function loadData(quantity) {
 
     dispatch({
       type: types.INITIAL_DATA_SUCCESS,
+      empresas
+    });
+  }
+}
+
+export function aplicarMetodologia(metodologia) {
+  return (dispatch) => {
+    dispatch({
+      type: types.APLICAR_METODOLOGIA_REQUEST
+    });
+    dispatch(uiActions.selectMetodologia(metodologia))
+
+    // Hacer llamado con la info de metodologia
+    const empresas = Mocker.generateEmpresas(14);
+
+    dispatch({
+      type: types.APLICAR_METODOLOGIA_SUCCESS,
       empresas
     });
   }

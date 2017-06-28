@@ -40,7 +40,11 @@ let initialState = {
   },
   data: {
     empresas: [],
-    metodologias: [],
+    empresasByMetodologias: [],
+    metodologias: [
+      {nombre: "metodologiaMock1"},
+      {nombre: "metodologiaMock2"}
+    ],
     indicadores: [
         { id: 0, nombre: "Indicador X", expresion: "indicador{indicador1}" },
         { id: 0, nombre: "Indicador Y", expresion: "indicador{indicador2}" }

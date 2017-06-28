@@ -5,7 +5,7 @@ import './ListaMetodologias.scss';
 export default class ListaMetodologias extends Component  {
 
   render() {
-    debugger;
+
     return (
       <div className="ListaMetodologias">
         {

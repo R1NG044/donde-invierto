@@ -12,7 +12,7 @@ div.ListaEmpresas {
 h1.nombre-empresa {
   font-size: 2em;
   padding-left: 5px;
-  margin-bottom: -10px;
+  //margin-bottom: -10px;
 }
 
 .sub-info {
@@ -24,9 +24,6 @@ h1.nombre-empresa {
   text-align: center;
 }
 
-.show {
-  display: inline-table !important;
-}
 
 div.single-empresa {
   border-bottom: 1px solid black;

@@ -1,33 +1,35 @@
 import React from 'react';
 import {Col, Row, Grid} from 'react-bootstrap';
+import HomePage from '../../containers/HomePage/HomePage';
 import ListaMetodologias from '../../components/ListaMetodologias/ListaMetodologias';
 import DetalleMetodologia from '../../components/DetalleMetodologia/DetalleMetodologia';
-import {connect} from 'react-redux';
+import NoMetodologias from '../../components/NoMetodologias/NoMetodologias';
+import SelectMetodologia from '../../components/SelectMetodologia/SelectMetodologia';
 import * as dataActions from '../../actions/dataActions';
 import * as uiActions from '../../actions/uiActions';
 import {bindActionCreators} from 'redux';
 import {periodosOrdenados} from '../../selectors/DataSelector';
 import {Link} from 'react-router';
+import {connect} from 'react-redux';
 
 const Metodologias = (props) =>
   <Grid fluid>
     {
       !props.metodologias.length ?
-      <div>
-        <h3>
-          Actualmente no existen metodologias, por favor primero cree una
-          <Link to="/cargar/metodologia"> aqui </Link>
-        </h3>
-      </div>
+      <NoMetodologias />
       :
       <div>
-        <Col lg={2} md={2} sm={4} xs={12}>
-          <ListaMetodologias metodologias={props.metodologias}
-                            selectMetodologia={props.uiActions.selectMetodologia}/>
-        </Col>
-        <Col lg={10} md={10} sm={6} xs={12}>
-          <DetalleMetodologia metodologia={props.metodologiaSelected} />
-        </Col>
+        <Row>
+          <SelectMetodologia metodologias={props.metodologias}
+                              dataActions={props.dataActions} />
+        </Row>
+        <Row>
+          {
+            props.metodologiaSelected &&
+            <HomePage empresas={props.empresas}
+                      withRanking={true} />
+          }
+        </Row>
       </div>
     }
 
@@ -36,10 +38,10 @@ const Metodologias = (props) =>
 
 
 function mapStateToProps(state) {
-  debugger;
   return {
     metodologiaSelected: state.ui.metodologiaSelected,
-    metodologias: state.data.metodologias
+    metodologias: state.data.metodologias,
+    empresasByMetodologias: state.data.empresasByMetodologias
   };
 }
 
