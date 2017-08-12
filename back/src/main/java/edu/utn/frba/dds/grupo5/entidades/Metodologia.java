@@ -63,8 +63,8 @@ public class Metodologia {
 		Collections.sort(result, new Comparator<Empresa>() {
 			public int compare(Empresa o1, Empresa o2) {
 				
-				Integer mayorE1 = Util.filterByPredicate(getCondiciones(), c -> {return c.evaluate(o1, o2)>0;}).size();
-				Integer mayorE2 = Util.filterByPredicate(getCondiciones(), c -> {return c.evaluate(o2, o1)>0;}).size();
+				Integer mayorE1 = Util.filterByPredicate(condiciones, c -> {return c.evaluate(o1, o2)>0;}).size();
+				Integer mayorE2 = Util.filterByPredicate(condiciones, c -> {return c.evaluate(o2, o1)>0;}).size();
 				
 				return mayorE2.compareTo(mayorE1);
 			}
@@ -73,7 +73,7 @@ public class Metodologia {
 	}
 
 	private boolean filtrar(Empresa e) {
-		for(IFiltro filtro: getFiltros()){
+		for(IFiltro filtro: filtros){
 			if(!filtro.evaluate(e))
 				return false;
 		}

@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>DondeInvierto</groupId>
 	<artifactId>DondeInvierto</artifactId>
 	<version>1-SNAPSHOT</version>
-	
+
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -20,15 +20,15 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		</dependency>
 
 		<dependency>
-		    <groupId>com.googlecode.json-simple</groupId>
-		    <artifactId>json-simple</artifactId>
-		    <version>1.1.1</version>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>com.google.code.gson</groupId>
-		    <artifactId>gson</artifactId>
-		    <version>1.4</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>1.4</version>
 		</dependency>
 
 		<dependency>
@@ -47,85 +47,97 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 			<artifactId>jersey-client</artifactId>
 			<version>1.8</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.directory.studio</groupId>
 			<artifactId>org.apache.commons.io</artifactId>
 			<version>2.4</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>net.sourceforge.jeval</groupId>
-		    <artifactId>jeval</artifactId>
-		    <version>0.9.4</version>
+			<groupId>net.sourceforge.jeval</groupId>
+			<artifactId>jeval</artifactId>
+			<version>0.9.4</version>
 		</dependency>
-		
+
 		<dependency>
-    		<groupId>org.apache.commons</groupId>
-    		<artifactId>commons-lang3</artifactId>
-    		<version>3.4</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
 		</dependency>
-		
-		 <dependency>
-			 <groupId>org.kie</groupId>
-			 <artifactId>kie-api</artifactId>
-			 <version>7.0.0.Final</version>
-		 </dependency>
-		 
-		 <dependency>
-			 <groupId>org.drools</groupId>
-			 <artifactId>drools-core</artifactId>
-			 <version>7.0.0.Final</version>
-		 </dependency>
-		 
-		 <dependency>
-			 <groupId>org.drools</groupId>
-			 <artifactId>drools-compiler</artifactId>
-			 <version>7.0.0.Final</version>
-		 </dependency>
-		 
-		   <dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-api</artifactId>
-		    <version>1.7.5</version>
-		  </dependency>
-		  
-		  <dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-log4j12</artifactId>
-		    <version>1.7.5</version>
-		  </dependency>
-		  
-		  <dependency>
-		  	<groupId>org.kie</groupId>
-		   	<artifactId>kie-ci</artifactId>
-		   	 <version>7.0.0.Final</version>
-		  </dependency>	
-		  
-		  <dependency>
-		    <groupId>org.apache.ant</groupId>
-		    <artifactId>ant</artifactId>
-		    <version>1.8.2</version>
-		</dependency>
-		
+
 		<dependency>
-		    <groupId>com.google.inject</groupId>
-		    <artifactId>guice</artifactId>
-		    <version>3.0-rc3</version>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-api</artifactId>
+			<version>7.0.0.Final</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.apache.maven</groupId>
-		    <artifactId>maven-plugin-api</artifactId>
-		    <version>3.5.0</version>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>7.0.0.Final</version>
 		</dependency>
-	
+
 		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpcore</artifactId>
-		    <version>4.4.6</version>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>7.0.0.Final</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-ci</artifactId>
+			<version>7.0.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.8.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0-rc3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>3.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+
 	</dependencies>
 
 
