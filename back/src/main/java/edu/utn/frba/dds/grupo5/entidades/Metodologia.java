@@ -12,7 +12,7 @@ public class Metodologia {
     	
     }
 	
-	private String nombre;
+    private String nombre;
 	private List<Empresa> empresas;
 	private List<ICondicion> condiciones;
 	private List<IFiltro> filtros;

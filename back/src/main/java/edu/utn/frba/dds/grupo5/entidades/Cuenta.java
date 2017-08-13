@@ -1,12 +1,25 @@
 package edu.utn.frba.dds.grupo5.entidades;
 
-public class Cuenta {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Table(name="di_cuenta")
+@Entity
+public class Cuenta extends Persistent {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8144207758650677012L;
 	private String descripcion;
+	
 	public Cuenta(){
 		
 	}
 	
+	
+	@Column(name="cu_descripcion",length=200,nullable=false)
 	public String getDescripcion() {
 		return descripcion;
 	}
