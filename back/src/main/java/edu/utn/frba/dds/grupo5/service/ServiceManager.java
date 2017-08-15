@@ -4,6 +4,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.apache.commons.io.IOUtils;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
@@ -18,6 +21,7 @@ import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.Repositorio;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
@@ -26,9 +30,10 @@ import edu.utn.frba.dds.grupo5.util.Util;
 public class ServiceManager {
 	
 	private static ServiceManager instance;
-	private List<Indicador> indicadores;
-	private List<Cuenta> cuentas;
 	private KieSession kSession;
+	private List<Cuenta> cuentas;
+	private List<Indicador> indicadores;
+	private Repositorio repo;
 	
 	private ServiceManager() throws Exception{
 		Type listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
@@ -42,6 +47,9 @@ public class ServiceManager {
 		KieServices ks = KieServices.Factory.get();
 		KieContainer kContainer = ks.getKieClasspathContainer();
 		kSession = kContainer.newKieSession();
+		
+		EntityManagerFactory fact = Persistence.createEntityManagerFactory("DDS");
+		repo = new Repositorio(fact.createEntityManager());
 	}
 	
 	public static ServiceManager getInstance() throws Exception{

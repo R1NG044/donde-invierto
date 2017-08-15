@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -32,7 +33,7 @@ public class Periodo extends Persistent{
 	}
 	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
-	@JoinColumn(name="ce_per_oid",nullable=true)
+	@JoinColumn(name="ce_per_oid",nullable=true,foreignKey=@ForeignKey(name="fk_ce_per_oid"))
 	public List<CuentaEmpresa> getCuentas() {
 		if(cuentas == null)
 			cuentas = new ArrayList<CuentaEmpresa>();

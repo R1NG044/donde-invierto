@@ -2,8 +2,14 @@ package edu.utn.frba.dds.grupo5.entidades;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+
+@NamedQueries({
+	@NamedQuery(name="search_all_cuentas",query="select c from Cuenta c")
+})
 @Table(name="di_cuenta")
 @Entity
 public class Cuenta extends Persistent {
