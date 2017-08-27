@@ -2,11 +2,28 @@ package edu.utn.frba.dds.grupo5.entidades;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import edu.utn.frba.dds.grupo5.util.Util;
+@Table(name="di_empresa")
+@Entity
+public class Empresa extends Persistent{
 
-public class Empresa {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5880821639341627201L;
 	private List<Periodo> periodos;
 	private String nombre;
 	private Integer anioFundacion;
@@ -15,6 +32,8 @@ public class Empresa {
 		
 	}
 	
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
+	@JoinColumn(name="per_emp_oid",nullable=true,foreignKey=@ForeignKey(name="fk_per_emp_oid"))
 	public List<Periodo> getPeriodos() {
 		if(periodos==null)
 			periodos=new ArrayList<Periodo>();
@@ -33,9 +52,11 @@ public class Empresa {
 			periodos = new ArrayList<Periodo>();
 		periodos.add(periodo);
 	}
-	public String getNombre() {
+	@Column(name="emp_nombre",nullable=false,length=100)
+	public String getNombre(){
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -47,7 +68,7 @@ public class Empresa {
 	public List<Periodo> getPeriodosAnio(String anio){
 		return Util.filterByPredicate(getPeriodos(),p->p.getAnio().equals(anio));
 	}
-	
+	@Column(name="emp_fund",nullable=false,length=4)
 	public Integer getAnioFundacion(){
 		return anioFundacion;
 	}
