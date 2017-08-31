@@ -33,7 +33,7 @@ public class Periodo extends Persistent{
 	}
 	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
-	@JoinColumn(name="ce_per_oid",nullable=true,foreignKey=@ForeignKey(name="fk_ce_per_oid"))
+	@JoinColumn(name="per_ce_oid",nullable=false,foreignKey=@ForeignKey(name="fk_per_ce_oid"))
 	public List<CuentaEmpresa> getCuentas() {
 		if(cuentas == null)
 			cuentas = new ArrayList<CuentaEmpresa>();

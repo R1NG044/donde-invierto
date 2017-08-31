@@ -33,7 +33,7 @@ public class Empresa extends Persistent{
 	}
 	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
-	@JoinColumn(name="per_emp_oid",nullable=true,foreignKey=@ForeignKey(name="fk_per_emp_oid"))
+	@JoinColumn(name="emp_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_emp_per_oid"))
 	public List<Periodo> getPeriodos() {
 		if(periodos==null)
 			periodos=new ArrayList<Periodo>();
@@ -71,6 +71,10 @@ public class Empresa extends Persistent{
 	@Column(name="emp_fund",nullable=false,length=4)
 	public Integer getAnioFundacion(){
 		return anioFundacion;
+	}
+	
+	public void setAnioFundacion(Integer anioFundacion) {
+		this.anioFundacion = anioFundacion;
 	}
 	
 	public Integer antiguedad(){
