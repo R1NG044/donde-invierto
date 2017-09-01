@@ -1,7 +1,10 @@
 package edu.utn.frba.dds.grupo5.entidades;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,7 +24,7 @@ public class Indicador extends Persistent{
 	 */
 	private static final long serialVersionUID = -8156980671136462943L;
 	private String expression;
-	private List<Indicador> indicadores;
+	private Set<Indicador> indicadores;
 	private List<Cuenta> cuentas;
 	private String nombre;
 	
@@ -36,15 +39,19 @@ public class Indicador extends Persistent{
 	public void setExpression(String expression) {
 		this.expression = expression;
 	}
-
-	public List<Indicador> getIndicadores() {
+	
+	@ManyToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY)
+	@JoinTable(name="di_indicadores",
+	joinColumns=@JoinColumn(name="ind_rel_oid"),
+	inverseJoinColumns=@JoinColumn(name="ind_oid"))
+	public Set<Indicador> getIndicadores() {
 		if(indicadores == null)
-			indicadores = new ArrayList<Indicador>();
+			indicadores = new HashSet<>();
 		return indicadores;
 	}
 	
-	public void setIndicadores(List<Indicador> indicadores) {
-		this.indicadores = indicadores;
+	public void setIndicadores(Collection<Indicador> indicadores) {
+		getIndicadores().addAll(indicadores);
 	}
 
 	@ManyToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY)

@@ -40,6 +40,10 @@ public class Empresa extends Persistent{
 		return periodos;
 	}
 	
+	public void setPeriodos(List<Periodo> periodos){
+		this.periodos = periodos;
+	}
+	
 	public Periodo getPeriodoByName(String name) throws Exception{
 		if(!validarPeriodo(name)) {
 			throw new Exception("Periodo '"+name+"' no encontrado");
