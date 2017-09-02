@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.service.ServiceManager;
 
 
 public class TestEmpresa {
@@ -105,5 +107,9 @@ public class TestEmpresa {
 		Assert.assertEquals(cuenta.getValor(),new Double(valor));
 	}
 	
+	@After
+	public void clearDatabase() throws Exception{
+		ServiceManager.getInstance().clearRepo();
+	}
 	
 }

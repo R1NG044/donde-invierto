@@ -4,18 +4,31 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import edu.utn.frba.dds.grupo5.util.Util;
 
-public class Metodologia {
+
+@Table(name="di_metodologia")
+@Entity
+public class Metodologia extends Persistent{
 	
-    public Metodologia(){
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 2665655157388244421L;
+
+	public Metodologia(){
     	
     }
 	
     private String nombre;
 	private List<Empresa> empresas;
-	private List<ICondicion> condiciones;
-	private List<IFiltro> filtros;
+    private List<ICondicion> condiciones;
+    private List<IFiltro> filtros;
 	
 	public void minimizar(String indicador,int anios) throws Exception{
 		ICondicion cond = new CondicionMinimo();
@@ -56,7 +69,7 @@ public class Metodologia {
 		getCondiciones().add(cond);
 	}
 	
-	
+	@Transient
 	public List<Empresa> getResult(){
 		
 		List<Empresa> result = Util.filterByPredicate(empresas, e -> filtrar(e));
@@ -81,6 +94,7 @@ public class Metodologia {
 			
 	}
 	
+	@Transient
 	public List<ICondicion> getCondiciones() {
 		if(condiciones==null)
 			condiciones = new ArrayList<>();
@@ -91,14 +105,16 @@ public class Metodologia {
 		this.condiciones = condiciones;
 	}
 
-	public void setNombre(String nombre){
-		this.nombre=nombre;
-	}
-	
+	@Column(name="met_nombre",length=200,nullable=false)
 	public String getNombre(){
 		return nombre;
 	}
 	
+	public void setNombre(String nombre){
+		this.nombre=nombre;
+	}
+	
+	@Transient
 	public List<Empresa> getEmpresas() {
 		return empresas;
 	}
@@ -107,6 +123,7 @@ public class Metodologia {
 		this.empresas = empresas;
 	}
 	
+	@Transient
 	public List<IFiltro> getFiltros() {
 		if(filtros==null)
 			filtros=new ArrayList<>();

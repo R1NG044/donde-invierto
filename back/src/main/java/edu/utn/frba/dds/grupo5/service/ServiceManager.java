@@ -1,49 +1,32 @@
 package edu.utn.frba.dds.grupo5.service;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.apache.commons.io.IOUtils;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
-import edu.utn.frba.dds.grupo5.entidades.Repositorio;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
-import edu.utn.frba.dds.grupo5.util.Util;
+import edu.utn.frba.dds.grupo5.persistent.Repositorio;
 
 public class ServiceManager {
 	
 	private static ServiceManager instance;
 	private KieSession kSession;
-	private List<Cuenta> cuentas;
-	private List<Indicador> indicadores;
 	private Repositorio repo;
 	
 	private ServiceManager() throws Exception{
-		Type listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
-		cuentas = new Gson().fromJson(
-		IOUtils.toString(ServiceManager.class.getClassLoader().getResource("cuentas.json")), listType);
-		
-		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
-		indicadores = new Gson().fromJson(
-		IOUtils.toString(ServiceManager.class.getClassLoader().getResource("indicadores-predefinidos.json")), listType);
-		
 		KieServices ks = KieServices.Factory.get();
 		KieContainer kContainer = ks.getKieClasspathContainer();
 		kSession = kContainer.newKieSession();
@@ -58,17 +41,23 @@ public class ServiceManager {
 		return instance;
 	}
 	
-	public void guardarIndicadores(List<Indicador> cargados) throws IndicadorException{
+	public void guardarIndicadores(List<Indicador> cargados) throws Exception, IndicadorException{
 		for(Indicador ind: cargados){
-			Indicador generated = FactoryIndicadores.getInstance().build(ind.getExpression(), ind.getNombre(), cuentas, indicadores);
-			indicadores.add(generated);
+			Indicador generated = FactoryIndicadores.getInstance().build(ind.getExpression(), ind.getNombre(), repo.getCuentas().all(), repo.getIndicadores().all());
+			repo.getIndicadores().save(generated);
+		}
+	}
+	
+	public void guardarCuentas(List<Cuenta> cuentas) throws Exception, IndicadorException{
+		for(Cuenta c : cuentas){
+			repo.getCuentas().save(c);
 		}
 	}
 	
 	public Indicador recuperarIndicador(String nombre) throws Exception{
-		List<Indicador> recuperados = Util.filterByPredicate(indicadores, ind -> ind.getNombre().equals(nombre));
-		if(recuperados.size() != 0){
-			return recuperados.get(0);
+		Indicador recuperado = repo.getIndicadores().findByName(nombre);
+		if(recuperado != null){
+			return recuperado;
 		}
 		throw new Exception("Indicador '"+nombre+"' no encontrado");
 	}
@@ -87,8 +76,9 @@ public class ServiceManager {
 		
 		double result = 0;
 		
-		for(Periodo periodo: periodos)
+		for(Periodo periodo: periodos){
 			result+=EvaluadorExpresiones.realizarCalculo(indicador, periodo);
+		}
 			
 		return result;
 	}
@@ -102,10 +92,14 @@ public class ServiceManager {
 		 int cantRules = kSession.fireAllRules();
 		 kSession.delete(handle);
 		 
-		 if(cantRules==0)
+		 if(cantRules==0){
 			 throw new Exception("Metodología "+name+" no encontrada");
+		 }
 		 
 		 return metodologia.getResult();
 	}
 	
+	public void clearRepo(){
+		repo.clearAll();
+	}
 }

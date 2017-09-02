@@ -8,7 +8,8 @@ import javax.persistence.Table;
 
 
 @NamedQueries({
-	@NamedQuery(name="search_all_cuentas",query="select c from Cuenta c")
+	@NamedQuery(name="search_all_cuentas",query="select c from Cuenta c"),
+	@NamedQuery(name="search_cuentas",query="select c from Cuenta c where c.descripcion=:descripcion")
 })
 @Table(name="di_cuenta")
 @Entity

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +19,9 @@ import java.util.GregorianCalendar;
 import edu.utn.frba.dds.grupo5.util.Util;
 @Table(name="di_empresa")
 @Entity
+@NamedQueries({
+	@NamedQuery(name="search_all_empresas",query="select e from Empresa e ")
+})
 public class Empresa extends Persistent{
 
 	

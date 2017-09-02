@@ -13,10 +13,16 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Table(name="di_indicador")
 @Entity
+@NamedQueries({
+	@NamedQuery(name="search_all_indicadores",query="select i from Indicador i "),
+	@NamedQuery(name="search_indicadores",query="select i from Indicador i where i.nombre = :nombre")
+})
 public class Indicador extends Persistent{
 	
 	/**
@@ -67,7 +73,7 @@ public class Indicador extends Persistent{
 	public void setCuentas(List<Cuenta> cuentas) {
 		this.cuentas = cuentas;
 	}
-	@Column(name="ind_valor",nullable=false,scale=2)
+	@Column(name="ind_nombre",nullable=false,unique=true)
 	public String getNombre() {
 		return nombre;
 	}
