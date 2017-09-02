@@ -43,7 +43,7 @@ public class Indicadores extends SingleData{
 	protected void clear() {
 		for(Indicador i: all()){
 			em.getTransaction().begin();
-			em.remove(i);
+			em.remove(em.contains(i) ? i : em.merge(i));
 			em.getTransaction().commit();
 		}
 	}
