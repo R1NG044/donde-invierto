@@ -65,7 +65,8 @@ public class TestMetodologias {
 		 assertEquals("Pepsico",result.get(1).getNombre());
 		 assertEquals("Apple",result.get(2).getNombre());
 		
-}
+	}
+	
 	@Test
 	public void testDebt() throws Exception{
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Debt", empresas);
@@ -74,9 +75,8 @@ public class TestMetodologias {
 		 assertEquals("Apple",result.get(1).getNombre());
 		 assertEquals("Instagram",result.get(2).getNombre());
 		 assertEquals("Google",result.get(3).getNombre());
-		
-		
-}
+	}
+	
 	@Test
 	public void testLastYear() throws Exception{
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("LastYear", empresas);
@@ -87,7 +87,7 @@ public class TestMetodologias {
 		 assertEquals("Google",result.get(2).getNombre());
 		 assertEquals("Instagram",result.get(3).getNombre());
 		
-}
+	}
 	
 	@Test
 	public void testHistorial() throws Exception{

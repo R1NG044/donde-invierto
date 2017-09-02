@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -14,6 +16,10 @@ import edu.utn.frba.dds.grupo5.util.Util;
 
 @Table(name="di_metodologia")
 @Entity
+@NamedQueries({
+	@NamedQuery(name="search_all_metodologias",query="select m from Metodologia m "),
+	@NamedQuery(name="search_metodologias",query="select m from Metodologia m where m.nombre = :nombre")
+})
 public class Metodologia extends Persistent{
 	
     /**

@@ -1,4 +1,4 @@
-package edu.utn.frba.dds.grupo5.persistent;
+package edu.utn.frba.dds.grupo5.persistencia;
 
 import java.util.List;
 

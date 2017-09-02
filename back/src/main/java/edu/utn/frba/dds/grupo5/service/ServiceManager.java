@@ -18,10 +18,10 @@ import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
-import edu.utn.frba.dds.grupo5.persistent.Repositorio;
+import edu.utn.frba.dds.grupo5.persistencia.Repositorio;
+import edu.utn.frba.dds.grupo5.util.ConfigManager;
 
 public class ServiceManager {
-	
 	private static ServiceManager instance;
 	private KieSession kSession;
 	private Repositorio repo;
@@ -31,7 +31,9 @@ public class ServiceManager {
 		KieContainer kContainer = ks.getKieClasspathContainer();
 		kSession = kContainer.newKieSession();
 		
-		EntityManagerFactory fact = Persistence.createEntityManagerFactory("DDS");
+		String ds = ConfigManager.getInstance().getProperty("dbsource");
+		
+		EntityManagerFactory fact = Persistence.createEntityManagerFactory(ds);
 		repo = new Repositorio(fact.createEntityManager());
 	}
 	
