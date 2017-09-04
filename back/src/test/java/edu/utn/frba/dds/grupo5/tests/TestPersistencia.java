@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -29,6 +30,7 @@ public class TestPersistencia {
 		String empresasString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("empresas.json"));
 		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
 		empresas = ((List<Empresa>)new Gson().fromJson(empresasString, listType));
+		
 	}
 	
 	@Test
@@ -36,7 +38,6 @@ public class TestPersistencia {
 		for(Empresa emp: empresas){
 			ServiceManager.getInstance().guardarEmpresa(emp);
 		}
-		assertEquals(6,ServiceManager.getInstance().getEmpresas().size());
 		
 		Empresa snapchat = ServiceManager.getInstance().buscarEmpresa("Snapchat");
 		
@@ -44,9 +45,24 @@ public class TestPersistencia {
 		assertEquals(Integer.valueOf(2011),snapchat.getAnioFundacion());
 		assertEquals(2,snapchat.getPeriodos().size());
 	} 
+
 	
-	@AfterClass
+	@Test
+	public void testPeriodos() throws Exception{
+		Empresa apple = ServiceManager.getInstance().buscarEmpresa("Apple");
+		assertEquals("Apple",apple.getNombre());
+		assertEquals(11,apple.getPeriodos().size());
+		assertEquals("Anual",apple.getPeriodos().get(0).getNombre());
+		assertEquals("Anual",apple.getPeriodos().get(6).getNombre());
+		assertEquals("2011",apple.getPeriodos().get(6).getAnio());
+		assertEquals(0,apple.getPeriodos().get(3).getStartRange());
+		assertEquals(12,apple.getPeriodos().get(8).getEndRange());
+		assertEquals(5,apple.getPeriodos().get(9).getCuentas().size());
+	}
+	
+@AfterClass
 	public static void clearDatabase() throws Exception{
 		ServiceManager.getInstance().clearRepo();
-	}
+	}	
+	
 }
