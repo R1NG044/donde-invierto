@@ -20,7 +20,8 @@ import edu.utn.frba.dds.grupo5.util.Util;
 @Table(name="di_empresa")
 @Entity
 @NamedQueries({
-	@NamedQuery(name="search_all_empresas",query="select e from Empresa e ")
+	@NamedQuery(name="search_all_empresas",query="select e from Empresa e "),
+	@NamedQuery(name="search_empresas",query="select e from Empresa e where (:nombre is null or e.nombre=:nombre)")
 })
 public class Empresa extends Persistent{
 

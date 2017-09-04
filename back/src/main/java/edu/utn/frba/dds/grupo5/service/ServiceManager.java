@@ -50,7 +50,7 @@ public class ServiceManager {
 		}
 	}
 	
-	public void guardarCuentas(List<Cuenta> cuentas) throws Exception, IndicadorException{
+	public void guardarCuentas(List<Cuenta> cuentas) throws Exception{
 		for(Cuenta c : cuentas){
 			repo.getCuentas().save(c);
 		}
@@ -99,6 +99,19 @@ public class ServiceManager {
 		 }
 		 
 		 return metodologia.getResult();
+	}
+	
+	
+	public void guardarEmpresa(Empresa empresa) throws Exception{
+		repo.getEmpresas().save(empresa);
+	}
+	
+	public Empresa buscarEmpresa(String nombre) throws Exception{
+		return repo.getEmpresas().findByName(nombre);
+	}
+	
+	public List<Empresa> getEmpresas() throws Exception{
+		return repo.getEmpresas().all();
 	}
 	
 	public void clearRepo(){
