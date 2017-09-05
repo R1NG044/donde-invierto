@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
+import edu.utn.frba.dds.grupo5.entidades.Empresa;
 
 public class Cuentas extends SingleData{
 
@@ -28,6 +29,15 @@ public class Cuentas extends SingleData{
 		em.getTransaction().begin();
 		em.persist(cuenta);
 		em.getTransaction().commit();
+	}
+	
+	@Override
+	public void clear(){
+		for(Cuenta c: all()){
+			em.getTransaction().begin();
+			em.remove(em.contains(c) ? c : em.merge(c));
+			em.getTransaction().commit();
+		}
 	}
 	
 	public Cuenta findByName(String nombre){

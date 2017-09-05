@@ -1,5 +1,6 @@
 package edu.utn.frba.dds.grupo5.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
@@ -18,6 +19,7 @@ import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
+import edu.utn.frba.dds.grupo5.persistencia.Cuentas;
 import edu.utn.frba.dds.grupo5.persistencia.Repositorio;
 import edu.utn.frba.dds.grupo5.util.ConfigManager;
 
@@ -54,6 +56,10 @@ public class ServiceManager {
 		for(Cuenta c : cuentas){
 			repo.getCuentas().save(c);
 		}
+	}
+	
+	public Cuentas getCuentas() {
+		return repo.getCuentas();
 	}
 	
 	public Indicador recuperarIndicador(String nombre) throws Exception{
@@ -95,7 +101,7 @@ public class ServiceManager {
 		 kSession.delete(handle);
 		 
 		 if(cantRules==0){
-			 throw new Exception("Metodología "+name+" no encontrada");
+			 throw new Exception("Metodologï¿½a "+name+" no encontrada");
 		 }
 		 
 		 return metodologia.getResult();
