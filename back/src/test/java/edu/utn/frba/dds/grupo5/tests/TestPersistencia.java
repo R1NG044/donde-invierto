@@ -1,6 +1,7 @@
 package edu.utn.frba.dds.grupo5.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -15,7 +16,9 @@ import org.junit.Test;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
+import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
 
@@ -31,6 +34,17 @@ public class TestPersistencia {
 		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
 		empresas = ((List<Empresa>)new Gson().fromJson(empresasString, listType));
 		
+		String cuentasString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("cuentas.json"));
+		listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
+		List<Cuenta> cuentas = ((List<Cuenta>)new Gson().fromJson(cuentasString, listType));
+		
+		ServiceManager.getInstance().guardarCuentas(cuentas);
+		
+		String indicadoresString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-predefinidos.json"));
+		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
+		List<Indicador> indicadores = ((List<Indicador>)new Gson().fromJson(indicadoresString, listType));
+		
+		ServiceManager.getInstance().guardarIndicadores(indicadores);
 	}
 	
 	@Test
@@ -58,6 +72,18 @@ public class TestPersistencia {
 		assertEquals(0,apple.getPeriodos().get(3).getStartRange());
 		assertEquals(12,apple.getPeriodos().get(8).getEndRange());
 		assertEquals(5,apple.getPeriodos().get(9).getCuentas().size());
+	}
+	
+	@Test
+	public void testMetodologias() throws Exception, IndicadorException{
+
+		empresas = ServiceManager.getInstance().evaluateMetodologia("Buffet", empresas);
+		
+		 assertTrue(empresas.size()==3);
+		 assertEquals("Pepsico",empresas.get(0).getNombre());
+		 assertEquals("Apple",empresas.get(1).getNombre());
+		 assertEquals("Google",empresas.get(2).getNombre());
+		
 	}
 	
 @AfterClass
