@@ -19,6 +19,7 @@ import com.google.gson.reflect.TypeToken;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
+import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
 
@@ -68,15 +69,14 @@ public class TestPersistencia {
 	
 	@Test
 	public void testPeriodos() throws Exception{
-		Empresa apple = ServiceManager.getInstance().buscarEmpresa("Apple");
-		assertEquals("Apple",apple.getNombre());
-		assertEquals(11,apple.getPeriodos().size());
-		assertEquals("Anual",apple.getPeriodos().get(0).getNombre());
-		assertEquals("Anual",apple.getPeriodos().get(6).getNombre());
-		assertEquals("2011",apple.getPeriodos().get(6).getAnio());
-		assertEquals(0,apple.getPeriodos().get(3).getStartRange());
-		assertEquals(12,apple.getPeriodos().get(8).getEndRange());
-		assertEquals(5,apple.getPeriodos().get(9).getCuentas().size());
+		Empresa facebook = ServiceManager.getInstance().buscarEmpresa("Facebook");
+		Periodo semestral = facebook.getPeriodoByName("Semestral");
+		
+		assertEquals("Facebook",facebook.getNombre());
+		assertEquals(1,facebook.getPeriodos().size());
+		assertEquals(3,semestral.getCuentas().size());
+		assertEquals("Semestral",semestral.getNombre());
+		assertEquals("2017",semestral.getAnio());
 	}
 	
 	@Test
@@ -96,6 +96,7 @@ public class TestPersistencia {
 		Empresa snapchat = ServiceManager.getInstance().buscarEmpresa("Snapchat");
 		
 		assertEquals("indicador1", indicador1.getNombre());
+		assertEquals(2, indicador1.getCuentas().size());
 		assertEquals("cuenta{EBITDA}*2+cuenta{CASH}", indicador1.getExpression());
 		assertEquals(250400, ServiceManager.getInstance().evaluarIndicador("indicador1", snapchat, "Semestral"),0);
 		
