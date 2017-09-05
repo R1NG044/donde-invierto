@@ -45,6 +45,11 @@ public class TestPersistencia {
 		List<Indicador> indicadores = ((List<Indicador>)new Gson().fromJson(indicadoresString, listType));
 		
 		ServiceManager.getInstance().guardarIndicadores(indicadores);
+		
+		String indicadoresUsuario = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-usuario.json"));
+		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
+		List<Indicador> indicadoresUsuarios = new Gson().fromJson(indicadoresUsuario, listType);
+		ServiceManager.getInstance().guardarIndicadores(indicadoresUsuarios);
 	}
 	
 	@Test
@@ -85,7 +90,16 @@ public class TestPersistencia {
 		 assertEquals("Google",empresas.get(2).getNombre());
 		
 	}
-	
+	@Test
+	public void testIndicadores() throws Exception{	
+		Indicador indicador1 = ServiceManager.getInstance().recuperarIndicador("indicador1");
+		Empresa snapchat = ServiceManager.getInstance().buscarEmpresa("Snapchat");
+		
+		assertEquals("indicador1", indicador1.getNombre());
+		assertEquals("cuenta{EBITDA}*2+cuenta{CASH}", indicador1.getExpression());
+		assertEquals(250400, ServiceManager.getInstance().evaluarIndicador("indicador1", snapchat, "Semestral"),0);
+		
+	}
 @AfterClass
 	public static void clearDatabase() throws Exception{
 		ServiceManager.getInstance().clearRepo();
