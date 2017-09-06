@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 
 public class Metodologias extends SingleData{
@@ -15,13 +14,13 @@ public class Metodologias extends SingleData{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Indicador> all(){
-		return (List<Indicador>)em.createNamedQuery("search_all_metodologias").getResultList();
+	public List<Metodologia> all(){
+		return (List<Metodologia>)em.createNamedQuery("search_all_metodologias").getResultList();
 	}
 	
 	public Metodologia findByName(String metodologia){
 		try{
-			return (Metodologia) em.createNamedQuery("search_metodologia").setParameter("nombre", metodologia).getSingleResult();
+			return (Metodologia) em.createNamedQuery("search_metodologias").setParameter("nombre", metodologia).getSingleResult();
 		}catch(Exception e){
 			return null;
 		}
@@ -39,5 +38,4 @@ public class Metodologias extends SingleData{
 		em.persist(me);
 		em.getTransaction().commit();
 	}
-	
 }

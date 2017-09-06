@@ -18,10 +18,8 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
-import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.persistencia.Cuentas;
-import edu.utn.frba.dds.grupo5.persistencia.Repositorio;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
 import edu.utn.frba.dds.grupo5.util.ConfigManager;
 

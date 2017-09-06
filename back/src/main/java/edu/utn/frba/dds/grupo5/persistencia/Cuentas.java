@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
-import edu.utn.frba.dds.grupo5.entidades.Empresa;
 
 public class Cuentas extends SingleData{
 

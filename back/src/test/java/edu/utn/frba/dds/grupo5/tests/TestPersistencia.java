@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.AfterClass;
-import org.junit.Assert;
+import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -19,14 +18,15 @@ import com.google.gson.reflect.TypeToken;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
-import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
+import edu.utn.frba.dds.grupo5.util.Util;
 
 public class TestPersistencia {
-	//	TODO
-	
 	private static List<Empresa> empresas;
+	private static List<Indicador> indicadores;
+	private static List<Cuenta> cuentas;
 	
 	@SuppressWarnings("unchecked")
 	@BeforeClass
@@ -35,22 +35,13 @@ public class TestPersistencia {
 		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
 		empresas = ((List<Empresa>)new Gson().fromJson(empresasString, listType));
 		
-		String cuentasString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("cuentas.json"));
-		listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
-		List<Cuenta> cuentas = ((List<Cuenta>)new Gson().fromJson(cuentasString, listType));
-		
-		ServiceManager.getInstance().guardarCuentas(cuentas);
-		
 		String indicadoresString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-predefinidos.json"));
 		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
-		List<Indicador> indicadores = ((List<Indicador>)new Gson().fromJson(indicadoresString, listType));
+		indicadores = ((List<Indicador>)new Gson().fromJson(indicadoresString, listType));
 		
-		ServiceManager.getInstance().guardarIndicadores(indicadores);
-		
-		String indicadoresUsuario = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-usuario.json"));
-		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
-		List<Indicador> indicadoresUsuarios = new Gson().fromJson(indicadoresUsuario, listType);
-		ServiceManager.getInstance().guardarIndicadores(indicadoresUsuarios);
+		String cuentaString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("cuentas.json"));
+		listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
+		cuentas = ((List<Cuenta>)new Gson().fromJson(cuentaString, listType));
 	}
 	
 	@Test
@@ -64,45 +55,64 @@ public class TestPersistencia {
 		assertEquals("Snapchat",snapchat.getNombre());
 		assertEquals(Integer.valueOf(2011),snapchat.getAnioFundacion());
 		assertEquals(2,snapchat.getPeriodos().size());
-	} 
-
-	
-	@Test
-	public void testPeriodos() throws Exception{
-		Empresa facebook = ServiceManager.getInstance().buscarEmpresa("Facebook");
-		Periodo semestral = facebook.getPeriodoByName("Semestral");
-		
-		assertEquals("Facebook",facebook.getNombre());
-		assertEquals(1,facebook.getPeriodos().size());
-		assertEquals(3,semestral.getCuentas().size());
-		assertEquals("Semestral",semestral.getNombre());
-		assertEquals("2017",semestral.getAnio());
 	}
 	
 	@Test
 	public void testMetodologias() throws Exception, IndicadorException{
-
-		empresas = ServiceManager.getInstance().evaluateMetodologia("Buffet", empresas);
+		Metodologia m1 = new Metodologia();
+		m1.setNombre("m1");
 		
-		 assertTrue(empresas.size()==3);
-		 assertEquals("Pepsico",empresas.get(0).getNombre());
-		 assertEquals("Apple",empresas.get(1).getNombre());
-		 assertEquals("Google",empresas.get(2).getNombre());
+		ServiceManager.getInstance().saveMetodologia(m1);
 		
+		Metodologia m2 = new Metodologia();
+		m2.setNombre("m2");
+		
+		ServiceManager.getInstance().saveMetodologia(m2);
+		
+		assertEquals(2, ServiceManager.getInstance().getMetodologias().size());
+		Metodologia m1DB = ServiceManager.getInstance().getMetodologia("m1");
+		Metodologia m2DB = ServiceManager.getInstance().getMetodologia("m2");
+		
+		assertEquals("m1", m1DB.getNombre());
+		assertEquals("m2", m2DB.getNombre());
 	}
+	
 	@Test
-	public void testIndicadores() throws Exception{	
-		Indicador indicador1 = ServiceManager.getInstance().recuperarIndicador("indicador1");
-		Empresa snapchat = ServiceManager.getInstance().buscarEmpresa("Snapchat");
+	public void testIndicadores() throws Exception, IndicadorException{	
+		ServiceManager.getInstance().guardarCuentas(cuentas);
+		ServiceManager.getInstance().guardarIndicadores(indicadores);
 		
-		assertEquals("indicador1", indicador1.getNombre());
-		assertEquals(2, indicador1.getCuentas().size());
-		assertEquals("cuenta{EBITDA}*2+cuenta{CASH}", indicador1.getExpression());
-		assertEquals(250400, ServiceManager.getInstance().evaluarIndicador("indicador1", snapchat, "Semestral"),0);
+		Indicador prueba = ServiceManager.getInstance().recuperarIndicador("I1");
 		
+		assertEquals(5, ServiceManager.getInstance().getIndicadores().size());
+		assertEquals(1, prueba.getCuentas().size());
+		assertEquals(0, prueba.getIndicadores().size());
+		assertEquals("cuenta{CASH}*33", prueba.getExpression());
+		assertEquals("CASH",prueba.getCuentas().stream().findFirst().get().getDescripcion());
 	}
-@AfterClass
-	public static void clearDatabase() throws Exception{
+	
+	@Test
+	public void testCuentas() throws Exception, IndicadorException{
+		List<Cuenta> pruebas = new ArrayList<>();
+		Cuenta c1 = new Cuenta();
+		c1.setDescripcion("cuenta1");
+		
+		Cuenta c2 = new Cuenta();
+		c2.setDescripcion("cuenta2");
+		
+		pruebas.add(c1);
+		pruebas.add(c2);
+		
+		ServiceManager.getInstance().guardarCuentas(pruebas);
+
+		List<Cuenta> cuentasFromDB = ServiceManager.getInstance().getCuentas();
+		
+		assertEquals(2, cuentasFromDB.size());
+		assertTrue(Util.map(cuentasFromDB, Cuenta::getDescripcion).containsAll(Util.map(pruebas, Cuenta::getDescripcion)) );
+	}
+	
+	@After
+	public void clearDatabase() throws Exception{
 		ServiceManager.getInstance().clearRepo();
 	}	
 	

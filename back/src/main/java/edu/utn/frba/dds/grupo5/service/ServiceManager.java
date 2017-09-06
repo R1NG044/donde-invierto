@@ -1,6 +1,5 @@
 package edu.utn.frba.dds.grupo5.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
@@ -19,7 +18,6 @@ import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
-import edu.utn.frba.dds.grupo5.persistencia.Cuentas;
 import edu.utn.frba.dds.grupo5.persistencia.Repositorio;
 import edu.utn.frba.dds.grupo5.util.ConfigManager;
 
@@ -52,14 +50,18 @@ public class ServiceManager {
 		}
 	}
 	
+	public List<Indicador> getIndicadores() {
+		return repo.getIndicadores().all();
+	}
+	
 	public void guardarCuentas(List<Cuenta> cuentas) throws Exception{
 		for(Cuenta c : cuentas){
 			repo.getCuentas().save(c);
 		}
 	}
 	
-	public Cuentas getCuentas() {
-		return repo.getCuentas();
+	public List<Cuenta> getCuentas() {
+		return repo.getCuentas().all();
 	}
 	
 	public Indicador recuperarIndicador(String nombre) throws Exception{
@@ -107,6 +109,17 @@ public class ServiceManager {
 		 return metodologia.getResult();
 	}
 	
+	public void saveMetodologia(Metodologia metodologia) throws Exception{
+		repo.getMetodologias().save(metodologia);
+	}
+	
+	public List<Metodologia> getMetodologias() throws Exception{
+		return repo.getMetodologias().all();
+	}
+	
+	public Metodologia getMetodologia(String name) throws Exception{
+		return repo.getMetodologias().findByName(name);
+	}
 	
 	public void guardarEmpresa(Empresa empresa) throws Exception{
 		repo.getEmpresas().save(empresa);
