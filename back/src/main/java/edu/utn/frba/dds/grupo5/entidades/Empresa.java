@@ -94,4 +94,11 @@ public class Empresa extends Persistent{
 		ant=anio-anioFundacion;
 		return ant;
 	}
+	
+	public String toString(){
+		if(nombre != null && anioFundacion != null){
+			return "EMPRESA: "+nombre+" FUNDACION: "+anioFundacion;
+		}
+		return "";
+	}
 }

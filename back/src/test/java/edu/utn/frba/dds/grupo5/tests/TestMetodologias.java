@@ -21,85 +21,104 @@ import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
 
-
 public class TestMetodologias {
-	
+
 	private List<Empresa> empresas;
-	
+
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws IndicadorException, Exception {
+		ServiceManager.getInstance().clearRepo();
+		
 		String empresasJson = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("empresas.json"));
-		
-		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
-		empresas = ((List<Empresa>)new Gson().fromJson(empresasJson, listType));
-		
+
+		Type listType = new TypeToken<ArrayList<Empresa>>() {
+		}.getType();
+		empresas = ((List<Empresa>) new Gson().fromJson(empresasJson, listType));
+
 		String cuentasString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("cuentas.json"));
-		listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
-		List<Cuenta> cuentas = ((List<Cuenta>)new Gson().fromJson(cuentasString, listType));
-		
+		listType = new TypeToken<ArrayList<Cuenta>>() {
+		}.getType();
+		List<Cuenta> cuentas = ((List<Cuenta>) new Gson().fromJson(cuentasString, listType));
+
 		ServiceManager.getInstance().guardarCuentas(cuentas);
-		
-		String indicadoresString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-predefinidos.json"));
-		listType = new TypeToken<ArrayList<Indicador>>(){}.getType();
-		List<Indicador> indicadores = ((List<Indicador>)new Gson().fromJson(indicadoresString, listType));
-		
+
+		String indicadoresString = IOUtils
+				.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-predefinidos.json"));
+		listType = new TypeToken<ArrayList<Indicador>>() {
+		}.getType();
+		List<Indicador> indicadores = ((List<Indicador>) new Gson().fromJson(indicadoresString, listType));
+
 		ServiceManager.getInstance().guardarIndicadores(indicadores);
 	}
-	
+
 	@Test
-	public void testBuffet() throws Exception{
+	public void testBuffet() throws Exception {
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Buffet", empresas);
-		 
-		 assertTrue(result.size()==3);
-		 assertEquals("Pepsico",result.get(0).getNombre());
-		 assertEquals("Apple",result.get(1).getNombre());
-		 assertEquals("Google",result.get(2).getNombre());
-	} 
+
+		assertTrue(result.size() == 3);
+		assertEquals("Pepsico", result.get(0).getNombre());
+		assertEquals("Apple", result.get(1).getNombre());
+		assertEquals("Google", result.get(2).getNombre());
+
+		System.out.println("***********TEST BUFFET***********");
+		result.forEach(e -> System.out.println(e.toString()));
+	}
+
 	@Test
-	public void testConstante() throws Exception{
+	public void testConstante() throws Exception {
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Constante", empresas);
-		 
-		assertTrue(result.size()==3);
-		 assertEquals("Google",result.get(0).getNombre());
-		 assertEquals("Pepsico",result.get(1).getNombre());
-		 assertEquals("Apple",result.get(2).getNombre());
-		
+
+		assertTrue(result.size() == 3);
+		assertEquals("Google", result.get(0).getNombre());
+		assertEquals("Pepsico", result.get(1).getNombre());
+		assertEquals("Apple", result.get(2).getNombre());
+
+		System.out.println("***********TEST CONSTANTE***********");
+		result.forEach(e -> System.out.println(e.toString()));
 	}
-	
+
 	@Test
-	public void testDebt() throws Exception{
+	public void testDebt() throws Exception {
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Debt", empresas);
-		 assertTrue(result.size()==4);
-		 assertEquals("Pepsico",result.get(0).getNombre());
-		 assertEquals("Apple",result.get(1).getNombre());
-		 assertEquals("Instagram",result.get(2).getNombre());
-		 assertEquals("Google",result.get(3).getNombre());
+		assertTrue(result.size() == 4);
+		assertEquals("Pepsico", result.get(0).getNombre());
+		assertEquals("Apple", result.get(1).getNombre());
+		assertEquals("Instagram", result.get(2).getNombre());
+		assertEquals("Google", result.get(3).getNombre());
+
+		System.out.println("***********TEST DEBT***********");
+		result.forEach(e -> System.out.println(e.toString()));
 	}
-	
+
 	@Test
-	public void testLastYear() throws Exception{
+	public void testLastYear() throws Exception {
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("LastYear", empresas);
-		 
-		assertTrue(result.size()==4);
-		 assertEquals("Pepsico",result.get(0).getNombre());
-		 assertEquals("Apple",result.get(1).getNombre());
-		 assertEquals("Google",result.get(2).getNombre());
-		 assertEquals("Instagram",result.get(3).getNombre());
-		
+
+		assertTrue(result.size() == 4);
+		assertEquals("Pepsico", result.get(0).getNombre());
+		assertEquals("Apple", result.get(1).getNombre());
+		assertEquals("Google", result.get(2).getNombre());
+		assertEquals("Instagram", result.get(3).getNombre());
+
+		System.out.println("***********TEST LAST YEAR***********");
+		result.forEach(e -> System.out.println(e.toString()));
 	}
-	
+
 	@Test
-	public void testHistorial() throws Exception{
+	public void testHistorial() throws Exception {
 		List<Empresa> result = ServiceManager.getInstance().evaluateMetodologia("Historial", empresas);
-		
-		assertTrue(result.size()==2);
-		assertEquals("Pepsico",result.get(0).getNombre());
-		assertEquals("Google",result.get(1).getNombre());
+
+		assertTrue(result.size() == 2);
+		assertEquals("Pepsico", result.get(0).getNombre());
+		assertEquals("Google", result.get(1).getNombre());
+
+		System.out.println("***********TEST HISTORIAL***********");
+		result.forEach(e -> System.out.println(e.toString()));
 	}
-	
+
 	@After
-	public void clearDatabase() throws Exception{
+	public void clearDatabase() throws Exception {
 		ServiceManager.getInstance().clearRepo();
 	}
 }
