@@ -22,7 +22,7 @@ public class ConfigManager {
 	
 	public static ConfigManager getInstance() throws Exception{
 		if(instance == null){
-			instance = new ConfigManager("config.properties");
+			instance = new ConfigManager("application.properties");
 		}
 		return instance;
 	}
