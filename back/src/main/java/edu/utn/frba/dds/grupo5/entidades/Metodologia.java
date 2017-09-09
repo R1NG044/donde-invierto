@@ -78,7 +78,7 @@ public class Metodologia extends Persistent{
 	@Transient
 	public List<Empresa> getResult(){
 		
-		List<Empresa> result = Util.filterByPredicate(empresas, e -> filtrar(e));
+		List<Empresa> result = Util.filterByPredicate(getEmpresas(), e -> filtrar(e));
 		Collections.sort(result, new Comparator<Empresa>() {
 			public int compare(Empresa o1, Empresa o2) {
 				
@@ -122,6 +122,9 @@ public class Metodologia extends Persistent{
 	
 	@Transient
 	public List<Empresa> getEmpresas() {
+		if(empresas == null){
+			empresas = new ArrayList<>();
+		}
 		return empresas;
 	}
 	
