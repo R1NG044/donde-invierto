@@ -1,11 +1,14 @@
 package edu.utn.frba.dds.grupo5.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.kie.api.KieBase;
 import org.kie.api.KieServices;
+import org.kie.api.definition.rule.Rule;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
@@ -25,16 +28,27 @@ public class ServiceManager {
 	private static ServiceManager instance;
 	private KieSession kSession;
 	private Repositorio repo;
+	private boolean mockContainer;
+	private KieServices ks;
 	
 	private ServiceManager() throws Exception{
-		KieServices ks = KieServices.Factory.get();
-		KieContainer kContainer = ks.getKieClasspathContainer();
+		ks = KieServices.Factory.get();
+		KieContainer kContainer = getKieContainer();
 		kSession = kContainer.newKieSession();
+		mockContainer = ConfigManager.getInstance().getBooleanProperty("mock-container");
 		
 		String ds = ConfigManager.getInstance().getProperty("dbsource");
 		
 		EntityManagerFactory fact = Persistence.createEntityManagerFactory(ds);
 		repo = new Repositorio(fact.createEntityManager());
+	}
+	
+	private KieContainer getKieContainer(){
+		if (!mockContainer){
+			return ks.newKieContainer(ks.newReleaseId("edu.utn.frba.dds.grupo5", "Metodologias", "LATEST"));
+		}else{
+			return ks.getKieClasspathContainer();
+		}
 	}
 	
 	public static ServiceManager getInstance() throws Exception{
@@ -62,6 +76,10 @@ public class ServiceManager {
 	
 	public List<Cuenta> getCuentas() {
 		return repo.getCuentas().all();
+	}
+	
+	public Cuenta getCuenta(Long oid) throws Exception {
+		return repo.getCuentas().findByPK(Cuenta.class, oid);
 	}
 	
 	public Indicador recuperarIndicador(String nombre) throws Exception{
@@ -103,7 +121,7 @@ public class ServiceManager {
 		 kSession.delete(handle);
 		 
 		 if(cantRules==0){
-			 throw new Exception("Metodolog�a "+name+" no encontrada");
+			 throw new Exception("Metodologia "+name+" no encontrada");
 		 }
 		 
 		 return metodologia.getResult();
@@ -117,12 +135,41 @@ public class ServiceManager {
 		return repo.getMetodologias().all();
 	}
 	
-	public Metodologia getMetodologia(String name) throws Exception{
+	public Metodologia getMetodologiaByName(String name) throws Exception{
 		return repo.getMetodologias().findByName(name);
+	}
+	
+	public Metodologia getMetodologia(Long oid) throws Exception {
+		return repo.getCuentas().findByPK(Metodologia.class, oid);
+	}
+	
+	public void deleteMetodologia(Long oid) throws Exception {
+		repo.getEmpresas().delete(Metodologia.class, oid);
+	}
+	
+	
+	public void refreshMetodologias() throws Exception{
+		kSession = getKieContainer().newKieSession();
+		
+		repo.getMetodologias().clear();
+		
+		List<Rule> rules = new ArrayList<Rule>();
+		KieBase newKieBase = kSession.getKieBase();
+		newKieBase.getKiePackages().forEach(p -> rules.addAll(p.getRules()));
+		
+		for(Rule r: rules){
+			Metodologia m = new Metodologia();
+			m.setNombre(r.getName());
+			saveMetodologia(m);
+		}
 	}
 	
 	public void guardarEmpresa(Empresa empresa) throws Exception{
 		repo.getEmpresas().save(empresa);
+	}
+	
+	public void actualizarEmpresa(Empresa empresa) throws Exception{
+		repo.getEmpresas().update(empresa);
 	}
 	
 	public Empresa buscarEmpresa(String nombre) throws Exception{
@@ -133,7 +180,16 @@ public class ServiceManager {
 		return repo.getEmpresas().all();
 	}
 	
+	public Empresa getEmpresa(Long oid) throws Exception {
+		return repo.getEmpresas().findByPK(Empresa.class, oid);
+	}
+	
+	public void deleteEmpresa(Long oid) throws Exception {
+		repo.getEmpresas().delete(Empresa.class, oid);
+	}
+	
 	public void clearRepo(){
 		repo.clearAll();
 	}
+
 }

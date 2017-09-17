@@ -37,5 +37,10 @@ public class ConfigManager {
 		return value;
 	}
 	
+	public boolean getBooleanProperty(String name) throws Exception{
+		String prop = getProperty(name);
+		return "true".equalsIgnoreCase(prop);
+	}
+	
 	
 }

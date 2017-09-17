@@ -70,8 +70,8 @@ public class TestPersistencia {
 		ServiceManager.getInstance().saveMetodologia(m2);
 		
 		assertEquals(2, ServiceManager.getInstance().getMetodologias().size());
-		Metodologia m1DB = ServiceManager.getInstance().getMetodologia("m1");
-		Metodologia m2DB = ServiceManager.getInstance().getMetodologia("m2");
+		Metodologia m1DB = ServiceManager.getInstance().getMetodologiaByName("m1");
+		Metodologia m2DB = ServiceManager.getInstance().getMetodologiaByName("m2");
 		
 		assertEquals("m1", m1DB.getNombre());
 		assertEquals("m2", m2DB.getNombre());

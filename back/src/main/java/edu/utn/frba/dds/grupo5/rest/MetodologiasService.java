@@ -13,17 +13,23 @@ import edu.utn.frba.dds.grupo5.service.ServiceManager;
 @RestController
 @RequestMapping("/metodologia")
 public class MetodologiasService {
-	
+
 	@Autowired
 	private ServiceManager service;
-	
-    @RequestMapping(value="/all", method= RequestMethod.GET, produces="application/json")
-    public List<Metodologia> all() throws Exception {
-    	return service.getMetodologias();
-    }
+
+	@RequestMapping(value = "/", method = RequestMethod.GET, produces = "application/json")
+	public List<Metodologia> all() throws Exception {
+		return service.getMetodologias();
+	}
+
+	@RequestMapping(value = "/refresh", method = RequestMethod.GET, produces = "application/json")
+	public List<Metodologia> refresh() throws Exception {
+		service.refreshMetodologias();
+		return service.getMetodologias();
+	}
 
 	public void setService(ServiceManager service) {
 		this.service = service;
 	}
-	
+
 }

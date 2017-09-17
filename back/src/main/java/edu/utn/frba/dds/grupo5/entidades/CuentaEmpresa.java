@@ -23,7 +23,7 @@ public class CuentaEmpresa extends Persistent{
 		
 	}
 
-	@ManyToOne(optional=false,cascade={CascadeType.PERSIST,CascadeType.REFRESH})
+	@ManyToOne(optional=false,cascade={CascadeType.ALL})
 	@JoinColumn(name="ce_cuenta_oid",nullable=false,foreignKey=@ForeignKey(name="fk_ce_cuenta_oid"))
 	public Cuenta getCuenta() {
 		return cuenta;

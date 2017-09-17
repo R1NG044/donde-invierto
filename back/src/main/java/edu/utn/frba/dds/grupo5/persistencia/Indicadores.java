@@ -40,7 +40,7 @@ public class Indicadores extends SingleData{
 	}
 	
 	@Override
-	protected void clear() {
+	public void clear() {
 		for(Indicador i: all()){
 			em.getTransaction().begin();
 			em.remove(em.contains(i) ? i : em.merge(i));
