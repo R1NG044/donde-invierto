@@ -38,7 +38,7 @@ public class Empresa extends Persistent{
 		
 	}
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,orphanRemoval=true)
 	@JoinColumn(name="emp_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_emp_per_oid"))
 	public List<Periodo> getPeriodos() {
 		if(periodos==null)

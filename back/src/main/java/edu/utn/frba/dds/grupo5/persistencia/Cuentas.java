@@ -14,8 +14,10 @@ public class Cuentas extends SingleData{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Cuenta> all(){
-		return (List<Cuenta>)em.createNamedQuery("search_all_cuentas").getResultList();
+	public List<Cuenta> all() throws Exception{
+		return (List<Cuenta>) doAction(em -> {
+			return em.createNamedQuery("search_all_cuentas").getResultList();
+		});
 	}
 	
 	public void save(Cuenta cuenta) throws Exception{
@@ -24,24 +26,29 @@ public class Cuentas extends SingleData{
 		if(duplicated != null){
 			throw new Exception("La cuenta con descripcion "+cuenta.getDescripcion()+" ya existe");
 		}
-		
-		em.getTransaction().begin();
-		em.persist(cuenta);
-		em.getTransaction().commit();
+		doAction(em -> {
+			em.merge(cuenta);
+			return null;
+		});
 	}
 	
 	@Override
-	public void clear(){
-		for(Cuenta c: all()){
-			em.getTransaction().begin();
-			em.remove(em.contains(c) ? c : em.merge(c));
-			em.getTransaction().commit();
-		}
+	public void clear() throws Exception{
+		List<Cuenta> cuentas = all();
+		doAction(em -> {
+			em.flush();
+			for(Cuenta c: cuentas){
+				em.remove(c);
+			}
+			return null;
+		});
 	}
 	
 	public Cuenta findByName(String nombre){
 		try{
-			return (Cuenta) em.createNamedQuery("search_cuentas").setParameter("descripcion", nombre).getSingleResult();
+			return (Cuenta)doAction(em -> {
+				return (Cuenta) em.createNamedQuery("search_cuentas").setParameter("descripcion", nombre).getSingleResult();
+			});
 		}catch(Exception e){
 			return null;
 		}

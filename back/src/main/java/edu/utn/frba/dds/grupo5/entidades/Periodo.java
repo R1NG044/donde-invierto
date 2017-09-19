@@ -32,7 +32,7 @@ public class Periodo extends Persistent{
 		
 	}
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,orphanRemoval=true)
 	@JoinColumn(name="per_ce_oid",nullable=false,foreignKey=@ForeignKey(name="fk_per_ce_oid"))
 	public List<CuentaEmpresa> getCuentas() {
 		if(cuentas == null)

@@ -46,7 +46,7 @@ public class Indicador extends Persistent{
 		this.expression = expression;
 	}
 	
-	@ManyToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY)
+	@ManyToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	@JoinTable(name="di_indicadores",
 	joinColumns=@JoinColumn(name="ind_rel_oid"),
 	inverseJoinColumns=@JoinColumn(name="ind_oid"))
@@ -57,10 +57,12 @@ public class Indicador extends Persistent{
 	}
 	
 	public void setIndicadores(Collection<Indicador> indicadores) {
-		getIndicadores().addAll(indicadores);
+		if(indicadores != null){
+			this.indicadores = (Set<Indicador>) indicadores;
+		}
 	}
 
-	@ManyToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY)
+	@ManyToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	 @JoinTable(name="ind_cu",
 	  joinColumns=@JoinColumn(name="cu_oid"),
 	  inverseJoinColumns=@JoinColumn(name="ind_oid"))
@@ -80,6 +82,9 @@ public class Indicador extends Persistent{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public void addIndicadores(List<Indicador> indicadores) {
+		getIndicadores().addAll(indicadores);
 	}
 	
 }

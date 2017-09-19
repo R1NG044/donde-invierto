@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class Persistent implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -18,7 +18,7 @@ public class Persistent implements Serializable {
 	private Long oid;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "oid")
 	public Long getOid() {
 		return oid;
@@ -27,6 +27,6 @@ public class Persistent implements Serializable {
 	public void setOid(Long oid) {
 		this.oid = oid;
 	}
-	
-	
+
+
 }

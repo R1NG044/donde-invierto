@@ -14,13 +14,18 @@ public class Empresas extends SingleData{
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Empresa> all(){
-		return (List<Empresa>)em.createNamedQuery("search_all_empresas").getResultList();
+	public List<Empresa> all() throws Exception{
+		return (List<Empresa>) doAction(em ->  {
+				return (List<Empresa>)em.createNamedQuery("search_all_empresas").getResultList();
+		});
 	}
 	
 	public Empresa findByName(String empresa){
 		try{
-			return (Empresa) em.createNamedQuery("search_empresas").setParameter("nombre", empresa).getSingleResult();
+			return (Empresa) doAction(em -> {
+				return (Empresa) em.createNamedQuery("search_empresas").setParameter("nombre", empresa).getSingleResult();
+		});
+
 		}catch(Exception e){
 			return null;
 		}
@@ -33,19 +38,22 @@ public class Empresas extends SingleData{
 		if(duplicated != null){
 			throw new Exception("La empresa con el nombre "+duplicated.getNombre()+" ya existe");
 		}
-		
-		em.getTransaction().begin();
-		em.persist(emp);
-		em.getTransaction().commit();
+		doAction(em->{
+				em.merge(emp);
+				return null;
+		});
 	}
 	
 	@Override
-	public void clear(){
-		for(Empresa e: all()){
-			em.getTransaction().begin();
-			em.remove(em.contains(e) ? e : em.merge(e));
-			em.getTransaction().commit();
-		}
+	public void clear() throws Exception{
+		List<Empresa> empresas = all();
+		doAction(em -> {
+			em.flush();
+			for(Empresa e: empresas){
+				em.remove(e);
+			}
+			return null;
+		});
 	}
 	
 }

@@ -28,6 +28,7 @@ public class TestIndicadores {
 	@SuppressWarnings("unchecked")
 	@BeforeClass
 	public static void setUp() throws IndicadorException, Exception {
+		ServiceManager.getInstance().clearRepo();
 		indicadoresUsuario = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("indicadores-usuario.json"));
 		
 		String empresas = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("empresas.json"));

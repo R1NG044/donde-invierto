@@ -42,7 +42,7 @@ public class Repositorio {
 		return metodologias;
 	}
 	
-	public void clearAll(){
+	public void clearAll() throws Exception{
 		getEmpresas().clear();
 		getIndicadores().clear();
 		getCuentas().clear();

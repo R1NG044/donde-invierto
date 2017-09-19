@@ -33,9 +33,9 @@ public class ServiceManager {
 	
 	private ServiceManager() throws Exception{
 		ks = KieServices.Factory.get();
+		mockContainer = ConfigManager.getInstance().getBooleanProperty("mock-container");
 		KieContainer kContainer = getKieContainer();
 		kSession = kContainer.newKieSession();
-		mockContainer = ConfigManager.getInstance().getBooleanProperty("mock-container");
 		
 		String ds = ConfigManager.getInstance().getProperty("dbsource");
 		
@@ -47,7 +47,7 @@ public class ServiceManager {
 		if (!mockContainer){
 			return ks.newKieContainer(ks.newReleaseId("edu.utn.frba.dds.grupo5", "Metodologias", "LATEST"));
 		}else{
-			return ks.getKieClasspathContainer();
+			return ks.newKieClasspathContainer();
 		}
 	}
 	
@@ -64,7 +64,7 @@ public class ServiceManager {
 		}
 	}
 	
-	public List<Indicador> getIndicadores() {
+	public List<Indicador> getIndicadores() throws Exception {
 		return repo.getIndicadores().all();
 	}
 	
@@ -74,7 +74,7 @@ public class ServiceManager {
 		}
 	}
 	
-	public List<Cuenta> getCuentas() {
+	public List<Cuenta> getCuentas() throws Exception {
 		return repo.getCuentas().all();
 	}
 	
@@ -188,7 +188,7 @@ public class ServiceManager {
 		repo.getEmpresas().delete(Empresa.class, oid);
 	}
 	
-	public void clearRepo(){
+	public void clearRepo() throws Exception{
 		repo.clearAll();
 	}
 

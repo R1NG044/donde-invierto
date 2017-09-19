@@ -6,10 +6,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import org.apache.commons.io.IOUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,13 +15,10 @@ import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
-import edu.utn.frba.dds.grupo5.persistencia.Cuentas;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
-import edu.utn.frba.dds.grupo5.util.ConfigManager;
 
 public class TestCuentas {
 	static List<Cuenta> cuentasFromConfig;
-	static EntityManager em;
 	
 	@SuppressWarnings("unchecked")
 	@BeforeClass
@@ -35,27 +28,21 @@ public class TestCuentas {
 
 		listType = new TypeToken<ArrayList<Cuenta>>(){}.getType();
 		cuentasFromConfig = ((List<Cuenta>)new Gson().fromJson(cuentasString, listType));
-		
-		String ds = ConfigManager.getInstance().getProperty("dbsource");
-		
-		EntityManagerFactory fact = Persistence.createEntityManagerFactory(ds);
-		em = fact.createEntityManager();
+		ServiceManager.getInstance().clearRepo();
 	}
 	
 	@Test
 	public void testBorraCuentas() throws Exception, IndicadorException{
-		Cuentas cuentas = new Cuentas(em, "cuentas prueba");
 		ServiceManager.getInstance().guardarCuentas(cuentasFromConfig);
 
-		List<Cuenta> cuentasFromDB = cuentas.all();
+		List<Cuenta> cuentasFromDB = ServiceManager.getInstance().getCuentas();
 		
 		assertEquals(cuentasFromConfig.size(), cuentasFromDB.size());
 		
-		cuentas.clear();
+		ServiceManager.getInstance().clearRepo();
 		
-		cuentasFromDB = cuentas.all();
+		cuentasFromDB = ServiceManager.getInstance().getCuentas();
 		assertEquals(0, cuentasFromDB.size());
-				
 	}
 	
 	

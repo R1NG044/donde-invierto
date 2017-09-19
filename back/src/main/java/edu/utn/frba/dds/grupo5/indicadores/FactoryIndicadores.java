@@ -47,7 +47,7 @@ public class FactoryIndicadores {
 		indicador.setExpression(expression);
 		indicador.setNombre(nombre);
 		indicador.setCuentas(Util.filterByPredicate(cuentas, c -> cuentasDesc.contains(c.getDescripcion()) ));
-		indicador.setIndicadores(Util.filterByPredicate(indicadores,i -> indicadoresDesc.contains(i.getNombre()) ));
+		indicador.addIndicadores(Util.filterByPredicate(indicadores,i -> indicadoresDesc.contains(i.getNombre()) ));
 		
 		return indicador;
 	}
