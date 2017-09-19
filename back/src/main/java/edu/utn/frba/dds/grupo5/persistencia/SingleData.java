@@ -28,7 +28,7 @@ public class SingleData {
 
 	public void delete(Class<? extends Persistent> clazz, Object pk) throws Exception {
 		doAction(em -> {
-			em.remove(findByPK(clazz, pk));
+			em.remove(em.find(clazz, pk));
 			return null;
 		});
 	}
