@@ -17,6 +17,8 @@ public class SingleData {
 
 	@SuppressWarnings("unchecked")
 	public <T extends Persistent> T findByPK(Class<T> clazz, Object pk) throws Exception {
+		if(pk == null) return null;
+		
 		return (T) doAction(em -> {
 			T object = em.find(clazz, pk);
 			if (object == null) {

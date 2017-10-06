@@ -18,6 +18,7 @@ import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.Usuario;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
@@ -59,13 +60,28 @@ public class ServiceManager {
 	
 	public void guardarIndicadores(List<Indicador> cargados) throws Exception, IndicadorException{
 		for(Indicador ind: cargados){
-			Indicador generated = FactoryIndicadores.getInstance().build(ind.getExpression(), ind.getNombre(), repo.getCuentas().all(), repo.getIndicadores().all());
-			repo.getIndicadores().save(generated);
+			guardarIndicador(ind);
 		}
+	}
+	
+	public void guardarIndicador(Indicador ind) throws Exception, IndicadorException{
+		Indicador generated = FactoryIndicadores.getInstance().build(ind.getExpression(), ind.getNombre(), repo.getCuentas().all(), repo.getIndicadores().all());
+		if(ind.getUsuario() != null){
+			generated.setUsuario(repo.getUsuarios().findByPK(Usuario.class, ind.getUsuario().getOid()));
+		}
+		repo.getIndicadores().save(generated);
 	}
 	
 	public List<Indicador> getIndicadores() throws Exception {
 		return repo.getIndicadores().all();
+	}
+	
+	public List<Indicador> getIndicadores(Long userOid) throws Exception {
+		return repo.getIndicadores().findByUser(userOid);
+	}
+	
+	public Indicador getIndicador(Long oid) throws Exception {
+		return repo.getIndicadores().findByPK(Indicador.class, oid);
 	}
 	
 	public void guardarCuentas(List<Cuenta> cuentas) throws Exception{
@@ -147,7 +163,6 @@ public class ServiceManager {
 		repo.getEmpresas().delete(Metodologia.class, oid);
 	}
 	
-	
 	public void refreshMetodologias() throws Exception{
 		kSession = getKieContainer().newKieSession();
 		
@@ -186,6 +201,10 @@ public class ServiceManager {
 	
 	public void deleteEmpresa(Long oid) throws Exception {
 		repo.getEmpresas().delete(Empresa.class, oid);
+	}
+	
+	public Usuario doLogin(String usuario,String password) throws Exception{
+		return repo.getUsuarios().login(usuario, password);
 	}
 	
 	public void clearRepo() throws Exception{

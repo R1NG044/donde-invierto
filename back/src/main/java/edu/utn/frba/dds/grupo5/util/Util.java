@@ -15,6 +15,10 @@ public class Util {
 		return list.stream().filter(p).collect(Collectors.toList());
 	}
 	
+	public static <T> T find(List<T>list, Predicate<? super T> p){
+		return list.stream().filter(p).findFirst().orElse(null);
+	}
+	
 	public static <T> boolean allElementsMatch(List<T>list, Predicate<? super T> p){
 		return list.stream().allMatch(p);
 	}

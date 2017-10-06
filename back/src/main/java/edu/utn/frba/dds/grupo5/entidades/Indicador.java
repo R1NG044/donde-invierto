@@ -10,9 +10,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,7 +23,8 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
 	@NamedQuery(name="search_all_indicadores",query="select i from Indicador i "),
-	@NamedQuery(name="search_indicadores",query="select i from Indicador i where i.nombre = :nombre")
+	@NamedQuery(name="search_indicadores",query="select i from Indicador i where i.nombre = :nombre"),
+	@NamedQuery(name="search_indicadores_by_user",query="select i from Indicador i left join i.usuario as u where (u is null or u.oid = :userOid)")
 })
 public class Indicador extends Persistent{
 	
@@ -33,6 +36,7 @@ public class Indicador extends Persistent{
 	private Set<Indicador> indicadores;
 	private List<Cuenta> cuentas;
 	private String nombre;
+	private Usuario usuario;
 	
 	public Indicador (){
 		
@@ -75,6 +79,7 @@ public class Indicador extends Persistent{
 	public void setCuentas(List<Cuenta> cuentas) {
 		this.cuentas = cuentas;
 	}
+	
 	@Column(name="ind_nombre",nullable=false,unique=true)
 	public String getNombre() {
 		return nombre;
@@ -85,6 +90,15 @@ public class Indicador extends Persistent{
 	}
 	public void addIndicadores(List<Indicador> indicadores) {
 		getIndicadores().addAll(indicadores);
+	}
+	
+	@ManyToOne(optional=true,cascade={CascadeType.ALL})
+	@JoinColumn(name="ind_user_oid",nullable=true,foreignKey=@ForeignKey(name="fk_ind_user_oid"))
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 }

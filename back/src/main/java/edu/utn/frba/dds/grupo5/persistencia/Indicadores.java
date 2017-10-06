@@ -29,6 +29,17 @@ public class Indicadores extends SingleData {
 			return null;
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Indicador> findByUser(Long userOid){
+		try {
+			return (List<Indicador>) doAction(em -> {
+				return (List<Indicador>) em.createNamedQuery("search_indicadores_by_user").setParameter("userOid", userOid).getResultList();
+			});
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 	public void save(Indicador ind) throws Exception {
 

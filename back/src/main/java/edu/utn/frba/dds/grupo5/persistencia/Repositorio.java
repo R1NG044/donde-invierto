@@ -9,6 +9,7 @@ public class Repositorio {
 	private Empresas empresas;
 	private Indicadores indicadores;
 	private Metodologias metodologias;
+	private Usuarios usuarios;
 	
 	public Repositorio(EntityManager em){
 		this.em = em;
@@ -42,10 +43,18 @@ public class Repositorio {
 		return metodologias;
 	}
 	
+	public Usuarios getUsuarios(){
+		if(usuarios == null){
+			usuarios = new Usuarios(em, "Usuario");
+		}
+		return usuarios;
+	}
+	
 	public void clearAll() throws Exception{
 		getEmpresas().clear();
 		getIndicadores().clear();
 		getCuentas().clear();
 		getMetodologias().clear();
+		getUsuarios().clear();
 	}
 }
