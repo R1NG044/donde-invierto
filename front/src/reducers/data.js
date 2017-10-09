@@ -12,6 +12,12 @@ export default function data(state = initialState.data, action) {
       newState.empresas = action.empresas;
       return newState;
 
+    case t.LOAD_METODOLOGIAS_SUCCESS:
+      newState = mergeDeep({}, state);
+      newState.metodologias = action.metodologias;
+      return newState;
+
+
     case t.APLICAR_METODOLOGIA_SUCCESS:
       newState = Object.assign({}, state);
       newState.empresasByMetodologias = action.empresas;

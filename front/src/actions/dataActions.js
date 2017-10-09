@@ -4,18 +4,36 @@ import Mocker from '../mocks/dataMock';
 import {clearInputs, clearPeriodosPorAgregar} from './uiActions';
 import {showSuccessOnSave} from './uiActions';
 
-export function loadData(quantity) {
+export function loadData() {
   return (dispatch) => {
     dispatch({
       type: types.INITIAL_DATA_REQUEST
     });
 
-    const empresas = Mocker.generateEmpresas(quantity);
+    //const empresas = Mocker.generateEmpresas(quantity);
 
-    dispatch({
-      type: types.INITIAL_DATA_SUCCESS,
-      empresas
-    });
+    fetch('http://localhost:8081/empresa/')
+      .then(res => res.json())
+      .then(empresas => {
+        dispatch({
+          type: types.INITIAL_DATA_SUCCESS,
+          empresas
+        });
+      });
+  }
+}
+
+export function fetchMetodologias() {
+  return (dispatch) => {
+
+    fetch('http://localhost:8081/metodologia/')
+      .then(res => res.json())
+      .then(metodologias => {
+        dispatch({
+          type: types.LOAD_METODOLOGIAS_SUCCESS,
+          metodologias
+        });
+      });
   }
 }
 
@@ -78,21 +96,25 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 
     cuenta = {
       nombre: inputs.nombreCuenta,
-      empresaId,
-      periodoId,
       valorCuenta: parseInt(inputs.valorCuenta)
-    }
+    };
 
-    // TODO: Do the request and then...
-    dispatch({
-      type: types.SAVE_CUENTA_SUCCESS,
-      cuenta,
-      empresaId,
-      periodoId
-    });
-    clearInputs(type)(dispatch);
-    showSuccessOnSave()(dispatch);
+    const options = {
+      method: 'PUT',
+      body: cuenta
+    };
 
+    fetch(`http://localhost:8081/empresa/${empresaId}/${periodoId}`, options)
+      .then(() => {
+        dispatch({
+          type: types.SAVE_CUENTA_SUCCESS,
+          cuenta,
+          empresaId,
+          periodoId
+        });
+        clearInputs(type)(dispatch);
+        showSuccessOnSave()(dispatch);
+      });
   }
 }
 
@@ -110,47 +132,50 @@ export function cargarIndicador(type) {
     indicador = {
       nombre: inputs.nombreIndicador,
       descripcion: inputs.expresionIndicador
-    }
+    };
 
-    // TODO: Do the request and then...
-    indicador.id = Math.floor(Math.random() * (1000 - 1)) + 1; // TODO: HARDCODED
+    const options = {
+      method: 'POST'
+    };
 
-    dispatch({
-      type: types.SAVE_INDICADOR_SUCCESS,
-      indicador
-    });
-    clearInputs(type)(dispatch);
-    showSuccessOnSave()(dispatch);
-
-  }
+    fetch('http://localhost:8081/indicador/', options)
+      .then(() => {
+        dispatch({
+          type: types.SAVE_INDICADOR_SUCCESS,
+          indicador
+        });
+        clearInputs(type)(dispatch);
+        showSuccessOnSave()(dispatch);
+      });
+  };
 }
 
-export function cargarMetodologia(type) {
-  return (dispatch, getState) => (e) => {
-    e.preventDefault();
-    let metodologia;
-    let inputs = getState().ui.inputsValues[type];
+// export function cargarMetodologia(type) {
+//   return (dispatch, getState) => (e) => {
+//     e.preventDefault();
+//     let metodologia;
+//     let inputs = getState().ui.inputsValues[type];
 
-    dispatch({
-      type: types.SAVE_METODOLOGIA_REQUEST
-    });
+//     dispatch({
+//       type: types.SAVE_METODOLOGIA_REQUEST
+//     });
 
 
-    metodologia = {
-      nombre: inputs.nombreMetodologia,
-    }
+//     metodologia = {
+//       nombre: inputs.nombreMetodologia,
+//     }
 
-    // TODO: Do the request and then...
-    metodologia.id = Math.floor(Math.random() * (1000 - 1)) + 1; // TODO: HARDCODED
+//     // TODO: Do the request and then...
+//     metodologia.id = Math.floor(Math.random() * (1000 - 1)) + 1; // TODO: HARDCODED
 
-    dispatch({
-      type: types.SAVE_METODOLOGIA_SUCCESS,
-      metodologia
-    });
-    clearInputs(type)(dispatch);
-    showSuccessOnSave()(dispatch);
-  }
-}
+//     dispatch({
+//       type: types.SAVE_METODOLOGIA_SUCCESS,
+//       metodologia
+//     });
+//     clearInputs(type)(dispatch);
+//     showSuccessOnSave()(dispatch);
+//   }
+// }
 
 export function borrarIndicador(type) {
   return (dispatch, getState) => (e) => {

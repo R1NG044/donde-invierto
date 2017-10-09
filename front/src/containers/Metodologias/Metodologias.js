@@ -12,29 +12,38 @@ import {periodosOrdenados} from '../../selectors/DataSelector';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 
-const Metodologias = (props) =>
-  <Grid fluid>
-    {
-      !props.metodologias.length ?
-      <NoMetodologias />
-      :
-      <div>
-        <Row>
-          <SelectMetodologia metodologias={props.metodologias}
-                              dataActions={props.dataActions} />
-        </Row>
-        <Row>
-          {
-            props.metodologiaSelected &&
-            <HomePage empresas={props.empresas}
-                      withRanking={true} />
-          }
-        </Row>
-      </div>
-    }
+class Metodologias extends React.Component {
 
-  </Grid>;
+  componentWillMount() {
+    this.props.dataActions.fetchMetodologias();
+  }
 
+  render() {
+    return (
+      <Grid fluid>
+        {
+          !this.props.metodologias.length ?
+          <NoMetodologias />
+          :
+          <div>
+            <Row>
+              <SelectMetodologia metodologias={this.props.metodologias}
+                                  dataActions={this.props.dataActions} />
+            </Row>
+            <Row>
+              {
+                this.props.metodologiaSelected &&
+                <HomePage empresas={this.props.empresas}
+                          withRanking={true} />
+              }
+            </Row>
+          </div>
+        }
+
+      </Grid>
+    );
+  }
+}
 
 
 function mapStateToProps(state) {

@@ -2,7 +2,6 @@ import React from 'react';
 import CargaEmpresa from './CargaEmpresa';
 import CargaIndicadores from './CargaIndicadores';
 import CargaCuenta from './CargaCuenta';
-import CargaMetodologias from './CargaMetodologias';
 import BorrarIndicadores from './BorrarIndicadores';
 import {Col, Grid, Row} from 'react-bootstrap';
 import './CargaBase.scss';
@@ -27,6 +26,5 @@ Carga.Empresa = CargaEmpresa;
 Carga.Cuenta = CargaCuenta;
 Carga.Indicadores = CargaIndicadores;
 Carga.DeleteIndicadores = BorrarIndicadores;
-Carga.Metodologias = CargaMetodologias;
 
 export default Carga;
