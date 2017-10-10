@@ -9,4 +9,8 @@
 	<bean id="service" class="edu.utn.frba.dds.grupo5.service.ServiceManager"></bean>
 	
 	<bean id="empresasService" class="edu.utn.frba.dds.grupo5.rest.EmpresasService"></bean>
+	
+	<bean id="indicadoresService" class="edu.utn.frba.dds.grupo5.rest.IndicadoresService"></bean>
+	
+	<bean id="cuentasService" class="edu.utn.frba.dds.grupo5.rest.CuentasService"></bean>
 </beans>

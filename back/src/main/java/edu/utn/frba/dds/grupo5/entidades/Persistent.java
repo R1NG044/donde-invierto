@@ -27,11 +27,5 @@ public class Persistent implements Serializable {
 	public void setOid(Long oid) {
 		this.oid = oid;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		return (this.oid != null && obj != null && obj instanceof Persistent && this.oid.equals(((Persistent)obj).getOid() )) ||super.equals(obj);
-	}
-
 
 }

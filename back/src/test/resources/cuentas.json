@@ -1,10 +1,10 @@
-	[{"descripcion":"CASH","oid":99},
-	  {"descripcion":"EBITDA","oid":1},
-	  {"descripcion":"Pasivo total","oid":4},
-	  {"descripcion":"Activo total","oid":3},
-	  {"descripcion":"PNP","oid":2},
-	  {"descripcion":"Resultado del ejercicio","oid":6},
-	  {"descripcion":"Ventas neto","oid":5},
-	  {"descripcion":"FDS","oid":77},
-	  {"descripcion":"Free Cash Flow","oid":78}
+	[{"descripcion":"CASH"},
+	  {"descripcion":"EBITDA"},
+	  {"descripcion":"Pasivo total"},
+	  {"descripcion":"Activo total"},
+	  {"descripcion":"PNP"},
+	  {"descripcion":"Resultado del ejercicio"},
+	  {"descripcion":"Ventas neto"},
+	  {"descripcion":"FDS"},
+	  {"descripcion":"Free Cash Flow"}
 	]

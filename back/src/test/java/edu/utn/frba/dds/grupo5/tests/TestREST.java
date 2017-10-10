@@ -2,6 +2,9 @@ package edu.utn.frba.dds.grupo5.tests;
 
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Rule;
@@ -15,9 +18,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
+import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
+import edu.utn.frba.dds.grupo5.rest.CuentasService;
 import edu.utn.frba.dds.grupo5.rest.EmpresasService;
+import edu.utn.frba.dds.grupo5.rest.IndicadoresService;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
+import edu.utn.frba.dds.grupo5.util.Util;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,6 +37,12 @@ public class TestREST {
 	
 	@Autowired
 	private EmpresasService empresasService;
+	
+	@Autowired
+	private IndicadoresService indicadoresService;
+	
+	@Autowired
+	private CuentasService cuentasService;
 	
 	@Test
 	public void testPeriodo() throws Exception{
@@ -51,6 +65,28 @@ public class TestREST {
 	@Test
 	public void testBusquedaEmpresas() throws Exception{
 		assertEquals(6,empresasService.all().size());
+	}
+	
+	@Test
+	public void testBusquedaCuentas() throws Exception{
+		assertEquals(9,cuentasService.all().size());
+	}
+	
+	@Test
+	public void testAgregaIndicador() throws Exception, IndicadorException{
+		Indicador ind = new Indicador();
+		ind.setNombre("Prueba-1");
+		ind.setExpression("cuenta{EBITDA}+44");
+		
+		indicadoresService.add(ind);
+		
+		List<Indicador> indicadores = indicadoresService.all(null);
+		
+		ind = Util.find(indicadores, i -> i.getNombre().equals("Prueba-1"));
+		
+		assertTrue(ind!=null);
+		assertEquals("Prueba-1",ind.getNombre());
+		assertEquals("cuenta{EBITDA}+44",ind.getExpression());
 	}
 	
 	@After

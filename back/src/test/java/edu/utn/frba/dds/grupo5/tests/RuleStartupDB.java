@@ -14,10 +14,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
+import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
+import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
+import edu.utn.frba.dds.grupo5.util.Util;
 
 public class RuleStartupDB implements TestRule {
 
@@ -45,6 +48,8 @@ public class RuleStartupDB implements TestRule {
 
 		ServiceManager.getInstance().guardarCuentas(cuentas);
 		
+		cuentas = ServiceManager.getInstance().getCuentas();
+		
 		String empresasJson = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("empresas.json"));
 
 		listType = new TypeToken<ArrayList<Empresa>>() {
@@ -52,6 +57,17 @@ public class RuleStartupDB implements TestRule {
 		List<Empresa> empresas = ((List<Empresa>) new Gson().fromJson(empresasJson, listType));
 		
 		for(Empresa e: empresas){
+			
+			for(Periodo p:e.getPeriodos()){
+				for(CuentaEmpresa c:p.getCuentas()){
+					Cuenta cp = Util.find(cuentas, c2 -> c2.getDescripcion().equals(c.getCuenta().getDescripcion()));
+					if(cp!=null){
+						c.setCuenta(cp);
+					}
+				}
+			}
+			
+			
 			ServiceManager.getInstance().guardarEmpresa(e);
 		}
 		
