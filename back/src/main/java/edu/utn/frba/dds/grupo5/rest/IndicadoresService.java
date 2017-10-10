@@ -15,7 +15,6 @@ import edu.utn.frba.dds.grupo5.entidades.Periodo;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
-import edu.utn.frba.dds.grupo5.util.Util;
 
 @RestController
 @RequestMapping("/indicador")
@@ -40,7 +39,7 @@ public class IndicadoresService {
 
 		Indicador ind = service.getIndicador(oid);
 		Empresa empresa = service.getEmpresa(empresaOid);
-		Periodo per = Util.find(empresa.getPeriodos(),p -> p.getOid().equals(perOid));
+		Periodo per = empresa.getPeriodoByOid(perOid);
 		
 		return EvaluadorExpresiones.realizarCalculo(ind, per);
 	}
@@ -48,5 +47,4 @@ public class IndicadoresService {
 	public void setService(ServiceManager service) {
 		this.service = service;
 	}
-
 }

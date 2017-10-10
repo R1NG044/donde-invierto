@@ -19,13 +19,18 @@ public class Persistent implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "oid")
+	@Column(name = "oid", insertable=true, updatable=true, unique=true, nullable=false)
 	public Long getOid() {
 		return oid;
 	}
 
 	public void setOid(Long oid) {
 		this.oid = oid;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return (this.oid != null && obj != null && obj instanceof Persistent && this.oid.equals(((Persistent)obj).getOid() )) ||super.equals(obj);
 	}
 
 

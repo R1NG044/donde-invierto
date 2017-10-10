@@ -94,6 +94,10 @@ public class ServiceManager {
 		return repo.getCuentas().all();
 	}
 	
+	public Cuenta getCuentaByDesc(String desc) throws Exception {
+		return repo.getCuentas().findByName(desc);
+	}
+	
 	public Cuenta getCuenta(Long oid) throws Exception {
 		return repo.getCuentas().findByPK(Cuenta.class, oid);
 	}
@@ -205,6 +209,14 @@ public class ServiceManager {
 	
 	public Usuario doLogin(String usuario,String password) throws Exception{
 		return repo.getUsuarios().login(usuario, password);
+	}
+	
+	public void actualizarPeriodo(Periodo per) throws Exception{
+		repo.getPeriodos().update(per);
+	}
+	
+	public Periodo getPeriodo(Long oid) throws Exception{
+		return repo.getPeriodos().findByPK(Periodo.class, oid);
 	}
 	
 	public void clearRepo() throws Exception{

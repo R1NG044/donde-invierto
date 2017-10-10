@@ -10,6 +10,7 @@ public class Repositorio {
 	private Indicadores indicadores;
 	private Metodologias metodologias;
 	private Usuarios usuarios;
+	private Periodos periodos;
 	
 	public Repositorio(EntityManager em){
 		this.em = em;
@@ -34,6 +35,13 @@ public class Repositorio {
 			indicadores = new Indicadores(em,"Indicador");
 		}
 		return indicadores;
+	}
+	
+	public Periodos getPeriodos() {
+		if(periodos == null){
+			periodos = new Periodos(em,"Periodo");
+		}
+		return periodos;
 	}
 	
 	public Metodologias getMetodologias() {

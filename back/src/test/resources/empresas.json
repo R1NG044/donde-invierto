@@ -7,15 +7,15 @@
                     "startRange": 0,
                     "endRange":6,
                     "cuentas": [{
-                            "cuenta":{"descripcion": "EBITDA"},
+                            "cuenta":{"descripcion": "EBITDA","oid":1},
                             "valor": 100200
                         },
                         {
-                           "cuenta":{"descripcion": "CASH"},
+                           "cuenta":{"descripcion": "CASH","oid":99},
                             "valor": 50000
                         },
                         {
-                            "cuenta":{"descripcion": "Free Cash Flow"},
+                            "cuenta":{"descripcion": "Free Cash Flow","oid":78},
                             "valor": 10022
                         }
                    ]
@@ -26,7 +26,7 @@
                     "startRange": 0,
                     "endRange":12,
                     "cuentas": [{
-                            "cuenta":{"descripcion": "EBITDA"},
+                            "cuenta":{"descripcion": "EBITDA","oid":1},
                             "valor": 40000
                         }
                    ]
@@ -44,15 +44,15 @@
                 "startRange": 0,
                 "endRange":6,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1255677
                     },
                     {
-                        "cuenta":{"descripcion": "FDS"},
+                        "cuenta":{"descripcion": "FDS","oid":77},
                         "valor": 0
                     },
                     {
-                        "cuenta":{"descripcion": "Free Cash Flow"},
+                        "cuenta":{"descripcion": "Free Cash Flow","oid":78},
                         "valor": 55908
                     }
                ]
@@ -64,70 +64,70 @@
             "nombre": "Google",
             "anioFundacion":1998,
             "periodos": [{
-                "nombre": "Anual",
+                "nombre": "Anual1",
                 "anio": 2017,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2390040
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10029388
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16963487
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5861997
                     } ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5423140
                     }  ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1255300
                     }
                ]
             }
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual2",
                 "anio": 2016,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2091921
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10038400
                     }
                        ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16800391
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5952001
                     } ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5823140
                     }  ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1255650
                     }
                ]}
@@ -139,276 +139,276 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2003942
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10030494
                     }
                           ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16792719
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5809679
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 6378325
                     }  
                ]}
                ,
                 
             {
-                "nombre": "Anual",
+                "nombre": "Anual3",
                 "anio": 2014,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2012933
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10048576
                     }
                       ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16210380
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5980800
                     }    
               ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 6790670
                     }  
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual4",
                 "anio": 2013,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1992383
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10049384
                     }
                          ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16209380
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5790182
                     }    
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 7070345
                     }  
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual5",
                 "anio": 2012,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1978399
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10093203
                     }
                          ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16086199
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5769813
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 7310777
                     }  
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual6",
                 "anio": 2011,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1990574
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10109300
                     }
                         ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15989688
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5741342
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 7620768
                     } 
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual7",
                 "anio": 2010,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1985499
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10021900
                     }
                        ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15961009
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5731010
                     }
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 8020768
                     } 
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual8",
                 "anio": 2009,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1959900
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10119281
                     }
                       ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15939680
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5700989
                     }
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 8520768
                     } 
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual9",
                 "anio": 2008,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1958000
                     } 
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10011100
                     }
                      ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15900968
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5698001
                     }
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 9059888
                     } 
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual10",
                 "anio": 2007,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1950049
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 10029300
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15812639
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5677596
                     }
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 9769321
                     } 
                ]}
@@ -420,68 +420,68 @@
      		"nombre": "Pepsico",
             "anioFundacion":1898,
 	 		"periodos": [{
-                "nombre": "Anual",
+                "nombre": "Anual11",
                 "anio": 2017,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2135840
                     }
 					,
 					{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 8025386
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 18573682
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5087504
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5901246
                     }  ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1155650
                     }  
                ]
 			}
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual12",
                 "anio": 2016,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2119983
                     }
 					,
 					{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 8011986
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 18863678
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5081002
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5911267
                     } ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1152650
                     }
                      
@@ -489,30 +489,30 @@
 			}
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual13",
                 "anio": 2015,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2098597
                     }
 					,
 					{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 8000396
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 18905432
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5075983
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5933715
                     } 
                      
@@ -520,240 +520,240 @@
 			}
             ,    
             {
-                "nombre": "Anual",
+                "nombre": "Anual32",
                 "anio": 2014,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1936985
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7396883
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 19516728
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5075019
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5946724
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual33",
                 "anio": 2013,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1922363
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7389351
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 19821679
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5073992
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5952783
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Semestral1",
                 "anio": 2012,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1918799
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7383795
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 18712543
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5071279
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5967245
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual-23",
                 "anio": 2011,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1909685
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7383967
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 19002834
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5070062
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5973173
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Trimestral",
                 "anio": 2010,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1908297
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7379973
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 20112346
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5068976
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5986190
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anualidad",
                 "anio": 2009,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1905994
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7361997
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 20012985
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5068009
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5994338
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Segundo Trimestre",
                 "anio": 2008,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1902986
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7359993
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 21837592
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5067061
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 6012940
                     } 
                      
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Semestral-2",
                 "anio": 2007,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 1899786
                     }
 				,
 				{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 7351301
                     },
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 22013671
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5064896
                     },
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 6032054
                     } 
                      
@@ -767,73 +767,73 @@
             "nombre": "Apple",
             "anioFundacion":1976,
             "periodos": [{
-                "nombre": "Anual",
+                "nombre": "Semestral-21",
                 "anio": 2017,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 3011235
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11861231
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16536651
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5122311
                     }   
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4507459
                     }   ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1055650
                     }
                ]
             }
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Semestral-21",
                 "anio": 2016,
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 3001921
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11538443
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16521136
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5124564
                     } 
                       ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4534450
                     } 
                     ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 1055850
                     }
                ]}
@@ -845,27 +845,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 3003215
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 12002421
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16612203
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5113130
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4554324
                     } 
                ]}
@@ -877,27 +877,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 3001310
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 12000576
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16636542
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5112003
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4572314
                     } 
                ]}
@@ -908,27 +908,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2992213
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11989384
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16545295
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5102516
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4581157
                     } 
                ]}
@@ -939,27 +939,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2978494
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11993203
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16399825
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5121206
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4591889
                     } 
                ]}
@@ -970,27 +970,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2984574
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11959300
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16156598
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5012648
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4611349
                     } 
                ]}
@@ -1001,27 +1001,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2990125
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11921967
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16235698
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5013265
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4630987
                     } 
                ]}
@@ -1032,27 +1032,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2954190
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11919235
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16356546
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5051513
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4650987
                     } 
                ]}
@@ -1063,27 +1063,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2950450
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11911180
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16246582
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5021354
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4670547
                     } 
                ]}
@@ -1094,27 +1094,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2950149
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 11899310
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 16013545
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5003213
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 4690567
                     } 
                ]}
@@ -1131,31 +1131,31 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2815340
                     }
 					,
 					{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9971301
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15034650
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5003154
                     }  
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5461132
                     }    ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 955850
                     }
                ]
@@ -1167,31 +1167,31 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2801523
                     }
 					,
 					{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9898679
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15035498
                     } 
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5001314
                     }  
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5356438
                     }  ,
                     {
-                        "cuenta":{"descripcion": "EBITDA"},
+                        "cuenta":{"descripcion": "EBITDA","oid":1},
                         "valor": 960850
                     }  
                ]
@@ -1203,27 +1203,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2801523
                     }
 					,
 					{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9859689
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15027513
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4954651
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5456456
                     }   
 				]
@@ -1235,27 +1235,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2796839
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9816938
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15032012
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 5013135
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5265642
                     }   
                ]}
@@ -1266,27 +1266,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2739681
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9799887
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15028946
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4910551
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5315452
                     }   
                ]}
@@ -1297,27 +1297,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2698013
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9719970
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15026456
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4964654
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5316541
                     }   
                ]}
@@ -1328,27 +1328,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2634905
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9740097
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15020364
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4956456
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5204153
                     }   
                ]}
@@ -1359,27 +1359,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2608967
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9700697
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15016454
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4955646
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5102153
                     }   
                ]}
@@ -1390,27 +1390,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2593867
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9689497
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15021362
                     }
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4816546
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5156454
                     }     
                ]}
@@ -1421,27 +1421,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2500352
                     }
 			,
 			{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9620170
                     }
                     ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15046412
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4946451
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5145342
                     }   
                ]}
@@ -1452,27 +1452,27 @@
                 "startRange": 0,
                 "endRange":12,
                 "cuentas": [{
-                        "cuenta":{"descripcion": "Resultado del ejercicio"},
+                        "cuenta":{"descripcion": "Resultado del ejercicio","oid":6},
                         "valor": 2479683
                     }
 				,
 				{
-                        "cuenta":{"descripcion": "PNP"},
+                        "cuenta":{"descripcion": "PNP","oid":2},
                         "valor": 9599702
                     }
                 ,
 				{
-                        "cuenta":{"descripcion": "Activo total"},
+                        "cuenta":{"descripcion": "Activo total","oid":3},
                         "valor": 15010041
                     }  
                      ,
 				{
-                        "cuenta":{"descripcion": "Pasivo total"},
+                        "cuenta":{"descripcion": "Pasivo total","oid":4},
                         "valor": 4756465
                     } 
                     ,
 				{
-                        "cuenta":{"descripcion": "Ventas neto"},
+                        "cuenta":{"descripcion": "Ventas neto","oid":5},
                         "valor": 5131202
                     }     
 				]
