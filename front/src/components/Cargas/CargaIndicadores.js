@@ -27,7 +27,7 @@ export default class CargaIndicadores extends Component  {
     const { type, dataActions, uiActions, inputsValues, empresas, indicadores, cuentas } = this.props;
     const secondPartOfForm = this.state.secondPartOfForm;
 
-    const empresaSelected = empresas.find(empresa => empresa.id === parseInt(inputsValues.empresaSelected) );
+    const empresaSelected = empresas.find(empresa => empresa.oid === parseInt(inputsValues.empresaSelected) );
 
     return (
       <div className="Carga Indicadores">
@@ -79,9 +79,10 @@ export default class CargaIndicadores extends Component  {
               <p className="description short"> Seleccione empresa a evaluar: </p>
               <select name="empresaSelected"
                 onChange={uiActions.inputChanged(type)}>
+                <option selected disabled>Seleccione una empresa</option>
                 {
                   empresas.map(empresa =>
-                  <option value={empresa.id}>{empresa.nombre}</option>
+                  <option value={empresa.oid}>{empresa.nombre}</option>
                   )
                 }
               </select>
@@ -89,10 +90,11 @@ export default class CargaIndicadores extends Component  {
                <p className="description short"> Seleccione periodo a evaluar: </p>
                <select name="periodoSelected"
                        onChange={uiActions.inputChanged(type)}>
+                  <option selected disabled>Seleccione un periodo</option>
                    {
                      empresaSelected &&
                      empresaSelected.periodos.map(periodo =>
-                       <option value={periodo.id}>{periodo.nombre}</option>
+                       <option value={periodo.oid}>{periodo.nombre}</option>
                      )
                    }
                </select>

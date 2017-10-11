@@ -135,7 +135,8 @@ export function cargarIndicador(type) {
     };
 
     const options = {
-      method: 'POST'
+      method: 'POST',
+      body: JSON.stringify({indicador})
     };
 
     fetch('http://localhost:8081/indicador/', options)
