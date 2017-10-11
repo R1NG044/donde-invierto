@@ -83,8 +83,9 @@ export function cargarEmpresa(e) {
 
 export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que cambie  routes.js
   return (dispatch, getState) => (e) => {
-    e.preventDefault();
-    let cuenta;
+    
+	e.preventDefault();
+	let cuenta;
     let inputs = getState().ui.inputsValues[type];
 
     dispatch({
@@ -93,22 +94,26 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 
     const empresaId = parseInt(inputs.empresaSelected);
     const periodoId = parseInt(inputs.periodoSelected);
-
-    cuenta = {
-      nombre: inputs.nombreCuenta,
-      valorCuenta: parseInt(inputs.valorCuenta)
-    };
-
+	
+	cuenta = {
+		cuenta: {descripcion: inputs.nombreCuenta},
+		valor: parseFloat(inputs.valorCuenta)
+	};
+	
     const options = {
       method: 'PUT',
-      body: cuenta
+	  headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+      },
+	  body: JSON.stringify(cuenta)
     };
 
-    fetch(`http://localhost:8081/empresa/${empresaId}/${periodoId}`, options)
+    fetch(`http://localhost:8081/empresa/${periodoId}`, options)
       .then(() => {
         dispatch({
           type: types.SAVE_CUENTA_SUCCESS,
-          cuenta,
+		  cuenta: cuenta,
           empresaId,
           periodoId
         });
@@ -131,12 +136,16 @@ export function cargarIndicador(type) {
 
     indicador = {
       nombre: inputs.nombreIndicador,
-      descripcion: inputs.expresionIndicador
+      expression: inputs.expresionIndicador
     };
 
     const options = {
       method: 'POST',
-      body: JSON.stringify({indicador})
+      body: JSON.stringify(indicador),
+	  headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+      }
     };
 
     fetch('http://localhost:8081/indicador/', options)
@@ -150,33 +159,6 @@ export function cargarIndicador(type) {
       });
   };
 }
-
-// export function cargarMetodologia(type) {
-//   return (dispatch, getState) => (e) => {
-//     e.preventDefault();
-//     let metodologia;
-//     let inputs = getState().ui.inputsValues[type];
-
-//     dispatch({
-//       type: types.SAVE_METODOLOGIA_REQUEST
-//     });
-
-
-//     metodologia = {
-//       nombre: inputs.nombreMetodologia,
-//     }
-
-//     // TODO: Do the request and then...
-//     metodologia.id = Math.floor(Math.random() * (1000 - 1)) + 1; // TODO: HARDCODED
-
-//     dispatch({
-//       type: types.SAVE_METODOLOGIA_SUCCESS,
-//       metodologia
-//     });
-//     clearInputs(type)(dispatch);
-//     showSuccessOnSave()(dispatch);
-//   }
-// }
 
 export function borrarIndicador(type) {
   return (dispatch, getState) => (e) => {

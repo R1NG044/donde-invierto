@@ -30,11 +30,11 @@ export default function data(state = initialState.data, action) {
 
     case t.SAVE_CUENTA_SUCCESS:
       newState = mergeDeep({}, state);
-      const empresaQuePertenece = newState.empresas.find(empresa => empresa.id === action.empresaId);
-      const periodoQuePertenece = empresaQuePertenece.periodos.find(periodo => periodo.id === action.periodoId);
+      const empresaQuePertenece = newState.empresas.find(empresa => empresa.oid === action.empresaId);
+      const periodoQuePertenece = empresaQuePertenece.periodos.find(periodo => periodo.oid === action.periodoId);
       periodoQuePertenece.cuentas.push({
-        nombre: action.cuenta.nombre,
-        valor: action.cuenta.valorCuenta
+        nombre: action.cuenta.cuenta.descripcion,
+        valor: action.cuenta.valor
       });
       return newState;
 

@@ -40,7 +40,6 @@ public class EmpresasService {
 	@RequestMapping(value = "/{oidPeriodo}", method = RequestMethod.PUT, produces = "application/json")
 	public void addPeriodo(@PathVariable(name = "oidPeriodo", required = true) Long periodoOid, @RequestBody CuentaEmpresa cuenta)
 			throws Exception {
-
 		Periodo periodo = service.getPeriodo(periodoOid);
 		
 		Cuenta c = service.getCuentaByDesc(cuenta.getCuenta().getDescripcion());
