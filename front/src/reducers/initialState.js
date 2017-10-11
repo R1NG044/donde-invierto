@@ -47,10 +47,7 @@ let initialState = {
   data: {
     empresas: [],
     empresasByMetodologias: [],
-    metodologias: [
-      {nombre: "metodologiaMock1"},
-      {nombre: "metodologiaMock2"}
-    ],
+    metodologias: [],
     indicadores: [],
     cuentas: [],
     calculo: ""

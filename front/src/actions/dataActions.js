@@ -87,14 +87,18 @@ export function aplicarMetodologia(metodologia) {
       type: types.APLICAR_METODOLOGIA_REQUEST
     });
     dispatch(uiActions.selectMetodologia(metodologia))
+	
+	const metodologiaNombre = metodologia.nombre;
+	
+    fetch(`http://localhost:8081/metodologia/${metodologiaNombre}`)
+	.then(res => res.json())
+    .then(empresas => {
+        dispatch({
+			type: types.APLICAR_METODOLOGIA_SUCCESS,
+			empresas
+		});
+	})
 
-    // Hacer llamado con la info de metodologia
-    const empresas = Mocker.generateEmpresas(14);
-
-    dispatch({
-      type: types.APLICAR_METODOLOGIA_SUCCESS,
-      empresas
-    });
   }
 }
 
