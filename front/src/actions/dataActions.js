@@ -68,7 +68,7 @@ export function realizarAnalisis(type) {
     const periodoId = parseInt(inputs.periodoSelected);
   
   
-    fetch(`http://localhost:8081/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
+    fetch(`http://localhost:8081/indicador/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
       .then(res => res.json())
       .then((resultado) => {
         dispatch({

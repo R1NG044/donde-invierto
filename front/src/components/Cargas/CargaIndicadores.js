@@ -32,10 +32,7 @@ export default class CargaIndicadores extends Component  {
 
     return (
       <div className="Carga Indicadores">
-        <form onSubmit={secondPartOfForm ? dataActions.cargarIndicador(type) : this.toSecondPartOfForm}>
-
-          {
-            !secondPartOfForm &&
+        <form onSubmit={dataActions.cargarIndicador(type)}>
             <div>
             <p className="description"> Ingrese el nombre del indicador: </p>
             <input type="text"
@@ -58,7 +55,7 @@ export default class CargaIndicadores extends Component  {
 
               {
                   indicadores.map(indicador =>
-                      <option value={`indicador{${indicador.oid}}`}>{indicador.nombre}</option>
+                      <option value={`indicador{${indicador.nombre}}`}>{indicador.nombre}</option>
                   )
               }
               </select>
@@ -75,44 +72,7 @@ export default class CargaIndicadores extends Component  {
               </select>
 
             </div>
-          }
-
-          {
-            secondPartOfForm &&
-             <div>
-              <p className="description short"> Seleccione empresa a evaluar: </p>
-              <select name="empresaSelected"
-                onChange={uiActions.inputChanged(type)}>
-                <option selected disabled>Seleccione una empresa</option>
-                {
-                  empresas.map(empresa =>
-                  <option value={empresa.oid}>{empresa.nombre}</option>
-                  )
-                }
-              </select>
-
-               <p className="description short"> Seleccione periodo a evaluar: </p>
-               <select name="periodoSelected"
-                       onChange={uiActions.inputChanged(type)}>
-                  <option selected disabled>Seleccione un periodo</option>
-                   {
-                     empresaSelected &&
-                     empresaSelected.periodos.map(periodo =>
-                       <option value={periodo.oid}>{periodo.nombre}</option>
-                     )
-                   }
-               </select>
-             </div>
-           }
-
-
-
-          {
-           !secondPartOfForm ?
-               <Button onClick={this.toSecondPartOfForm} >Guardar Indicador</Button>
-               :
-               <input type="submit" value="Guardar Indicador" />
-          }
+		  <input type="submit" value="Guardar Indicador" />
         </form>
       </div>
     )
