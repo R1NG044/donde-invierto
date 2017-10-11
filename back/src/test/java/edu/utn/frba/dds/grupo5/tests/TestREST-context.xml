@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+	<bean id="service" class="edu.utn.frba.dds.grupo5.service.ServiceManager"></bean>
+	
+	<bean id="empresasService" class="edu.utn.frba.dds.grupo5.rest.EmpresasService"></bean>
+	
+	<bean id="indicadoresService" class="edu.utn.frba.dds.grupo5.rest.IndicadoresService"></bean>
+	
+	<bean id="cuentasService" class="edu.utn.frba.dds.grupo5.rest.CuentasService"></bean>
+</beans>

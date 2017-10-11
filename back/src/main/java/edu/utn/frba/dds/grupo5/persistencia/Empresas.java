@@ -38,6 +38,7 @@ public class Empresas extends SingleData{
 		if(duplicated != null){
 			throw new Exception("La empresa con el nombre "+duplicated.getNombre()+" ya existe");
 		}
+		
 		doAction(em->{
 				em.merge(emp);
 				return null;

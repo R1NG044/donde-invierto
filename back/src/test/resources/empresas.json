@@ -64,7 +64,7 @@
             "nombre": "Google",
             "anioFundacion":1998,
             "periodos": [{
-                "nombre": "Anual",
+                "nombre": "Anual1",
                 "anio": 2017,
                 "startRange": 0,
                 "endRange":12,
@@ -99,7 +99,7 @@
             }
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual2",
                 "anio": 2016,
                 "startRange": 0,
                 "endRange":12,
@@ -166,7 +166,7 @@
                ,
                 
             {
-                "nombre": "Anual",
+                "nombre": "Anual3",
                 "anio": 2014,
                 "startRange": 0,
                 "endRange":12,
@@ -197,7 +197,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual4",
                 "anio": 2013,
                 "startRange": 0,
                 "endRange":12,
@@ -228,7 +228,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual5",
                 "anio": 2012,
                 "startRange": 0,
                 "endRange":12,
@@ -259,7 +259,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual6",
                 "anio": 2011,
                 "startRange": 0,
                 "endRange":12,
@@ -290,7 +290,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual7",
                 "anio": 2010,
                 "startRange": 0,
                 "endRange":12,
@@ -321,7 +321,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual8",
                 "anio": 2009,
                 "startRange": 0,
                 "endRange":12,
@@ -352,7 +352,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual9",
                 "anio": 2008,
                 "startRange": 0,
                 "endRange":12,
@@ -383,7 +383,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual10",
                 "anio": 2007,
                 "startRange": 0,
                 "endRange":12,
@@ -420,7 +420,7 @@
      		"nombre": "Pepsico",
             "anioFundacion":1898,
 	 		"periodos": [{
-                "nombre": "Anual",
+                "nombre": "Anual11",
                 "anio": 2017,
                 "startRange": 0,
                 "endRange":12,
@@ -454,7 +454,7 @@
 			}
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual12",
                 "anio": 2016,
                 "startRange": 0,
                 "endRange":12,
@@ -489,7 +489,7 @@
 			}
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual13",
                 "anio": 2015,
                 "startRange": 0,
                 "endRange":12,
@@ -520,7 +520,7 @@
 			}
             ,    
             {
-                "nombre": "Anual",
+                "nombre": "Anual32",
                 "anio": 2014,
                 "startRange": 0,
                 "endRange":12,
@@ -550,7 +550,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual33",
                 "anio": 2013,
                 "startRange": 0,
                 "endRange":12,
@@ -580,7 +580,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Semestral1",
                 "anio": 2012,
                 "startRange": 0,
                 "endRange":12,
@@ -610,7 +610,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anual-23",
                 "anio": 2011,
                 "startRange": 0,
                 "endRange":12,
@@ -640,7 +640,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Trimestral",
                 "anio": 2010,
                 "startRange": 0,
                 "endRange":12,
@@ -670,7 +670,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Anualidad",
                 "anio": 2009,
                 "startRange": 0,
                 "endRange":12,
@@ -700,7 +700,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Segundo Trimestre",
                 "anio": 2008,
                 "startRange": 0,
                 "endRange":12,
@@ -730,7 +730,7 @@
                ]}
                 ,
             {
-                "nombre": "Anual",
+                "nombre": "Semestral-2",
                 "anio": 2007,
                 "startRange": 0,
                 "endRange":12,
@@ -767,7 +767,7 @@
             "nombre": "Apple",
             "anioFundacion":1976,
             "periodos": [{
-                "nombre": "Anual",
+                "nombre": "Semestral-21",
                 "anio": 2017,
                 "startRange": 0,
                 "endRange":12,
@@ -803,7 +803,7 @@
             }
             ,
             {
-                "nombre": "Anual",
+                "nombre": "Semestral-21",
                 "anio": 2016,
                 "startRange": 0,
                 "endRange":12,

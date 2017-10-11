@@ -1,12 +1,13 @@
 package edu.utn.frba.dds.grupo5.entidades;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
@@ -14,8 +15,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import edu.utn.frba.dds.grupo5.util.Util;
 @Table(name="di_empresa")
 @Entity
@@ -38,7 +37,7 @@ public class Empresa extends Persistent{
 		
 	}
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,orphanRemoval=true)
+	@OneToMany(cascade={CascadeType.ALL})
 	@JoinColumn(name="emp_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_emp_per_oid"))
 	public List<Periodo> getPeriodos() {
 		if(periodos==null)
@@ -100,5 +99,9 @@ public class Empresa extends Persistent{
 			return "EMPRESA: "+nombre+" FUNDACION: "+anioFundacion;
 		}
 		return "";
+	}
+
+	public Periodo getPeriodoByOid(Long oid) {
+		return Util.find(getPeriodos(), p->oid.equals(p.getOid()));
 	}
 }

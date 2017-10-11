@@ -19,7 +19,7 @@ public class Persistent implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "oid")
+	@Column(name = "oid", insertable=true, updatable=true, unique=true, nullable=false)
 	public Long getOid() {
 		return oid;
 	}
@@ -27,6 +27,5 @@ public class Persistent implements Serializable {
 	public void setOid(Long oid) {
 		this.oid = oid;
 	}
-
 
 }

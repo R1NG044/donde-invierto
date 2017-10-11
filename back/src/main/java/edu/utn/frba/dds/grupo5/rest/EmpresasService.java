@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
@@ -36,17 +37,21 @@ public class EmpresasService {
 		service.deleteEmpresa(oid);
 	}
 
-	@RequestMapping(value = "/{oidEmpresa}/{oidPeriodo}", method = RequestMethod.PUT, produces = "application/json")
-	public void addPeriodo(@PathVariable(name = "oidEmpresa", required = true) Long empresaOid,
-			@PathVariable(name = "oidPeriodo", required = true) Long periodoOid, @RequestBody CuentaEmpresa cuenta)
+	@RequestMapping(value = "/{oidPeriodo}", method = RequestMethod.PUT, produces = "application/json")
+	public void addPeriodo(@PathVariable(name = "oidPeriodo", required = true) Long periodoOid, @RequestBody CuentaEmpresa cuenta)
 			throws Exception {
 
-		Empresa emp = service.getEmpresa(empresaOid);
-		Periodo periodo = emp.getPeriodos().stream().filter(p -> periodoOid.equals(p.getOid())).findFirst()
-				.orElse(null);
+		Periodo periodo = service.getPeriodo(periodoOid);
+		
+		Cuenta c = service.getCuentaByDesc(cuenta.getCuenta().getDescripcion());
+		
+		if(c != null){
+			cuenta.setCuenta(c);
+		}
+		
 		periodo.addCuenta(cuenta);
 
-		service.actualizarEmpresa(emp);
+		service.actualizarPeriodo(periodo);
 	}
 
 	public void setService(ServiceManager service) {

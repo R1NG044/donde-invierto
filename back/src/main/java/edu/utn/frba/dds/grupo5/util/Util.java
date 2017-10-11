@@ -2,6 +2,7 @@ package edu.utn.frba.dds.grupo5.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -11,11 +12,11 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Util {
 	
-	public static <T> List<T> filterByPredicate(List<T>list, Predicate<? super T> p){
+	public static <T> List<T> filterByPredicate(Collection<T>list, Predicate<? super T> p){
 		return list.stream().filter(p).collect(Collectors.toList());
 	}
 	
-	public static <T> T find(List<T>list, Predicate<? super T> p){
+	public static <T> T find(Collection<T>list, Predicate<? super T> p){
 		return list.stream().filter(p).findFirst().orElse(null);
 	}
 	
