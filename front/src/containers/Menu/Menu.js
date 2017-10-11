@@ -10,7 +10,6 @@ const Menu = (props) =>
             <Link to="/menu/indicadores"> Cargar y/o eliminar indicadores </Link>
             <Link to="/metodologias"> Aplicar metodologias </Link>
             <Link to="/empresas"> Consultar por empresa y periodo </Link>
-            <Link to="/empresa/analizar"> Realizar analisis </Link>
   </MenuComponent>;
 
 
