@@ -16,8 +16,8 @@ const DetalleEmpresa = (props) =>
           </Col>
           {
             periodosAnuales.map(periodo =>
-              <Col lg={periodo.rango[1] - periodo.rango[0]}
-                    md={periodo.rango[1] - periodo.rango[0]}
+              <Col lg={periodo.endRange - periodo.startRange}
+                    md={periodo.endRange - periodo.startRange}
                     sm={12}
                     xs={12}
                     className="periodo">

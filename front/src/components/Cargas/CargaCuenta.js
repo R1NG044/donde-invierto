@@ -16,7 +16,7 @@ export default class CargaCuenta extends Component  {
     const {empresas, type, inputsValues, dataActions, uiActions} = this.props;
 
     const empresaSelected = empresas
-        .find(empresa => empresa.id === parseInt(inputsValues.empresaSelected));
+        .find(empresa => empresa.oid === parseInt(inputsValues.empresaSelected));
 
     return (
       <div className="Carga Cuenta">
@@ -26,17 +26,18 @@ export default class CargaCuenta extends Component  {
                   onChange={uiActions.inputChanged(type)}>
             {
               empresas.map(empresa =>
-                <option value={empresa.id}>{empresa.nombre}</option>
+                <option value={empresa.oid}>{empresa.nombre}</option>
               )
             }
           </select>
           <p className="description"> Seleccione un periodo: </p>
           <select name="periodoSelected"
                   onChange={uiActions.inputChanged(type)}>
+            <option selected disabled>Seleccione un periodo</option>
             {
               empresaSelected ?
                 empresaSelected.periodos.map(periodo =>
-                  <option value={periodo.id}>{periodo.nombre}</option>
+                  <option value={periodo.oid}>{periodo.nombre}</option>
                 )
                 :
                 <option value="undefined">Seleccione primero una empresa</option>
