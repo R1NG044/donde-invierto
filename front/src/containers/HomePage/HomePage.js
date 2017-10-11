@@ -24,7 +24,8 @@ class HomePage extends React.Component {
                           withRanking={this.props.withRanking}/>
         </Col>
         <Col lg={10} md={10} sm={6} xs={12}>
-          <DetalleEmpresa empresa={this.props.empresaSelected} />
+          <DetalleEmpresa empresa={this.props.empresaSelected} selected={this.props.periodoSelected} 
+          selectPeriodo={this.props.uiActions.selectPeriodo} />
         </Col>
 
       </Grid>
@@ -36,6 +37,7 @@ function mapStateToProps(state, props) {
   const empresas = props.empresas ? periodosOrdenados(props.empresas) : periodosOrdenados(state);
   return {
     empresaSelected: state.ui.empresaSelected,
+    periodoSelected: state.ui.periodoSelected,
     empresas
   };
 }

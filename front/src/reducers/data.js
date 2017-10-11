@@ -26,9 +26,15 @@ export default function data(state = initialState.data, action) {
       newState = mergeDeep({}, state);
       newState.indicadores = action.indicadores || [];
       return newState;
+      
     case t.CUENTAS_LOADED:
       newState = mergeDeep({}, state);
       newState.cuentas = action.cuentas;
+      return newState;
+
+    case t.CALCULO_SUCCESS:
+      newState = mergeDeep({}, state);
+      newState.resultado = action.resultado;
       return newState;
 
     case t.APLICAR_METODOLOGIA_SUCCESS:

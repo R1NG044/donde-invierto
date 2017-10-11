@@ -6,6 +6,11 @@ let initialState = {
     loaded: false,
     showSuccess: false,
     inputsValues: {
+      analizar: {
+        empresaSelected: "",
+        periodoSelected: "",
+        indicadorSelected: ""
+      },
       empresa: {
         nombreEmpresa: "",
         nombrePeriodo: "",
@@ -36,7 +41,8 @@ let initialState = {
       }
     },
     periodosPorAgregar: [],
-    empresaSelected: {}
+    empresaSelected: {},
+    periodoSelected: ""
   },
   data: {
     empresas: [],
@@ -46,7 +52,8 @@ let initialState = {
       {nombre: "metodologiaMock2"}
     ],
     indicadores: [],
-    cuentas: []
+    cuentas: [],
+    calculo: ""
   }
 };
 

@@ -32,6 +32,11 @@ export default function ui(state = initialState.ui, action) {
       newState.inputsValues = inputsCopy;
       return newState;
 
+    case t.PERIODO_SELECTED_CLICK:
+      newState = Object.assign({}, state);
+      newState.periodoSelected = action.value;
+      return newState;
+
     case t.CLEAR_PERIODOS_POR_AGREGAR:
       newState = Object.assign({}, state);
       newState.periodosPorAgregar = [];

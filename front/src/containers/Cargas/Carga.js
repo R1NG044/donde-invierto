@@ -68,8 +68,9 @@ class Carga extends Component {
           uiActions,
           dataActions,
           inputsValues,
+          empresas,
           indicadores: data.indicadores,
-          type
+          type: this.props.routeParams.type
         };
         elementToRender = <CargaComponent.Analizar {...analizarProps} />;
         break;

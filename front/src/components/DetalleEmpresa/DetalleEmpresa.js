@@ -1,5 +1,6 @@
 import React from 'react';
 import {Col, Row} from 'react-bootstrap';
+import Periodo from './Periodo';
 import './DetalleEmpresa.scss';
 
 const DetalleEmpresa = (props) =>
@@ -16,13 +17,7 @@ const DetalleEmpresa = (props) =>
           </Col>
           {
             periodosAnuales.map(periodo =>
-              <Col lg={periodo.endRange - periodo.startRange}
-                    md={periodo.endRange - periodo.startRange}
-                    sm={12}
-                    xs={12}
-                    className="periodo">
-                {periodo.nombre} : {periodo.anio}
-              </Col>
+              <Periodo periodo={periodo} selected={props.selected} onClick={props.selectPeriodo}/>
             )
           }
         </div>

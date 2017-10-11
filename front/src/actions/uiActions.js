@@ -43,6 +43,11 @@ export function cargarCuentaInputChange(e) {
   }
 }
 
+export const selectPeriodo = (oid) => dispatch => e =>
+  dispatch({
+    type: types.PERIODO_SELECTED_CLICK,
+    value: oid
+  });
 
 export function agregarPeriodo(inputs) {
   return (dispatch) => {

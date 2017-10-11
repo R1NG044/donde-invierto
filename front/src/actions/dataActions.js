@@ -54,6 +54,33 @@ export function fetchMetodologias() {
   }
 }
 
+export function realizarAnalisis(type) {
+  return (dispatch, getState) => e => {
+    e.preventDefault();
+    let inputs = getState().ui.inputsValues[type];
+  
+    dispatch({
+      type: types.CALCULO_REQUEST
+    });
+  
+    const indicadorId = parseInt(inputs.indicadorSelected);  
+    const empresaId = parseInt(inputs.empresaSelected);
+    const periodoId = parseInt(inputs.periodoSelected);
+  
+  
+    fetch(`http://localhost:8081/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
+      .then(res => res.json())
+      .then((resultado) => {
+        dispatch({
+          type: types.CALCULO_SUCCESS,
+          resultado
+        });
+        clearInputs(type)(dispatch);
+      });
+  }
+
+}
+
 export function aplicarMetodologia(metodologia) {
   return (dispatch) => {
     dispatch({
