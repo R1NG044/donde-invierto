@@ -17,6 +17,7 @@ export default (
     <Route path="/cargar/:type" component={Carga}/>
     <Route path="/menu/indicadores" component={MenuIndicadores}/>
     <Route path="/empresasx" component={CargaEmpresa}/>
+    <Route path="/empresa/:type" component={Carga}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>
 );

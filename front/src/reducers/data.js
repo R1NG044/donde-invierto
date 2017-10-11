@@ -17,6 +17,19 @@ export default function data(state = initialState.data, action) {
       newState.metodologias = action.metodologias;
       return newState;
 
+    case t.SAVE_INDICADOR_SUCCESS:
+      newState = mergeDeep({}, state);
+      newState.indicadores = [...state.indicadores, action.indicador];
+      return newState;
+
+    case t.INDICADORES_LOADED:
+      newState = mergeDeep({}, state);
+      newState.indicadores = action.indicadores || [];
+      return newState;
+    case t.CUENTAS_LOADED:
+      newState = mergeDeep({}, state);
+      newState.cuentas = action.cuentas;
+      return newState;
 
     case t.APLICAR_METODOLOGIA_SUCCESS:
       newState = Object.assign({}, state);

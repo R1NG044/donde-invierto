@@ -20,6 +20,23 @@ export function loadData() {
           empresas
         });
       });
+
+    fetch('http://localhost:8081/indicador/0')
+      .then(res => res.json())
+      .then(indicadores => {
+        dispatch({
+          type: types.INDICADORES_LOADED,
+          indicadores
+        });
+      })
+    fetch('http://localhost:8081/cuenta/')
+    .then(res => res.json())
+    .then(cuentas => {
+      dispatch({
+        type: types.CUENTAS_LOADED,
+        cuentas
+      });
+    })
   }
 }
 
@@ -113,7 +130,7 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
       .then(() => {
         dispatch({
           type: types.SAVE_CUENTA_SUCCESS,
-		  cuenta: cuenta,
+		    cuenta: cuenta,
           empresaId,
           periodoId
         });
@@ -149,6 +166,10 @@ export function cargarIndicador(type) {
     };
 
     fetch('http://localhost:8081/indicador/', options)
+      .then((res) => {
+        if (res.status == 500) throw Error('Indicador Invalido');
+        return res;
+      })
       .then(() => {
         dispatch({
           type: types.SAVE_INDICADOR_SUCCESS,

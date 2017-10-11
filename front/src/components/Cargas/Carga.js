@@ -1,5 +1,6 @@
 import React from 'react';
 import CargaEmpresa from './CargaEmpresa';
+import Analizar from './Analizar';
 import CargaIndicadores from './CargaIndicadores';
 import CargaCuenta from './CargaCuenta';
 import BorrarIndicadores from './BorrarIndicadores';
@@ -22,6 +23,7 @@ const Carga = (props) =>
     </Col>
   </Grid>;
 
+Carga.Analizar = Analizar;
 Carga.Empresa = CargaEmpresa;
 Carga.Cuenta = CargaCuenta;
 Carga.Indicadores = CargaIndicadores;

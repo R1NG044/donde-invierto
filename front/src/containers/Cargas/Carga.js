@@ -63,6 +63,17 @@ class Carga extends Component {
         elementToRender = <CargaComponent.Metodologias {...metodologiasProps} />;
         break;
 
+      case 'analizar':
+        let analizarProps = {
+          uiActions,
+          dataActions,
+          inputsValues,
+          indicadores: data.indicadores,
+          type
+        };
+        elementToRender = <CargaComponent.Analizar {...analizarProps} />;
+        break;
+
       default:
         this.props.router.push("/page-not-found");
     }

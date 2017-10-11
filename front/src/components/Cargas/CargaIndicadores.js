@@ -15,6 +15,7 @@ export default class CargaIndicadores extends Component  {
       this.toSecondPartOfForm = this.toSecondPartOfForm.bind(this);
   }
 
+
   toSecondPartOfForm(e) {
     e.preventDefault();
 
@@ -53,9 +54,11 @@ export default class CargaIndicadores extends Component  {
               <p className="description short"> Agregar indicador a la expresión: </p>
               <select name="expresionSelected"
               onChange={uiActions.addDataToExpresion(type)}>
+              <option selected disabled>Seleccione un indicador:</option>
+
               {
                   indicadores.map(indicador =>
-                      <option value={indicador.expresion}>{indicador.nombre}</option>
+                      <option value={`indicador{${indicador.oid}}`}>{indicador.nombre}</option>
                   )
               }
               </select>
@@ -63,9 +66,10 @@ export default class CargaIndicadores extends Component  {
               <p className="description short"> Agregar cuenta a la expresión: </p>
               <select name="cuentaSelected"
               onChange={uiActions.addDataToExpresion(type)}>
+              <option selected disabled>Seleccione una cuenta:</option>
               {
                   cuentas.map(cuenta =>
-                      <option value={cuenta.valor}>{cuenta.nombre}</option>
+                      <option value={`cuenta{${cuenta.descripcion}}`}>{cuenta.descripcion}</option>
                   )
               }
               </select>
