@@ -201,10 +201,11 @@ export function cargarIndicador(type) {
         if (res.status == 500) throw Error('Indicador Invalido');
         return res;
       })
-      .then(() => {
+	  .then(res => res.json())
+      .then((indicadorRes) => {
         dispatch({
           type: types.SAVE_INDICADOR_SUCCESS,
-          indicador
+          indicadorRes
         });
         clearInputs(type)(dispatch);
         showSuccessOnSave()(dispatch);

@@ -24,8 +24,8 @@ public class IndicadoresService {
 	private ServiceManager service;
 
 	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
-	public void add(@RequestBody Indicador indicador) throws Exception, IndicadorException {
-		service.guardarIndicador(indicador);
+	public Indicador add(@RequestBody Indicador indicador) throws Exception, IndicadorException {
+		return service.guardarIndicador(indicador);
 	}
 	
 	@RequestMapping(value = "/{userOid}", method = RequestMethod.GET, produces = "application/json")
@@ -34,17 +34,34 @@ public class IndicadoresService {
 	}
 
 	@RequestMapping(value = "/evaluar/{oid}/{empresaOid}/{perOid}", method = RequestMethod.GET, produces = "application/json")
-	public Double evaluar(@PathVariable Long oid, @PathVariable Long empresaOid, @PathVariable Long perOid)
+	public ResultIndicador evaluar(@PathVariable Long oid, @PathVariable Long empresaOid, @PathVariable Long perOid)
 			throws Exception {
 
 		Indicador ind = service.getIndicador(oid);
 		Empresa empresa = service.getEmpresa(empresaOid);
 		Periodo per = empresa.getPeriodoByOid(perOid);
 		
-		return EvaluadorExpresiones.realizarCalculo(ind, per);
+		return new ResultIndicador(EvaluadorExpresiones.realizarCalculo(ind, per));
 	}
 
 	public void setService(ServiceManager service) {
 		this.service = service;
+	}
+	
+	@SuppressWarnings("unused")
+	private class ResultIndicador{
+		private Double resultado;
+		
+		public ResultIndicador(Double resultado){
+			this.setResultado(resultado);
+		}
+		
+		public Double getResultado(){
+			return resultado;
+		}
+
+		public void setResultado(Double resultado) {
+			this.resultado = resultado;
+		}
 	}
 }

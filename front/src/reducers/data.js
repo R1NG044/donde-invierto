@@ -19,7 +19,7 @@ export default function data(state = initialState.data, action) {
 
     case t.SAVE_INDICADOR_SUCCESS:
       newState = mergeDeep({}, state);
-      newState.indicadores = [...state.indicadores, action.indicador];
+      newState.indicadores = [...state.indicadores, action.indicadorRes];
       return newState;
 
     case t.INDICADORES_LOADED:

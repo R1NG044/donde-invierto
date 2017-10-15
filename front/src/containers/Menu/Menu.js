@@ -9,7 +9,9 @@ const Menu = (props) =>
             <Link to="/cargar/cuenta"> Cargar cuenta </Link>
             <Link to="/menu/indicadores"> Cargar y/o eliminar indicadores </Link>
             <Link to="/metodologias"> Aplicar metodologias </Link>
-            <Link to="/empresa/analizar"> Realizar análisis </Link>
+            <Link to="/empresas"> Consultar Empresas </Link>
+			<Link to="/empresa/analizar"> Realizar análisis </Link>
+			
 
   </MenuComponent>;
 

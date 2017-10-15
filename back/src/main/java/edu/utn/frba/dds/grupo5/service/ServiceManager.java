@@ -64,12 +64,12 @@ public class ServiceManager {
 		}
 	}
 	
-	public void guardarIndicador(Indicador ind) throws Exception, IndicadorException{
+	public Indicador guardarIndicador(Indicador ind) throws Exception, IndicadorException{
 		Indicador generated = FactoryIndicadores.getInstance().build(ind.getExpression(), ind.getNombre(), repo.getCuentas().all(), repo.getIndicadores().all());
 		if(ind.getUsuario() != null){
 			generated.setUsuario(repo.getUsuarios().findByPK(Usuario.class, ind.getUsuario().getOid()));
 		}
-		repo.getIndicadores().save(generated);
+		return repo.getIndicadores().save(generated);
 	}
 	
 	public List<Indicador> getIndicadores() throws Exception {

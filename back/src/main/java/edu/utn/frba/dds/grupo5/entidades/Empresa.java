@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
@@ -37,7 +38,7 @@ public class Empresa extends Persistent{
 		
 	}
 	
-	@OneToMany(cascade={CascadeType.ALL})
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
 	@JoinColumn(name="emp_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_emp_per_oid"))
 	public List<Periodo> getPeriodos() {
 		if(periodos==null)

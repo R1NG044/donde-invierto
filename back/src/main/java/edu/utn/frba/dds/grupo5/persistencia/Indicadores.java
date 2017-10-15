@@ -41,7 +41,7 @@ public class Indicadores extends SingleData {
 		}
 	}
 
-	public void save(Indicador ind) throws Exception {
+	public Indicador save(Indicador ind) throws Exception {
 
 		Indicador duplicated = findByName(ind.getNombre());
 
@@ -49,9 +49,8 @@ public class Indicadores extends SingleData {
 			throw new Exception("El indicador con el nombre " + duplicated.getNombre() + " ya existe");
 		}
 
-		doAction(em -> {
-			em.merge(ind);
-			return null;
+		return (Indicador)doAction(em -> {
+			return em.merge(ind);
 		});
 	}
 
