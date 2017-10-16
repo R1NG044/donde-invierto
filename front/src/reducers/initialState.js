@@ -6,6 +6,10 @@ let initialState = {
     loaded: false,
     showSuccess: false,
     inputsValues: {
+      login: {
+        username: "",
+        password: "",
+      },
       analizar: {
         empresaSelected: "",
         periodoSelected: "",
@@ -45,6 +49,7 @@ let initialState = {
     periodoSelected: ""
   },
   data: {
+    loggedIn: false,
     empresas: [],
     empresasByMetodologias: [],
     metodologias: [],

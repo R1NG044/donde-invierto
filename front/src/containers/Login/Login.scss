@@ -1,0 +1,31 @@
+@import '../../styles/styles.scss';
+@import '../../styles/variables.scss';
+
+.Login {
+    margin-top: 20%;
+    margin-left: 35%;
+    margin-right: 35%;    
+
+    .description {
+      display: block !important;
+        text-align: center;
+        padding-top: 4px !important;
+        font-weight: 800;
+        @include vertical-align();
+        //align-items: left;
+        justify-content: flex-start;
+        height: 2em;
+        margin: 15px 0 0 0;
+        padding-left: 5px;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.4)
+      }
+    
+      input {
+        width: 100%;
+      }
+    
+      input[type="submit"] {
+        margin-top: 15px;
+      }
+}

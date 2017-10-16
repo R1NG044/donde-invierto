@@ -235,3 +235,17 @@ export function borrarIndicador(type) {
 
   }
 }
+
+
+export function login(e) {
+  return (dispatch, getState) => {
+    const username = getState().ui.inputsValues.login.username;
+    const password = getState().ui.inputsValues.login.password;
+    
+    fetch(`http://localhost:8081/login/${username}/${password}`)
+    .then(res => res.json())
+    .then(user => {
+      dispatch({type: 'LOGIN_SUCCESS'});
+    })
+  }
+}

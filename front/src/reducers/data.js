@@ -26,6 +26,11 @@ export default function data(state = initialState.data, action) {
       newState = mergeDeep({}, state);
       newState.indicadores = action.indicadores || [];
       return newState;
+
+    case 'LOGIN_SUCCESS':
+      newState = mergeDeep({}, state);
+      newState.loggedIn = true;
+      return newState;  
       
     case t.CUENTAS_LOADED:
       newState = mergeDeep({}, state);

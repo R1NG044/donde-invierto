@@ -4,7 +4,9 @@ import {Link} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 import {connect} from 'react-redux';
 import * as dataActions from '../../actions/dataActions';
+import * as uiActions from '../../actions/uiActions';
 import {bindActionCreators} from 'redux';
+import Login from '../Login';
 import './App.scss';
 
 class App extends Component {
@@ -28,7 +30,11 @@ class App extends Component {
 
 
         <Grid fluid>
-          {this.props.children}
+          {
+            this.props.data.loggedIn ?
+            <div>{this.props.children}</div> :
+            <Login login={dataActions.login} uiActions={this.props.uiActions} inputsVals={this.props.loginData} />
+          }
         </Grid>
       </div>
     )
@@ -43,13 +49,15 @@ App.propTypes = {
 function mapStateToProps(state) {
   return {
     data: state.data,
-    showSuccess: state.ui.showSuccess
+    showSuccess: state.ui.showSuccess,
+    loginData: state.ui.inputsValues.login
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    dataActions: bindActionCreators(dataActions, dispatch)
+    dataActions: bindActionCreators(dataActions, dispatch),
+    uiActions: bindActionCreators(uiActions, dispatch)    
   };
 }
 
