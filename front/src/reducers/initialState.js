@@ -4,7 +4,7 @@ export const getInitialState = () => _.cloneDeep(initialState);
 let initialState = {
   ui: {
     loaded: false,
-    showSuccess: false,
+    showMessage: "",
     inputsValues: {
       login: {
         username: "",

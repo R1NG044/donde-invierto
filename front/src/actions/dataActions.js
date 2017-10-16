@@ -2,7 +2,7 @@ import * as types from '../constants/dataTypes';
 import * as uiActions from './uiActions';
 import Mocker from '../mocks/dataMock';
 import {clearInputs, clearPeriodosPorAgregar} from './uiActions';
-import {showSuccessOnSave} from './uiActions';
+import {showMessage} from './uiActions';
 
 export function loadData() {
   return (dispatch) => {
@@ -124,7 +124,7 @@ export function cargarEmpresa(e) {
     });
     clearInputs('empresa')(dispatch);
     clearPeriodosPorAgregar()(dispatch);
-    showSuccessOnSave()(dispatch);
+    //showSuccessOnSave()(dispatch);
 
   }
 }
@@ -158,6 +158,12 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
     };
 
     fetch(`http://localhost:8081/empresa/${periodoId}`, options)
+      .then(res => {
+        if (res.status !== 200) {
+          showMessage('No se pudo cargar la cuenta')(dispatch);          
+        }
+        return res;
+      })
       .then(() => {
         dispatch({
           type: types.SAVE_CUENTA_SUCCESS,
@@ -166,7 +172,7 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
           periodoId
         });
         clearInputs(type)(dispatch);
-        showSuccessOnSave()(dispatch);
+        showMessage('Se ha cargado la cuenta correctamente')(dispatch);
       });
   }
 }
@@ -198,7 +204,9 @@ export function cargarIndicador(type) {
 
     fetch('http://localhost:8081/indicador/', options)
       .then((res) => {
-        if (res.status == 500) throw Error('Indicador Invalido');
+        if (res.status == 500) {
+          showMessage('El indicador provisto es inválido')(dispatch);
+        }
         return res;
       })
 	  .then(res => res.json())
@@ -208,7 +216,7 @@ export function cargarIndicador(type) {
           indicadorRes
         });
         clearInputs(type)(dispatch);
-        showSuccessOnSave()(dispatch);
+        showMessage('Se ha cargado el indicador correctamente')(dispatch);
       });
   };
 }
@@ -231,7 +239,7 @@ export function borrarIndicador(type) {
     });
 
     clearInputs(type)(dispatch);
-    showSuccessOnSave()(dispatch);
+    showMessage('Indicador borrado con exito')(dispatch);
 
   }
 }
@@ -240,12 +248,18 @@ export function borrarIndicador(type) {
 export function login(e) {
   return (dispatch, getState) => {
     e.preventDefault();
-    debugger;
     const username = getState().ui.inputsValues.login.username;
     const password = getState().ui.inputsValues.login.password;
     
-    fetch(`http://localhost:8081/login/${username}/${password}`)
+    fetch(`http://localhost:8081/usuario/login/${username}/${password}`)
     .then(res => res.json())
+    .then(res => {
+      if (res.status !== 200) {
+        showMessage('Usuario/contraseña incorrectos')(dispatch);        
+      }
+      
+      return user;
+    })
     .then(user => {
       dispatch({type: 'LOGIN_SUCCESS'});
     })

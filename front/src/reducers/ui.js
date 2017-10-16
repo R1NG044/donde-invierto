@@ -54,9 +54,14 @@ export default function ui(state = initialState.ui, action) {
       newState.inputsValues = inputsValCopy;
       return newState;
 
-    case t.TOGGLE_SUCCESSFUL_MESSAGE:
+    case t.SHOW_MESSAGE:
       newState = mergeDeep({}, state);
-      newState.showSuccess = !state.showSuccess;
+      newState.showMessage = action.message;
+      return newState;
+    
+    case t.HIDE_MESSAGE:
+      newState = mergeDeep({}, state);
+      newState.showMessage = "";
       return newState;
 
       case t.AGREGAR_INDICADOR_A_METODOLOGIA:

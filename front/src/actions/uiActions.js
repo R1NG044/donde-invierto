@@ -106,14 +106,15 @@ export function addDataToExpresion(section) {
 }
 
 
-export function showSuccessOnSave() {
+export function showMessage(message) {
   return (dispatch) => {
     dispatch({
-        type: types.TOGGLE_SUCCESSFUL_MESSAGE
+        type: types.SHOW_MESSAGE,
+        message
     });
 
     setTimeout(() => dispatch({
-        type: types.TOGGLE_SUCCESSFUL_MESSAGE
+        type: types.HIDE_MESSAGE
     }), 3000);
   }
 }

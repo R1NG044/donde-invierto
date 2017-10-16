@@ -22,9 +22,9 @@ class App extends Component {
         </Link>
 
         {
-         this.props.showSuccess &&
+         this.props.showMessage &&
          <div className="save-message">
-            Se ha guardado con exito
+            {this.props.showMessage}
          </div>
         }
 
@@ -49,7 +49,7 @@ App.propTypes = {
 function mapStateToProps(state) {
   return {
     data: state.data,
-    showSuccess: state.ui.showSuccess,
+    showMessage: state.ui.showMessage,
     loginData: state.ui.inputsValues.login
   };
 }
