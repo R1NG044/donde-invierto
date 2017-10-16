@@ -7,7 +7,7 @@ const DetalleEmpresa = (props) =>
   <div className="DetalleEmpresa">
     <Row>
       <Col lg={12} md={12} sm={12} xs={12} className="detalle-nombre-empresa">
-        {props.empresa.nombre}
+        <span className="nombre-empresa">{props.empresa.nombre}</span>
       {
         props.empresa.periodos &&
         Object.values(props.empresa.periodos).map(periodosAnuales =>

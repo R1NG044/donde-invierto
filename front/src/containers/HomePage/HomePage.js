@@ -17,18 +17,18 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Grid fluid>
-        <Col lg={2} md={2} sm={4} xs={12}>
+      <div>
+        <Col lg={2} md={3} sm={4} xs={6}>
           <ListaEmpresas empresas={this.props.empresas}
                           selectEmpresa={this.props.uiActions.selectEmpresa}
                           withRanking={this.props.withRanking}/>
         </Col>
-        <Col lg={10} md={10} sm={6} xs={12}>
+        <Col lg={10} md={9} sm={8} xs={6}>
           <DetalleEmpresa empresa={this.props.empresaSelected} selected={this.props.periodoSelected} 
           selectPeriodo={this.props.uiActions.selectPeriodo} />
         </Col>
 
-      </Grid>
+      </div>
     )
   }
 }
