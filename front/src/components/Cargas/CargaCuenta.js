@@ -24,6 +24,7 @@ export default class CargaCuenta extends Component  {
           <p className="description"> Seleccione Empresa: </p>
           <select name="empresaSelected"
                   onChange={uiActions.inputChanged(type)}>
+                  <option selected disabled>Seleccione una empresa</option>
             {
               empresas.map(empresa =>
                 <option value={empresa.oid}>{empresa.nombre}</option>
