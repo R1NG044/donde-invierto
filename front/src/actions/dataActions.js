@@ -239,6 +239,8 @@ export function borrarIndicador(type) {
 
 export function login(e) {
   return (dispatch, getState) => {
+    e.preventDefault();
+    debugger;
     const username = getState().ui.inputsValues.login.username;
     const password = getState().ui.inputsValues.login.password;
     

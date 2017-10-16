@@ -33,7 +33,7 @@ class App extends Component {
           {
             this.props.data.loggedIn ?
             <div>{this.props.children}</div> :
-            <Login login={dataActions.login} uiActions={this.props.uiActions} inputsVals={this.props.loginData} />
+            <Login login={this.props.dataActions.login} uiActions={this.props.uiActions} inputsVals={this.props.loginData} />
           }
         </Grid>
       </div>
