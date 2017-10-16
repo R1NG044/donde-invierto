@@ -34,11 +34,10 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps(state, props) {
-  const empresas = props.empresas ? periodosOrdenados(props.empresas) : periodosOrdenados(state);
   return {
     empresaSelected: state.ui.empresaSelected,
     periodoSelected: state.ui.periodoSelected,
-    empresas
+    empresas: periodosOrdenados(state, props.empresas)
   };
 }
 

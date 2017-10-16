@@ -72,14 +72,34 @@ export function realizarAnalisis(type) {
     const indicadorId = parseInt(inputs.indicadorSelected);  
     const empresaId = parseInt(inputs.empresaSelected);
     const periodoId = parseInt(inputs.periodoSelected);
+
+      
+    if (!indicadorId) {
+      showMessage('Por favor seleccione un indicador')(dispatch);
+      return;      
+    } else if (!empresaId) {
+      showMessage('Por favor seleccione una empresa')(dispatch);
+      return;      
+    } else if (!periodoId) {
+      showMessage('Por favor seleccione un periodo')(dispatch);
+      return;      
+    } 
+	
   
   
     fetch(`http://localhost:8081/indicador/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
     .then(res => {
       if (res.status !== 200) {
+        res.json().then(error => {
+          if (error && error.message) {
+            showMessage(error.message)(dispatch);          
+          }
+        });
+
         showMessage('No se pudo realizar el analisis')(dispatch);
         throw new Error();          
       }
+
       return res.json();
     })
       .then((resultado) => {
@@ -91,6 +111,10 @@ export function realizarAnalisis(type) {
       });
   }
 
+}
+
+export function clearResult() {
+  return (dispatch) => dispatch({type: 'CLEAR_RESULT'});
 }
 
 export function aplicarMetodologia(metodologia) {
@@ -294,6 +318,7 @@ export function login(e) {
     
     fetch(`http://localhost:8081/usuario/login/${username}/${password}`)
     .then(res => {
+      debugger;
       if (res.status !== 200) {
         showMessage('Usuario/contraseña incorrectos')(dispatch);   
         throw new Error();     

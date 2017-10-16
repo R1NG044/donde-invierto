@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const empresasSelector = state => state.data.empresas
+const empresasSelector = (state, specificEmpresas) => specificEmpresas || state.data.empresas;
 const add = (a,b) => a+b.cuentas.length;
 
 export const periodosOrdenados = createSelector(
