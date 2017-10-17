@@ -1,7 +1,18 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router';
 import './CargaBase.scss';
 
-export default class Analizar extends React.Component {
+class Analizar extends React.Component {
+    constructor(props) {
+
+        super(props)
+        this.goBack = this.goBack.bind(this);
+    }
+
+    goBack(e) {
+        e.preventDefault();
+        this.props.dataActions.clearResult();                
+    }
 
     render() {
         if(!this.props.empresas) {
@@ -18,8 +29,8 @@ export default class Analizar extends React.Component {
                 {
                     this.props.resultado ?
                     <div>
-                        <div>{this.props.resultado}</div>
-                        <a href="/">Realizar nuevo calculo</a>
+                        <div className="analizar-center">{this.props.resultado.resultado}</div>
+                        <Link onClick={this.goBack}>Realizar nuevo calculo</Link>
                     </div>
                     :
                     <form onSubmit={dataActions.realizarAnalisis(type)}>
@@ -65,3 +76,5 @@ export default class Analizar extends React.Component {
         )
     }
 }
+
+export default withRouter(Analizar);

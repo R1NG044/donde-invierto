@@ -13,4 +13,6 @@
 	<bean id="indicadoresService" class="edu.utn.frba.dds.grupo5.rest.IndicadoresService"></bean>
 	
 	<bean id="cuentasService" class="edu.utn.frba.dds.grupo5.rest.CuentasService"></bean>
+	
+	<bean id="usuariosService" class="edu.utn.frba.dds.grupo5.rest.UsuariosService"></bean>
 </beans>

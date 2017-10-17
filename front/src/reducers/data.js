@@ -31,6 +31,11 @@ export default function data(state = initialState.data, action) {
       newState = mergeDeep({}, state);
       newState.loggedIn = true;
       return newState;  
+
+    case 'CLEAR_RESULT':
+      newState = mergeDeep({}, state);
+      newState.resultado = null;
+      return newState;  
       
     case t.CUENTAS_LOADED:
       newState = mergeDeep({}, state);

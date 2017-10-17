@@ -44,7 +44,13 @@ export function fetchMetodologias() {
   return (dispatch) => {
 
     fetch('http://localhost:8081/metodologia/')
-      .then(res => res.json())
+    .then(res => {
+      if (res.status !== 200) {
+        showMessage('No se pudo obtener las metodologias')(dispatch);
+        throw new Error();          
+      }
+      return res.json();
+    })
       .then(metodologias => {
         dispatch({
           type: types.LOAD_METODOLOGIAS_SUCCESS,
@@ -66,10 +72,36 @@ export function realizarAnalisis(type) {
     const indicadorId = parseInt(inputs.indicadorSelected);  
     const empresaId = parseInt(inputs.empresaSelected);
     const periodoId = parseInt(inputs.periodoSelected);
+
+      
+    if (!indicadorId) {
+      showMessage('Por favor seleccione un indicador')(dispatch);
+      return;      
+    } else if (!empresaId) {
+      showMessage('Por favor seleccione una empresa')(dispatch);
+      return;      
+    } else if (!periodoId) {
+      showMessage('Por favor seleccione un periodo')(dispatch);
+      return;      
+    } 
+	
   
   
     fetch(`http://localhost:8081/indicador/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
-      .then(res => res.json())
+    .then(res => {
+      if (res.status !== 200) {
+        res.json().then(error => {
+          if (error && error.message) {
+            showMessage(error.message)(dispatch);          
+          }
+        });
+
+        showMessage('No se pudo realizar el analisis')(dispatch);
+        throw new Error();          
+      }
+
+      return res.json();
+    })
       .then((resultado) => {
         dispatch({
           type: types.CALCULO_SUCCESS,
@@ -79,6 +111,10 @@ export function realizarAnalisis(type) {
       });
   }
 
+}
+
+export function clearResult() {
+  return (dispatch) => dispatch({type: 'CLEAR_RESULT'});
 }
 
 export function aplicarMetodologia(metodologia) {
@@ -91,7 +127,13 @@ export function aplicarMetodologia(metodologia) {
 	const metodologiaNombre = metodologia.nombre;
 	
     fetch(`http://localhost:8081/metodologia/${metodologiaNombre}`)
-	.then(res => res.json())
+    .then(res => {
+      if (res.status !== 200) {
+        showMessage('No se pudo aplicar la metodologia')(dispatch);
+        throw new Error();          
+      }
+      return res.json();
+    })
     .then(empresas => {
         dispatch({
 			type: types.APLICAR_METODOLOGIA_SUCCESS,
@@ -146,7 +188,21 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 	cuenta = {
 		cuenta: {descripcion: inputs.nombreCuenta},
 		valor: parseFloat(inputs.valorCuenta)
-	};
+  };
+  
+    if (!empresaId) {
+      showMessage('Por favor seleccione una empresa')(dispatch);
+      return;      
+    } else if (!periodoId) {
+      showMessage('Por favor seleccione un periodo')(dispatch);
+      return;      
+    } else if (!inputs.nombreCuenta) {
+      showMessage('Por favor indique una descripcion de la cuenta')(dispatch);
+      return;      
+    } else if (!inputs.valorCuenta) {
+      showMessage('Por favor indique el valor de la cuenta')(dispatch);
+      return;      
+    }
 	
     const options = {
       method: 'PUT',
@@ -159,9 +215,9 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 
     fetch(`http://localhost:8081/empresa/${periodoId}`, options)
       .then(res => {
-        if (res.status === 500) {
+        if (res.status !== 200) {
           showMessage('No se pudo cargar la cuenta')(dispatch);
-		  return null;          
+          throw new Error();          
         }
         return res;
       })
@@ -196,6 +252,14 @@ export function cargarIndicador(type) {
       expression: inputs.expresionIndicador
     };
 
+    if (!indicador.nombre) {
+      showMessage('Por favor indique nombre del indicador')(dispatch);
+      return;      
+    } else if (!indicador.expression) {
+      showMessage('Por favor ingrese una expresión para el indicador')(dispatch);
+      return;      
+    } 
+
     const options = {
       method: 'POST',
       body: JSON.stringify(indicador),
@@ -209,21 +273,18 @@ export function cargarIndicador(type) {
       .then((res) => {
         if (res.status === 500) {
           showMessage('El indicador provisto es inválido')(dispatch);
-		  return null;
+          throw new Error();
         }
-        return res;
+        return res.json();
       })
-	  .then(res => res.json())
-      .then((indicadorRes) => {
-		  if (indicadorRes !== null){
-			dispatch({
-			  type: types.SAVE_INDICADOR_SUCCESS,
-			  indicadorRes
-			});
-			clearInputs(type)(dispatch);
-			showMessage('Se ha cargado el indicador correctamente')(dispatch);
-		}
+    .then((indicadorRes) => {
+      dispatch({
+        type: types.SAVE_INDICADOR_SUCCESS,
+        indicadorRes
       });
+      clearInputs(type)(dispatch);
+      showMessage('Se ha cargado el indicador correctamente')(dispatch);
+    });
   };
 }
 
@@ -258,14 +319,12 @@ export function login(e) {
     const password = getState().ui.inputsValues.login.password;
     
     fetch(`http://localhost:8081/usuario/login/${username}/${password}`)
-    .then(res => res.json())
     .then(res => {
-      if (res.status === 500) {
-        showMessage('Usuario/contraseña incorrectos')(dispatch);
-		return null;
+      if (res.status !== 200) {
+        showMessage('Usuario/contraseña incorrectos')(dispatch);   
+        throw new Error();     
       }
-      
-      return res;
+      return res.json();
     })
     .then(user => {
 	  if(user !== null){

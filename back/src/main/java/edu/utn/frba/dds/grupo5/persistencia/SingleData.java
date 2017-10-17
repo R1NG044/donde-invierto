@@ -41,6 +41,13 @@ public class SingleData {
 			return null;
 		});
 	}
+	
+	public <T extends Persistent> void persist(T obj) throws Exception {
+		doAction(em -> {
+			em.persist(obj);
+			return null;
+		});
+	}
 
 	public Object doAction(EntityManagerAction action) throws Exception {
 		synchronized (em) {

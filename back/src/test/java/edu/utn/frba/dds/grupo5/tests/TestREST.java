@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,10 +21,12 @@ import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.Usuario;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.rest.CuentasService;
 import edu.utn.frba.dds.grupo5.rest.EmpresasService;
 import edu.utn.frba.dds.grupo5.rest.IndicadoresService;
+import edu.utn.frba.dds.grupo5.rest.UsuariosService;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
 import edu.utn.frba.dds.grupo5.util.Util;
 
@@ -35,6 +38,9 @@ public class TestREST {
 	@Rule 
 	public RuleStartupDB testDb = new RuleStartupDB();
 	
+	@Rule
+	public final ExpectedException exception = ExpectedException.none();
+	
 	@Autowired
 	private EmpresasService empresasService;
 	
@@ -43,6 +49,9 @@ public class TestREST {
 	
 	@Autowired
 	private CuentasService cuentasService;
+	
+	@Autowired
+	private UsuariosService usuariosService;
 	
 	@Test
 	public void testPeriodo() throws Exception{
@@ -87,6 +96,18 @@ public class TestREST {
 		assertTrue(ind!=null);
 		assertEquals("Prueba-1",ind.getNombre());
 		assertEquals("cuenta{EBITDA}+44",ind.getExpression());
+	}
+	
+	@Test
+	public void testUser() throws Exception{
+		Usuario user = usuariosService.login("admin", "admin");
+		
+		assertTrue(user != null);
+		assertTrue("admin".equals(user.getUsername()));
+		assertTrue("admin".equals(user.getPassword()));
+		
+		exception.expect(Exception.class);
+		usuariosService.login("admin", "pppp");
 	}
 	
 	@After

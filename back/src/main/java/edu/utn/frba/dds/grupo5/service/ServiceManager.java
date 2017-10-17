@@ -219,6 +219,10 @@ public class ServiceManager {
 		return repo.getPeriodos().findByPK(Periodo.class, oid);
 	}
 	
+	public void addUser(Usuario user) throws Exception{
+		repo.getUsuarios().persist(user);
+	}
+	
 	public void clearRepo() throws Exception{
 		repo.clearAll();
 	}

@@ -33,7 +33,7 @@ class Metodologias extends React.Component {
             <Row>
               {
                 this.props.metodologiaSelected &&
-                <HomePage empresas={this.props.empresas}
+                <HomePage empresas={this.props.empresasByMetodologias}
                           withRanking={true} />
               }
             </Row>

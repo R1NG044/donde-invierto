@@ -27,14 +27,14 @@ export default class ListaEmpresas extends Component  {
                 {
                   !this.props.withRanking &&
                   <div>
-                    <Col lg={6} md={6} sm={6} xs={6} className="show">
+                    <Col lg={6} md={6} sm={6} xs={12} className="show">
                       <h3 className="sub-info center">
                         {empresa.totalPeriodos}
                         <br />
                         períodos
                       </h3>
                     </Col>
-                    <Col lg={6} md={6} sm={6} xs={6} className="show">
+                    <Col lg={6} md={6} sm={6} xs={12} className="show">
                       <h3 className="sub-info center">
                           {empresa.totalCuentas}
                           <br />

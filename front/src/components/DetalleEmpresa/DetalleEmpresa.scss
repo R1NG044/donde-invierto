@@ -2,12 +2,15 @@
   background-color: rgba(0,0,0,0.05);
 
   .detalle-nombre-empresa {
-    font-size: 3em;
+    .nombre-empresa {
+      font-weight: 800;
+      margin-bottom: 15px;      
+    };
+    font-size: 1.8em;
     text-align: center;
-    position: fixed;
     overflow: scroll;
     max-height: 100%;
-    width: 83%;
+    width: 100%;
   }
 
   .anio {
@@ -15,11 +18,11 @@
   }
 
   .periodo {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.1);
     font-size: 16px;
     text-align: inherit;
     &:hover {
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.15);
     }
   }
 }

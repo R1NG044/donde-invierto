@@ -65,6 +65,7 @@ class Carga extends Component {
 
       case 'analizar':
         let analizarProps = {
+          resultado: data.resultado,
           uiActions,
           dataActions,
           inputsValues,

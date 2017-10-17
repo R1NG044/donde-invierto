@@ -18,6 +18,7 @@ import edu.utn.frba.dds.grupo5.entidades.CuentaEmpresa;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.Usuario;
 import edu.utn.frba.dds.grupo5.indicadores.IndicadorException;
 import edu.utn.frba.dds.grupo5.service.ServiceManager;
 import edu.utn.frba.dds.grupo5.util.Util;
@@ -78,6 +79,12 @@ public class RuleStartupDB implements TestRule {
 		List<Indicador> indicadores = ((List<Indicador>) new Gson().fromJson(indicadoresString, listType));
 
 		ServiceManager.getInstance().guardarIndicadores(indicadores);
+		
+		Usuario user = new Usuario();
+		user.setUsername("admin");
+		user.setPassword("admin");
+		
+		ServiceManager.getInstance().addUser(user);
     }
 
 }
