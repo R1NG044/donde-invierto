@@ -159,20 +159,23 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 
     fetch(`http://localhost:8081/empresa/${periodoId}`, options)
       .then(res => {
-        if (res.status !== 200) {
-          showMessage('No se pudo cargar la cuenta')(dispatch);          
+        if (res.status === 500) {
+          showMessage('No se pudo cargar la cuenta')(dispatch);
+		  return null;          
         }
         return res;
       })
-      .then(() => {
-        dispatch({
-          type: types.SAVE_CUENTA_SUCCESS,
-		    cuenta: cuenta,
-          empresaId,
-          periodoId
-        });
-        clearInputs(type)(dispatch);
-        showMessage('Se ha cargado la cuenta correctamente')(dispatch);
+      .then((res) => {
+		if (res !== null){
+			dispatch({
+			  type: types.SAVE_CUENTA_SUCCESS,
+				cuenta: cuenta,
+			  empresaId,
+			  periodoId
+			});
+			clearInputs(type)(dispatch);
+			showMessage('Se ha cargado la cuenta correctamente')(dispatch);
+		}
       });
   }
 }
@@ -204,19 +207,22 @@ export function cargarIndicador(type) {
 
     fetch('http://localhost:8081/indicador/', options)
       .then((res) => {
-        if (res.status == 500) {
+        if (res.status === 500) {
           showMessage('El indicador provisto es inválido')(dispatch);
+		  return null;
         }
         return res;
       })
 	  .then(res => res.json())
       .then((indicadorRes) => {
-        dispatch({
-          type: types.SAVE_INDICADOR_SUCCESS,
-          indicadorRes
-        });
-        clearInputs(type)(dispatch);
-        showMessage('Se ha cargado el indicador correctamente')(dispatch);
+		  if (indicadorRes !== null){
+			dispatch({
+			  type: types.SAVE_INDICADOR_SUCCESS,
+			  indicadorRes
+			});
+			clearInputs(type)(dispatch);
+			showMessage('Se ha cargado el indicador correctamente')(dispatch);
+		}
       });
   };
 }
@@ -254,14 +260,17 @@ export function login(e) {
     fetch(`http://localhost:8081/usuario/login/${username}/${password}`)
     .then(res => res.json())
     .then(res => {
-      if (res.status !== 200) {
-        showMessage('Usuario/contraseña incorrectos')(dispatch);        
+      if (res.status === 500) {
+        showMessage('Usuario/contraseña incorrectos')(dispatch);
+		return null;
       }
       
-      return user;
+      return res;
     })
     .then(user => {
-      dispatch({type: 'LOGIN_SUCCESS'});
+	  if(user !== null){
+		dispatch({type: 'LOGIN_SUCCESS'});
+	  }
     })
   }
 }
