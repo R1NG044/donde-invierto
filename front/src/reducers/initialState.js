@@ -55,6 +55,7 @@ let initialState = {
     metodologias: [],
     indicadores: [],
     cuentas: [],
+    user: {},
     calculo: ""
   }
 };

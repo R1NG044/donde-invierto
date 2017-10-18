@@ -10,8 +10,11 @@ import Login from '../Login';
 import './App.scss';
 
 class App extends Component {
-  componentWillMount() {
-    this.props.dataActions.loadData(20);
+
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.data.loggedIn && nextProps.data.loggedIn) {
+      this.props.dataActions.loadData();      
+    }
   }
 
   render() {

@@ -30,6 +30,7 @@ export default function data(state = initialState.data, action) {
     case 'LOGIN_SUCCESS':
       newState = mergeDeep({}, state);
       newState.loggedIn = true;
+      newState.user = action.user;
       return newState;  
 
     case 'CLEAR_RESULT':

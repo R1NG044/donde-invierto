@@ -9,6 +9,7 @@ export function loadData() {
     dispatch({
       type: types.INITIAL_DATA_REQUEST
     });
+    const user = getState().data.user;    
 
     //const empresas = Mocker.generateEmpresas(quantity);
 
@@ -21,7 +22,7 @@ export function loadData() {
         });
       });
 
-    fetch('http://localhost:8081/indicador/0')
+    fetch(`http://localhost:8081/indicador/${user}`)
       .then(res => res.json())
       .then(indicadores => {
         dispatch({
@@ -241,6 +242,7 @@ export function cargarIndicador(type) {
     e.preventDefault();
     let indicador;
     let inputs = getState().ui.inputsValues[type];
+    const user = getState().data.user;
 
     dispatch({
       type: types.SAVE_INDICADOR_REQUEST
@@ -269,7 +271,7 @@ export function cargarIndicador(type) {
       }
     };
 
-    fetch('http://localhost:8081/indicador/', options)
+    fetch(`http://localhost:8081/indicador/${user}`, options)
       .then((res) => {
         if (res.status === 500) {
           showMessage('El indicador provisto es inválido')(dispatch);
@@ -327,9 +329,9 @@ export function login(e) {
       return res.json();
     })
     .then(user => {
-	  if(user !== null){
-		dispatch({type: 'LOGIN_SUCCESS'});
-	  }
+      if(user !== null){
+        dispatch({type: 'LOGIN_SUCCESS', user});
+      }
     })
   }
 }
