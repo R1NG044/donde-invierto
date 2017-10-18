@@ -5,11 +5,11 @@ import {clearInputs, clearPeriodosPorAgregar} from './uiActions';
 import {showMessage} from './uiActions';
 
 export function loadData() {
-  return (dispatch) => {
+  return (dispatch,getState) => {
     dispatch({
       type: types.INITIAL_DATA_REQUEST
     });
-    const user = getState().data.user;    
+    const user = getState().data.user.oid;    
 
     //const empresas = Mocker.generateEmpresas(quantity);
 
@@ -226,7 +226,7 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 		if (res !== null){
 			dispatch({
 			  type: types.SAVE_CUENTA_SUCCESS,
-				cuenta: cuenta,
+			  cuenta: cuenta,
 			  empresaId,
 			  periodoId
 			});
@@ -242,7 +242,7 @@ export function cargarIndicador(type) {
     e.preventDefault();
     let indicador;
     let inputs = getState().ui.inputsValues[type];
-    const user = getState().data.user;
+    const user = getState().data.user.oid;
 
     dispatch({
       type: types.SAVE_INDICADOR_REQUEST
