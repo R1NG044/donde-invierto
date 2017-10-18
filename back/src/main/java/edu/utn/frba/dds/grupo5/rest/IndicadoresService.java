@@ -23,8 +23,9 @@ public class IndicadoresService {
 	@Autowired
 	private ServiceManager service;
 
-	@RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
-	public Indicador add(@RequestBody Indicador indicador) throws Exception, IndicadorException {
+	@RequestMapping(value = "/{userOid}", method = RequestMethod.POST, produces = "application/json")
+	public Indicador add(@PathVariable Long userOid,@RequestBody Indicador indicador) throws Exception, IndicadorException {
+		indicador.setUsuario(service.getUsuario(userOid));
 		return service.guardarIndicador(indicador);
 	}
 	

@@ -87,7 +87,7 @@ public class TestREST {
 		ind.setNombre("Prueba-1");
 		ind.setExpression("cuenta{EBITDA}+44");
 		
-		indicadoresService.add(ind);
+		indicadoresService.add(null,ind);
 		
 		List<Indicador> indicadores = indicadoresService.all(null);
 		

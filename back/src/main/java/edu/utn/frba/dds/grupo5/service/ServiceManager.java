@@ -211,6 +211,10 @@ public class ServiceManager {
 		return repo.getUsuarios().login(usuario, password);
 	}
 	
+	public Usuario getUsuario(Long oid) throws Exception{
+		return repo.getUsuarios().findByPK(Usuario.class, oid);
+	}
+	
 	public void actualizarPeriodo(Periodo per) throws Exception{
 		repo.getPeriodos().update(per);
 	}
