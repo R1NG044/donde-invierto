@@ -64,7 +64,7 @@ export default function data(state = initialState.data, action) {
       const periodoQuePertenece = empresaQuePertenece.periodos.find(periodo => periodo.oid === action.periodoId);
       periodoQuePertenece.cuentas.push({
 		oid: 0,
-        descripcion: action.cuenta.cuenta.descripcion,
+        cuenta: {descripcion: action.cuenta.cuenta.descripcion},
         valor: action.cuenta.valor
       });
       return newState;
