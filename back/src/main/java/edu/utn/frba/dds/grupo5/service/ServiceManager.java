@@ -1,17 +1,23 @@
 package edu.utn.frba.dds.grupo5.service;
 
+import java.io.File;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.apache.commons.io.FileUtils;
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.definition.rule.Rule;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
@@ -229,6 +235,24 @@ public class ServiceManager {
 	
 	public void clearRepo() throws Exception{
 		repo.clearAll();
+	}
+	
+	public void importarEmpresas(File file) throws Exception{
+		String archivo = FileUtils.readFileToString(file);
+		Type listType = new TypeToken<ArrayList<Empresa>>(){}.getType();
+		List<Empresa> empresas = new Gson().fromJson(archivo, listType);
+		
+		for(Empresa emp: empresas){
+			Empresa empDB = repo.getEmpresas().findByName(emp.getNombre());
+			
+			if(empDB != null){
+				emp.setOid(empDB.getOid());
+				this.repo.getEmpresas().update(emp);
+			}else{
+				this.guardarEmpresa(emp);	
+			}
+		}
+		
 	}
 
 }

@@ -1,6 +1,8 @@
 package edu.utn.frba.dds.grupo5.entidades;
 
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import edu.utn.frba.dds.grupo5.util.Util;
@@ -27,9 +31,16 @@ public class Periodo extends Persistent{
 	private int startRange;
 	private int endRange;
 	private String nombre;
+	private Date lastUpdate;
 	
-	public Periodo(){
-		
+	@PreUpdate
+	public void preUpdate(){
+		lastUpdate = new Date();
+	}
+	
+	@PrePersist
+	public void prePersist(){
+		lastUpdate = new Date();
 	}
 	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,orphanRemoval=true)
@@ -92,5 +103,15 @@ public class Periodo extends Persistent{
 	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	
+	@Column(name="per_last_update",nullable=true)
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 }

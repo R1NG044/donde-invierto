@@ -31,5 +31,19 @@
 		</properties>
 
 	</persistence-unit>
+	
+	<persistence-unit name="DDS-PROD">
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://donde-invierto.c7qiagw8rs8p.eu-west-1.rds.amazonaws.com:3306/dondeinvierto" />
+			<property name="javax.persistence.jdbc.user" value="dds" />
+			<property name="javax.persistence.jdbc.password" value="w8473JOiEKJf" />
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+
+	</persistence-unit>
 
 </persistence>

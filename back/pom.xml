@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>DondeInvierto</groupId>
 	<artifactId>DondeInvierto</artifactId>
-	<version>1-SNAPSHOT</version>
+	<version>1.00-SNAPSHOT</version>
 
 	<dependencies>
 
@@ -157,6 +157,23 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+			
+			<plugin>
+            	<groupId>org.springframework.boot</groupId>
+           	 	<artifactId>spring-boot-maven-plugin</artifactId>
+           	 	<version>1.5.7.RELEASE</version>
+           	 	 <configuration>
+            		<mainClass>edu.utn.frba.dds.grupo5.rest.StartApp</mainClass> 
+        		</configuration>
+        		<executions>
+			        <execution>
+			            <goals>
+			                <goal>repackage</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+        	</plugin>
+			
 		</plugins>
 	</build>
 </project>
