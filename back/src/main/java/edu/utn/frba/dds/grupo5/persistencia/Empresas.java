@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Empresa;
+import edu.utn.frba.dds.grupo5.service.ServiceManager;
 
 public class Empresas extends SingleData{
 
@@ -55,6 +57,18 @@ public class Empresas extends SingleData{
 			}
 			return null;
 		});
+	}
+	
+	public void fecthAndUpdateOrInsert(Empresa emp) throws Exception{
+		List<Cuenta> cuentas = ServiceManager.getInstance().getCuentas();
+		Empresa fromDB = this.findByName(emp.getNombre());
+		
+		if(fromDB != null){
+			delete(Empresa.class,fromDB.getOid());
+		}
+		
+		emp.getPeriodos().forEach(p -> p.populateCuentas(cuentas));
+		update(emp);
 	}
 	
 }

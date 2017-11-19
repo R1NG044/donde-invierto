@@ -36,7 +36,7 @@ public class EmpresasService {
 	public void delete(@PathVariable(name = "oid", required = true) Long oid) throws Exception {
 		service.deleteEmpresa(oid);
 	}
-
+	
 	@RequestMapping(value = "/{oidPeriodo}", method = RequestMethod.PUT, produces = "application/json")
 	public void addPeriodo(@PathVariable(name = "oidPeriodo", required = true) Long periodoOid, @RequestBody CuentaEmpresa cuenta)
 			throws Exception {

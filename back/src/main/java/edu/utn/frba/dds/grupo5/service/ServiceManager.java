@@ -243,16 +243,8 @@ public class ServiceManager {
 		List<Empresa> empresas = new Gson().fromJson(archivo, listType);
 		
 		for(Empresa emp: empresas){
-			Empresa empDB = repo.getEmpresas().findByName(emp.getNombre());
-			
-			if(empDB != null){
-				emp.setOid(empDB.getOid());
-				this.repo.getEmpresas().update(emp);
-			}else{
-				this.guardarEmpresa(emp);	
-			}
+			repo.getEmpresas().fecthAndUpdateOrInsert(emp);
 		}
-		
 	}
 
 }

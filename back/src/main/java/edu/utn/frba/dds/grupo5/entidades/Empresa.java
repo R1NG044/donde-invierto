@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +14,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import edu.utn.frba.dds.grupo5.util.Util;
 @Table(name="di_empresa")
@@ -38,7 +40,8 @@ public class Empresa extends Persistent{
 		
 	}
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.EAGER)
+	@Cascade({CascadeType.ALL})
 	@JoinColumn(name="emp_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_emp_per_oid"))
 	public List<Periodo> getPeriodos() {
 		if(periodos==null)
@@ -55,6 +58,14 @@ public class Empresa extends Persistent{
 			throw new Exception("Periodo '"+name+"' no encontrado");
 		}
 		return Util.filterByPredicate(getPeriodos(), p -> p.getNombre().equalsIgnoreCase(name)).get(0);
+	}
+	
+	public Periodo getPeriodoBy(String name){
+		try{
+			return this.getPeriodoByName(name);
+		}catch(Exception e){
+			return null;
+		}
 	}
 	
 	public void addPeriodo(Periodo periodo) {

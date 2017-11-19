@@ -4,6 +4,14 @@ import Mocker from '../mocks/dataMock';
 import {clearInputs, clearPeriodosPorAgregar} from './uiActions';
 import {showMessage} from './uiActions';
 
+export function getAPIURL() {
+	if(__DEV__){
+		return 'http://localhost:8081/'
+	}else{
+		return 'http://ec2-54-77-199-170.eu-west-1.compute.amazonaws.com/'
+	}
+}
+
 export function loadData() {
   return (dispatch,getState) => {
     dispatch({
@@ -13,7 +21,7 @@ export function loadData() {
 
     //const empresas = Mocker.generateEmpresas(quantity);
 
-    fetch('http://localhost:8081/empresa/')
+    fetch(getAPIURL()+'empresa/')
       .then(res => res.json())
       .then(empresas => {
         dispatch({
@@ -22,7 +30,7 @@ export function loadData() {
         });
       });
 
-    fetch(`http://localhost:8081/indicador/${user}`)
+    fetch(getAPIURL()+`indicador/${user}`)
       .then(res => res.json())
       .then(indicadores => {
         dispatch({
@@ -30,7 +38,7 @@ export function loadData() {
           indicadores
         });
       })
-    fetch('http://localhost:8081/cuenta/')
+    fetch(getAPIURL()+'cuenta/')
     .then(res => res.json())
     .then(cuentas => {
       dispatch({
@@ -44,7 +52,7 @@ export function loadData() {
 export function fetchMetodologias() {
   return (dispatch) => {
 
-    fetch('http://localhost:8081/metodologia/')
+    fetch(getAPIURL()+'metodologia/')
     .then(res => {
       if (res.status !== 200) {
         showMessage('No se pudo obtener las metodologias')(dispatch);
@@ -88,7 +96,7 @@ export function realizarAnalisis(type) {
 	
   
   
-    fetch(`http://localhost:8081/indicador/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
+    fetch(getAPIURL()+`indicador/evaluar/${indicadorId}/${empresaId}/${periodoId}`)
     .then(res => {
       if (res.status !== 200) {
         res.json().then(error => {
@@ -127,7 +135,7 @@ export function aplicarMetodologia(metodologia) {
 	
 	const metodologiaNombre = metodologia.nombre;
 	
-    fetch(`http://localhost:8081/metodologia/${metodologiaNombre}`)
+    fetch(getAPIURL()+`metodologia/${metodologiaNombre}`)
     .then(res => {
       if (res.status !== 200) {
         showMessage('No se pudo aplicar la metodologia')(dispatch);
@@ -214,7 +222,7 @@ export function cargarCuenta(type) { // Nota, type sera siempre cuenta salvo que
 	  body: JSON.stringify(cuenta)
     };
 
-    fetch(`http://localhost:8081/empresa/${periodoId}`, options)
+    fetch(getAPIURL()+`empresa/${periodoId}`, options)
       .then(res => {
         if (res.status !== 200) {
           showMessage('No se pudo cargar la cuenta')(dispatch);
@@ -271,7 +279,7 @@ export function cargarIndicador(type) {
       }
     };
 
-    fetch(`http://localhost:8081/indicador/${user}`, options)
+    fetch(getAPIURL()+`indicador/${user}`, options)
       .then((res) => {
         if (res.status === 500) {
           showMessage('El indicador provisto es inválido')(dispatch);
@@ -320,7 +328,7 @@ export function login(e) {
     const username = getState().ui.inputsValues.login.username;
     const password = getState().ui.inputsValues.login.password;
     
-    fetch(`http://localhost:8081/usuario/login/${username}/${password}`)
+    fetch(getAPIURL()+`usuario/login/${username}/${password}`)
     .then(res => {
       if (res.status !== 200) {
         showMessage('Usuario/contraseña incorrectos')(dispatch);   

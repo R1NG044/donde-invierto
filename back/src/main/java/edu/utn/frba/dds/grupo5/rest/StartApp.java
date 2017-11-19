@@ -58,9 +58,10 @@ public class StartApp {
 				throw new Exception("El directorio "+path+" no existe|no tiene los permisos adecuados (read/write) |no es un directorio");
 			}
 			
+			logger.info("Finaliza proceso de actualizacion de empresas");
+			
 		}catch(Exception e){
 			logger.error("Error al correr proceso de actualizacion de empresas", e);
 		}
 	}
-
 }

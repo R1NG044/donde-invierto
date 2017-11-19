@@ -1,5 +1,8 @@
 	package edu.utn.frba.dds.grupo5.indicadores;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.apache.commons.lang3.StringUtils;
 
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
@@ -37,6 +40,7 @@ public class EvaluadorExpresiones {
 			}
 	}
 	
+	@SuppressWarnings("el-syntax")
 	private static String getFinalFormula(String expression){
 		return expression.replaceAll(INDICADOR_VARIABLE, "#{").replaceAll(CUENTA_VARIABLE, "#{"); 
 	}
@@ -51,6 +55,8 @@ public class EvaluadorExpresiones {
 			evaluator.putVariable(ind.getNombre(), realizarCalculo(ind,periodo).toString());
 		}
 		
-		return evaluator.getNumberResult(getFinalFormula(indicador.getExpression()));
+		Double rawValue = evaluator.getNumberResult(getFinalFormula(indicador.getExpression()));
+				
+		return BigDecimal.valueOf(rawValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
 	}
 }

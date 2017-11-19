@@ -34,6 +34,14 @@ public class SingleData {
 			return null;
 		});
 	}
+	
+	public void detach(Class<? extends Persistent> clazz, Object pk) throws Exception {
+		doAction(em -> {
+			em.detach(em.find(clazz, pk));
+			return null;
+		});
+	}
+
 
 	public <T extends Persistent> void update(T obj) throws Exception {
 		doAction(em -> {

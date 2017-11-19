@@ -2,7 +2,6 @@ package edu.utn.frba.dds.grupo5.entidades;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,36 +11,24 @@ import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import edu.utn.frba.dds.grupo5.util.Util;
 
 @Table(name="di_periodo")
 @Entity
-public class Periodo extends Persistent{
+public class Periodo extends TimestampPersistent{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8034409814871300586L;
 	private List<CuentaEmpresa> cuentas;
+	private List<PeriodoIndicador> indicadores;
 	private String anio;
 	private int startRange;
 	private int endRange;
 	private String nombre;
-	private Date lastUpdate;
-	
-	@PreUpdate
-	public void preUpdate(){
-		lastUpdate = new Date();
-	}
-	
-	@PrePersist
-	public void prePersist(){
-		lastUpdate = new Date();
-	}
 	
 	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,orphanRemoval=true)
 	@JoinColumn(name="per_ce_oid",nullable=false,foreignKey=@ForeignKey(name="fk_per_ce_oid"))
@@ -68,6 +55,22 @@ public class Periodo extends Persistent{
 	
 	private boolean cuentaExist(String descripcion){
 		return !Util.filterByPredicate(getCuentas(),c -> c.getCuenta().getDescripcion().equalsIgnoreCase(descripcion)).isEmpty();
+	}
+	
+	public Long getCuentaEmpresaBy(String descripcion){
+		List<CuentaEmpresa> cuentas = Util.filterByPredicate(getCuentas(),c -> c.getCuenta().getDescripcion().equalsIgnoreCase(descripcion));
+		return cuentas.isEmpty()?null:cuentas.get(0).getOid();
+	}
+	
+	public void populateOidsFrom(Periodo per){
+		if(per != null){
+			this.setOid(per.getOid());
+			this.getCuentas().forEach( ce -> ce.setOid(per.getCuentaEmpresaBy(ce.getCuenta().getDescripcion()) ) );
+		}
+	}
+	
+	public void populateCuentas(List<Cuenta> cuentas) {
+		this.getCuentas().forEach( ce -> ce.recoverCuenta(cuentas) );
 	}
 	
 	@Column(name="per_anio",nullable=false,length=4)
@@ -105,13 +108,17 @@ public class Periodo extends Persistent{
 		this.nombre = nombre;
 	}
 
-	
-	@Column(name="per_last_update",nullable=true)
-	public Date getLastUpdate() {
-		return lastUpdate;
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
+	@JoinColumn(name="pi_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_pi_per_oid"))
+	public List<PeriodoIndicador> getIndicadores() {
+		if(indicadores == null){
+			indicadores = new ArrayList<>(); 
+		}
+		
+		return indicadores;
 	}
 
-	public void setLastUpdate(Date lastUpdate) {
-		this.lastUpdate = lastUpdate;
+	public void setIndicadores(List<PeriodoIndicador> indicadores) {
+		this.indicadores = indicadores;
 	}
 }

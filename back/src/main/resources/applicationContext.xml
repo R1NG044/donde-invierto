@@ -9,4 +9,5 @@
 	<bean id="service" class="edu.utn.frba.dds.grupo5.service.ServiceManager"></bean>
 	
 	<bean id="corsFilter" class="edu.utn.frba.dds.grupo5.rest.CorsFilter" />
+
 </beans>
