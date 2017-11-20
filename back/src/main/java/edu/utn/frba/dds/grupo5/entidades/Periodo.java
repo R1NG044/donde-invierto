@@ -30,7 +30,7 @@ public class Periodo extends TimestampPersistent{
 	private int endRange;
 	private String nombre;
 	
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.EAGER,orphanRemoval=true)
+	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
 	@JoinColumn(name="per_ce_oid",nullable=false,foreignKey=@ForeignKey(name="fk_per_ce_oid"))
 	public List<CuentaEmpresa> getCuentas() {
 		if(cuentas == null)
@@ -72,6 +72,15 @@ public class Periodo extends TimestampPersistent{
 	public void populateCuentas(List<Cuenta> cuentas) {
 		this.getCuentas().forEach( ce -> ce.recoverCuenta(cuentas) );
 	}
+
+	public PeriodoIndicador getPeriodoIndicador(Indicador indicador) {
+		return Util.find(getIndicadores(), i -> i.getIndicador().getOid().equals(indicador.getOid()));
+	}
+	
+	public void addPeriodoIndicador(PeriodoIndicador perInd){
+		this.getIndicadores().removeIf(p -> perInd.getOid() != null && perInd.getOid().equals(p.getOid()));
+		this.getIndicadores().add(perInd);	
+	}
 	
 	@Column(name="per_anio",nullable=false,length=4)
 	public String getAnio() {
@@ -108,8 +117,8 @@ public class Periodo extends TimestampPersistent{
 		this.nombre = nombre;
 	}
 
-	@OneToMany(cascade={CascadeType.ALL},fetch=FetchType.LAZY,orphanRemoval=true)
-	@JoinColumn(name="pi_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_pi_per_oid"))
+	@OneToMany(cascade={CascadeType.REMOVE},fetch=FetchType.EAGER,orphanRemoval=true)
+	@JoinColumn(name="pi_per_oid",nullable=false,foreignKey=@ForeignKey(name="fk_pi_per_oid"),updatable=false,insertable=false)
 	public List<PeriodoIndicador> getIndicadores() {
 		if(indicadores == null){
 			indicadores = new ArrayList<>(); 

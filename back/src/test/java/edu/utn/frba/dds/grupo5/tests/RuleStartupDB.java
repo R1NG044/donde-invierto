@@ -43,8 +43,7 @@ public class RuleStartupDB implements TestRule {
 		ServiceManager.getInstance().clearRepo();
 		
 		String cuentasString = IOUtils.toString(TestIndicadores.class.getClassLoader().getResource("cuentas.json"));
-		Type listType = new TypeToken<ArrayList<Cuenta>>() {
-		}.getType();
+		Type listType = new TypeToken<ArrayList<Cuenta>>() {}.getType();
 		List<Cuenta> cuentas = ((List<Cuenta>) new Gson().fromJson(cuentasString, listType));
 
 		ServiceManager.getInstance().guardarCuentas(cuentas);

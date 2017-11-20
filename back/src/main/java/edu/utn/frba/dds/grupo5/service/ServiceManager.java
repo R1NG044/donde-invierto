@@ -24,6 +24,7 @@ import edu.utn.frba.dds.grupo5.entidades.Empresa;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Metodologia;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.PeriodoIndicador;
 import edu.utn.frba.dds.grupo5.entidades.Usuario;
 import edu.utn.frba.dds.grupo5.indicadores.EvaluadorExpresiones;
 import edu.utn.frba.dds.grupo5.indicadores.FactoryIndicadores;
@@ -223,6 +224,10 @@ public class ServiceManager {
 	
 	public void actualizarPeriodo(Periodo per) throws Exception{
 		repo.getPeriodos().update(per);
+	}
+	
+	public PeriodoIndicador savePeriodoIndicador(PeriodoIndicador per) throws Exception{
+		return repo.getPeriodos().update(per);
 	}
 	
 	public Periodo getPeriodo(Long oid) throws Exception{

@@ -6,7 +6,7 @@ import {showMessage} from './uiActions';
 
 export function getAPIURL() {
 	if(__DEV__){
-		return 'http://localhost:8081/'
+		return 'https://localhost:8081/'
 	}else{
 		return 'http://ec2-54-77-199-170.eu-west-1.compute.amazonaws.com/'
 	}

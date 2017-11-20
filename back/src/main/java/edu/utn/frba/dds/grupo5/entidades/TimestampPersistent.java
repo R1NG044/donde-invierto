@@ -26,7 +26,7 @@ public class TimestampPersistent extends Persistent {
 		setLastUpdate(new Date());
 	}
 
-	@Column(name="per_last_update",nullable=true)
+	@Column(name="last_update",nullable=false)
 	public Date getLastUpdate() {
 		return lastUpdate;
 	}

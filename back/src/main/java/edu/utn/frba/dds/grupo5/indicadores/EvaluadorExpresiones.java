@@ -8,6 +8,8 @@ import org.apache.commons.lang3.StringUtils;
 import edu.utn.frba.dds.grupo5.entidades.Cuenta;
 import edu.utn.frba.dds.grupo5.entidades.Indicador;
 import edu.utn.frba.dds.grupo5.entidades.Periodo;
+import edu.utn.frba.dds.grupo5.entidades.PeriodoIndicador;
+import edu.utn.frba.dds.grupo5.service.ServiceManager;
 import net.sourceforge.jeval.EvaluationException;
 import net.sourceforge.jeval.Evaluator;
 import net.sourceforge.jeval.VariableResolver;
@@ -46,17 +48,34 @@ public class EvaluadorExpresiones {
 	}
 	
 	public static Double realizarCalculo(Indicador indicador, Periodo periodo) throws Exception{
-		Evaluator evaluator = new Evaluator();
+		PeriodoIndicador pi = periodo.getPeriodoIndicador(indicador);
 		
-		for (Cuenta cuenta : indicador.getCuentas()) {
-			evaluator.putVariable(cuenta.getDescripcion(), periodo.getCuentaValorByName(cuenta.getDescripcion()).toString());
-		}
-		for (Indicador ind : indicador.getIndicadores()) {
-			evaluator.putVariable(ind.getNombre(), realizarCalculo(ind,periodo).toString());
+		Double rawValue = null;
+		
+		if(pi == null || periodo.getLastUpdate().after(pi.getLastUpdate())){
+			Evaluator evaluator = new Evaluator();
+			
+			for (Cuenta cuenta : indicador.getCuentas()) {
+				evaluator.putVariable(cuenta.getDescripcion(), periodo.getCuentaValorByName(cuenta.getDescripcion()).toString());
+			}
+			for (Indicador ind : indicador.getIndicadores()) {
+				evaluator.putVariable(ind.getNombre(), realizarCalculo(ind,periodo).toString());
+			}
+			rawValue = evaluator.getNumberResult(getFinalFormula(indicador.getExpression()));
+			
+			if(pi == null){
+				pi = new PeriodoIndicador();
+				pi.setIndicador(indicador);
+				pi.setPeriodo(periodo);
+			}
+			
+			
+			pi.setCalculatedValue(rawValue);
+			periodo.addPeriodoIndicador(ServiceManager.getInstance().savePeriodoIndicador(pi));
+		}else{
+			rawValue = pi.getCalculatedValue();
 		}
 		
-		Double rawValue = evaluator.getNumberResult(getFinalFormula(indicador.getExpression()));
-				
 		return BigDecimal.valueOf(rawValue).setScale(2, RoundingMode.HALF_UP).doubleValue();
 	}
 }

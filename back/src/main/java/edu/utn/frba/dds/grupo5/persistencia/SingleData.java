@@ -1,8 +1,11 @@
 package edu.utn.frba.dds.grupo5.persistencia;
 
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 
 import edu.utn.frba.dds.grupo5.entidades.Persistent;
+import edu.utn.frba.dds.grupo5.entidades.TimestampPersistent;
 
 public class SingleData {
 
@@ -28,6 +31,13 @@ public class SingleData {
 		});
 	}
 
+	public void refresh(Class<? extends Persistent> clazz, Object pk) throws Exception {
+		doAction(em -> {
+			em.refresh(em.find(clazz, pk));
+			return null;
+		});
+	}
+	
 	public void delete(Class<? extends Persistent> clazz, Object pk) throws Exception {
 		doAction(em -> {
 			em.remove(em.find(clazz, pk));
@@ -43,10 +53,15 @@ public class SingleData {
 	}
 
 
-	public <T extends Persistent> void update(T obj) throws Exception {
-		doAction(em -> {
-			em.merge(obj);
-			return null;
+	@SuppressWarnings("unchecked")
+	public <T extends Persistent> T update(T obj) throws Exception {
+		return (T)doAction(em -> {
+			
+			if(obj instanceof TimestampPersistent){
+				((TimestampPersistent) obj).setLastUpdate(new Date());
+			}
+			
+			return em.merge(obj);
 		});
 	}
 	
